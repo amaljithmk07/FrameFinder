@@ -8,18 +8,18 @@ const UserHome = () => {
       <div className="userhome-main-body">
         {/* //carousel sec */}
 
-        <div className="introduction-body">
-          <div className="intro-left-body">
-            <div className="intro-image-sec">
-              <img src="2.webp" alt="" className="intro-body-img" />
+        <div className="userhome-introduction-body">
+          <div className="userhome-intro-left-body">
+            <div className="userhome-intro-image-sec">
+              <img src="2.webp" alt="" className="userhome-intro-body-img" />
             </div>
           </div>
 
-          <div className="intro-right-body">
-            <div className="intro-title">
+          <div className="userhome-intro-right-body">
+            <div className="userhome-intro-title">
               Discover Your <br /> Perfect Wedding Photographer
             </div>
-            <p className="intro-paragraph">
+            <p className="userhome-intro-paragraph">
               Welcome to Frame Finder, your premier destination for selecting
               exceptional photographers to capture your most cherished memories.
               At Frame Finder, we specialize in delivering premium services and
@@ -30,6 +30,14 @@ const UserHome = () => {
             </p>
           </div>
         </div>
+
+
+<div className="userhome-sub">
+  
+</div>
+
+
+
       </div>
     </div>
   );

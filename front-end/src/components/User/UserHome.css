@@ -12,7 +12,7 @@
 
 /* //Introduction body */
 
-.introduction-body {
+.userhome-introduction-body {
   min-height: 120vh;
   width: 100%;
   /* background-color: rgb(109, 106, 3); */
@@ -21,7 +21,7 @@
   flex-wrap: wrap;
   align-items: center;
 }
-.intro-left-body {
+.userhome-intro-left-body {
   height: 80vh;
   width: 40%;
   /* background-color: red; */
@@ -29,7 +29,7 @@
   justify-content: center;
   align-items: center;
 }
-.intro-image-sec {
+.userhome-intro-image-sec {
   height: 450px;
   width: 320px;
   display: flex;
@@ -42,11 +42,11 @@
   background-size: cover;
   object-fit: cover;
 }
-.intro-body-img {
+.userhome-intro-body-img {
   width: 80%;
   height: auto;
 }
-.intro-right-body {
+.userhome-intro-right-body {
   height: 80vh;
   width: 50%;
   display: flex;
@@ -55,18 +55,18 @@
   flex-direction: column;
   /* background-color: rgb(255, 197, 197); */
 }
-.intro-title {
+.userhome-intro-title {
   height: 150px;
   width: 100%;
   /* background-color: aqua; */
   display: flex;
   justify-content: start;
-  font-size: 2.2rem;
+  font-size: 2.5rem;
   line-height: 50px;
   font-weight: 600;
   align-items: center;
 }
-.intro-paragraph {
+.userhome-intro-paragraph {
   min-height: 200px;
   /* background-color: red; */
   display: flex;
@@ -74,4 +74,15 @@
   font-size: 1.3rem;
   /* font-weight: 600; */
   line-height: 35px;
+}
+
+
+
+/* ////////sub */
+
+
+.userhome-sub{
+  height: 90vh;
+  width: 100%;
+  background-color: red;
 }
