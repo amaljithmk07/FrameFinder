@@ -1,8 +1,16 @@
 import React, { forwardRef, useState } from "react";
 import "./Navbar.css";
-import { Link, animateScroll as scroll } from "react-scroll";
-
+import { Link } from "react-router-dom";
 const Navbar = () => {
+  const [backgroundcolor, setBackgroundcolor] = useState(0);
+
+  const backChange = () => {
+    if (backgroundcolor <= 2) {
+      setBackgroundcolor(backgroundcolor + 1);
+    } else {
+      setBackgroundcolor(0);
+    }
+  };
   return (
     <div>
       <div className="navbar-main">
@@ -12,10 +20,93 @@ const Navbar = () => {
         </div>
         <div className="navbar-menu-sec">
           <ul className="navbar-menu-items">
-            <Link className="navbar-menu-data">Home</Link>
-            <Link className="navbar-menu-data"> History</Link>{" "}
-            <Link className="navbar-menu-data"> Review</Link>{" "}
-            <Link className="navbar-menu-data">Profile</Link>
+            {/* <Link className="navbar-menu-data">Home</Link> */}
+            <Link
+              className={
+                backgroundcolor == 0
+                  ? "zero"
+                  : backgroundcolor == 1
+                  ? "one"
+                  : backgroundcolor == 2
+                  ? "two"
+                  : backgroundcolor == 3
+                  ? "three"
+                  : ""
+              }
+              onMouseEnter={backChange}
+              to={"/"}
+            >
+              Home
+            </Link>
+            <Link
+              className={
+                backgroundcolor == 0
+                  ? "zero"
+                  : backgroundcolor == 1
+                  ? "one"
+                  : backgroundcolor == 2
+                  ? "two"
+                  : backgroundcolor == 3
+                  ? "three"
+                  : ""
+              }
+              onMouseEnter={backChange}
+              to={"/user/booking"}
+
+            >
+              {" "}
+              Booking
+            </Link>{" "}
+            <Link
+              className={
+                backgroundcolor == 0
+                  ? "zero"
+                  : backgroundcolor == 1
+                  ? "one"
+                  : backgroundcolor == 2
+                  ? "two"
+                  : backgroundcolor == 3
+                  ? "three"
+                  : ""
+              }
+              onMouseEnter={backChange}
+            >
+              {" "}
+              Review
+            </Link>{" "}
+            <Link
+              className={
+                backgroundcolor == 0
+                  ? "zero"
+                  : backgroundcolor == 1
+                  ? "one"
+                  : backgroundcolor == 2
+                  ? "two"
+                  : backgroundcolor == 3
+                  ? "three"
+                  : ""
+              }
+              onMouseEnter={backChange}
+            >
+              Profile
+            </Link>
+            <Link
+              className={
+                backgroundcolor == 0
+                  ? "zero"
+                  : backgroundcolor == 1
+                  ? "one"
+                  : backgroundcolor == 2
+                  ? "two"
+                  : backgroundcolor == 3
+                  ? "three"
+                  : ""
+              }
+              onMouseEnter={backChange}
+              to={'/login'}
+            >
+              Login{" "}
+            </Link>
           </ul>
         </div>
       </div>

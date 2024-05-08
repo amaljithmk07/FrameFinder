@@ -63,6 +63,39 @@
   background-color: rgb(255, 247, 156);
   /* color: aliceblue; */
 }
+
+.zero,
+.one,
+.two,
+.three {
+  height: 45%;
+  width: 100px;
+  color: #000000;
+  font-size: 0.95rem;
+  font-weight: 400;
+  border-radius: 10px 7px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  -webkit-tap-highlight-color: transparent;
+  transition: all 0.4s ease-in-out;
+  text-decoration: none;
+}
+
+.one:hover {
+  background-color: rgb(198, 255, 165);
+}
+.two:hover {
+  background-color: rgb(188, 191, 255);
+}
+.three:hover {
+  background-color: rgb(255, 236, 173);
+}
+.zero:hover {
+  background-color: rgb(247, 159, 255);
+}
+
 @media screen and (max-width: 900px) {
   .navbar-menu-sec {
     width: 100%;

@@ -6,7 +6,6 @@ import Navbar from "./components/Navbar/Navbar.jsx";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <>
-    <Navbar/>
     <App />
   </>
 );

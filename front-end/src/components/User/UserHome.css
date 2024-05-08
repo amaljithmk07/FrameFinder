@@ -15,11 +15,18 @@
 .userhome-introduction-body {
   min-height: 120vh;
   width: 100%;
+  color: white;
+
   /* background-color: rgb(109, 106, 3); */
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
   align-items: center;
+  background-image: url("/back.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
 }
 .userhome-intro-left-body {
   height: 80vh;
@@ -47,13 +54,15 @@
   height: auto;
 }
 .userhome-intro-right-body {
-  height: 80vh;
+  height: 120vh;
   width: 50%;
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: start;
+  gap: 10px;
   flex-direction: column;
-  /* background-color: rgb(255, 197, 197); */
+  position: absolute;
+  right: 20px;
 }
 .userhome-intro-title {
   height: 150px;
@@ -75,14 +84,62 @@
   /* font-weight: 600; */
   line-height: 35px;
 }
+.userhome-intro-button {
+  height: 35px;
+  width: 130px;
+  border: 0;
+  background-color: rgb(255, 246, 182);
+  border-radius: 15px 10px;
+  font-size: 1rem;
+  cursor: pointer;
+}
 
+/* ////////Photographers Profile Area */
 
-
-/* ////////sub */
-
-
-.userhome-sub{
-  height: 90vh;
+.userhome-photographers-area {
+  min-height: 50vh;
   width: 100%;
-  background-color: red;
+  /* background-color: red; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.userhome-photographers-title {
+  height: 100px;
+  width: 100%;
+  /* background-color: rgb(85, 255, 0); */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+}
+.userhome-photographers-profile-sec {
+  height: 300px;
+  /* background-color: blue; */
+  width: 100%;
+  display: flex;
+  justify-content: start; /* Adjust alignment as needed */
+  gap: 30px;
+  align-items: center;
+  overflow-x: auto; /* Enable horizontal scrolling */
+  overflow-y: hidden; /* Hide vertical scrollbar */
+  white-space: nowrap; /* Prevent items from wrapping */
+  scrollbar-width: none; /* Hide scrollbar in Firefox */
+}
+
+.userhome-photographers-profile-body {
+  height: 150px;
+  width: 150px;
+  border-radius: 50%;
+  flex-shrink: 0; /* Prevent items from shrinking */
+
+  background-color: rgb(190, 56, 56);
+}
+.photographer-profile {
+  max-height: 100%;
+  aspect-ratio: 1/1;
+  width: 100%;
+  border-radius: 50%;
 }
