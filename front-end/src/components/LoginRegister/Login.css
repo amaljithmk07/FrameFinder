@@ -1,0 +1,168 @@
+.login-main {
+  height: 110vh;
+  width: 100%;
+  background-color: rgb(16, 13, 0);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.login-sub-body {
+  height: 500px;
+  width: 800px;
+  background-color: rgb(255, 255, 255);
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  border-radius: 20px;
+  flex-direction: row-reverse;
+}
+
+.login-image-sec {
+  /* height: 90%; */
+  height: 450px;
+  width: 350px;
+  background: url("./login-back.webp");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  object-fit: cover;
+  border-radius: 20px;
+  animation: side 0.7s ease-in-out;
+  transition: all 0.7s ease-in-out;
+
+  z-index: 1;
+}
+@keyframes side {
+  from {
+    transform: translateX(-400px);
+    box-shadow: 0px 0px 10px rgb(0, 0, 0);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+.login-form-sec {
+  /* height: 90%; */
+  height: 450px;
+
+  width: 400px;
+  background-color: rgb(225, 225, 225);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  border-radius: 20px;
+  gap: 10px;
+  transition: all 0.7s ease-in-out;
+
+  animation: formside 0.7s ease-in-out;
+}
+@keyframes formside {
+  from {
+    transform: translateX(350px);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+.login-form {
+  /* height: 85%; */
+  height: 350px;
+  width: 400px;
+  /* background-color: rgb(82, 11, 11); */
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  gap: 35px;
+  flex-direction: column;
+}
+.form-title {
+  height: 50px;
+  /* background-color: red; */
+  width: 80%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2.5rem;
+  letter-spacing: 2px;
+  font-weight: 600;
+  font-family: math, sans-serif;
+}
+/* ////input field section */
+
+.login-inputfield-sec {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  width: 280px;
+  gap: 10px;
+  height: 40px;
+  text-transform: capitalize;
+  border-radius: 10px;
+  outline: 1px solid rgb(251, 255, 205);
+
+  background-color: rgb(255, 255, 255);
+  transition: 0.3s all ease-in-out;
+}
+.login-input-field {
+  width: 85%;
+  height: 35px;
+  border: 0;
+  font-size: 1rem;
+  background-color: transparent;
+}
+.login-input-field::placeholder {
+  font-size: 0.9rem;
+}
+
+.login-input-field:focus {
+  outline: none;
+}
+.login-inputfield-sec:focus-within {
+  outline: 1px solid rgb(234, 255, 0);
+  transform: scale(1.03);
+  box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.204);
+}
+.input-logo {
+  height: 50%;
+}
+
+.login-button {
+  height: 40px;
+  width: 120px;
+  border: 0;
+  border-radius: 10px;
+  font-size: 1.15rem;
+  font-family: math, sans-serif;
+  cursor: pointer;
+  background-color: rgb(255, 196, 0);
+}
+.login-button:active {
+  transform: scale(1.02);
+}
+
+.form-changer-area {
+  height: 30px;
+  width: 80%;
+  /* background-color: red; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1rem;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.form-to-register {
+  height: auto;
+  width: auto;
+  /* background-color: rgb(152, 159, 159); */
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  cursor: pointer;
+}
+
+.form-to-register:hover {
+  color: rgb(232, 155, 0);
+}

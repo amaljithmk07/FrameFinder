@@ -3,6 +3,8 @@ const server = express();
 const mongoose = require("mongoose");
 const cors = require("cors");
 const Userroutes = require("./routes/Userroutes");
+const Registerroutes = require("./routes/Registerroutes");
+const Loginroutes = require("./routes/Loginroutes");
 
 mongoose
   .connect(
@@ -24,6 +26,8 @@ server.use(express.json());
 server.use(express.urlencoded({ extended: true }));
 
 server.use("/api/user", Userroutes);
+server.use("/api/register", Registerroutes);
+server.use("/api/login",Loginroutes );
 
 const port = 2222;
 server.listen(port, () => {

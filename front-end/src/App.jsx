@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import UserHome from "./components/User/UserHome";
 import UserBooking from "./components/User/UserBooking";
 import Navbar from "./components/Navbar/Navbar";
-import Login from "./components/Login/Login";
+import LoginRegister from "./components/LoginRegister/LoginRegister";
 
 function App() {
   return (
@@ -11,7 +11,8 @@ function App() {
       <Router>
         <Navbar />
         <Routes>
-          <Route path="/login" element={<Login />} />
+          {/* <Route path="/register" element={<Register />} /> */}
+          <Route path="/loginregister" element={<LoginRegister />} />
           <Route path="/" element={<UserHome />} />
           <Route path="/user/booking" element={<UserBooking />} />
         </Routes>

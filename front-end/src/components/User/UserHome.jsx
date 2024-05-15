@@ -52,6 +52,42 @@ const UserHome = () => {
             <div className="userhome-photographers-profile-body"></div>
           </div>
         </div>
+
+        {/* ///Gallery section */}
+        <div className="userhome-gallery-sec">
+          <div className="userhome-gallery">
+            <div className="userhome-gallery-colum">
+              <img src="/3.jpg" alt="" className="userhome-gallery-img" />
+              <img src="/12.jpg" alt="" className="userhome-gallery-img" />
+              <img src="/4.webp" alt="" className="userhome-gallery-img" />
+              <img src="/1.webp" alt="" className="userhome-gallery-img" />
+            </div>
+            <div className="userhome-gallery-colum">
+              <img src="/5.webp" alt="" className="userhome-gallery-img" />
+              <img src="/6.jpg" alt="" className="userhome-gallery-img" />
+              <img src="/10.jpg" alt="" className="userhome-gallery-img" />
+              <img src="/7.jpg" alt="" className="userhome-gallery-img" />
+            </div>
+            <div className="userhome-gallery-colum">
+              <img src="/11.jpeg" alt="" className="userhome-gallery-img" />
+              <img src="/9.jpg" alt="" className="userhome-gallery-img" />
+              <img src="/7.jpg" alt="" className="userhome-gallery-img" />
+              <img src="/13.jpg" alt="" className="userhome-gallery-img" />
+            </div>
+            <div className="userhome-gallery-colum">
+              <img src="/10.jpg" alt="" className="userhome-gallery-img" />
+              <img src="/8.jpeg" alt="" className="userhome-gallery-img" />
+              <img src="/2.webp" alt="" className="userhome-gallery-img" />
+              <img src="/4.webp" alt="" className="userhome-gallery-img" />
+            </div>
+            <div className="userhome-gallery-colum">
+              <img src="/15.jpg" alt="" className="userhome-gallery-img" />
+              <img src="/14.webp" alt="" className="userhome-gallery-img" />
+              <img src="/13.jpg" alt="" className="userhome-gallery-img" />
+              <img src="/1.webp" alt="" className="userhome-gallery-img" />
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );

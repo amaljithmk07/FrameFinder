@@ -1,15 +1,27 @@
 import React, { forwardRef, useState } from "react";
 import "./Navbar.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 const Navbar = () => {
   const [backgroundcolor, setBackgroundcolor] = useState(0);
+  const navigate = useNavigate();
+  const token = sessionStorage.getItem("token");
 
-  const backChange = () => {
+  ///background change during hover
+
+  const backgroundChange = () => {
     if (backgroundcolor <= 2) {
       setBackgroundcolor(backgroundcolor + 1);
     } else {
       setBackgroundcolor(0);
     }
+  };
+
+  //Logout
+
+  const logout = (e) => {
+    sessionStorage.clear();
+    navigate("/loginregister");
+    window.location.reload();
   };
   return (
     <div>
@@ -33,7 +45,7 @@ const Navbar = () => {
                   ? "three"
                   : ""
               }
-              onMouseEnter={backChange}
+              onMouseEnter={backgroundChange}
               to={"/"}
             >
               Home
@@ -50,9 +62,8 @@ const Navbar = () => {
                   ? "three"
                   : ""
               }
-              onMouseEnter={backChange}
+              onMouseEnter={backgroundChange}
               to={"/user/booking"}
-
             >
               {" "}
               Booking
@@ -69,7 +80,7 @@ const Navbar = () => {
                   ? "three"
                   : ""
               }
-              onMouseEnter={backChange}
+              onMouseEnter={backgroundChange}
             >
               {" "}
               Review
@@ -86,27 +97,51 @@ const Navbar = () => {
                   ? "three"
                   : ""
               }
-              onMouseEnter={backChange}
+              onMouseEnter={backgroundChange}
             >
               Profile
             </Link>
-            <Link
-              className={
-                backgroundcolor == 0
-                  ? "zero"
-                  : backgroundcolor == 1
-                  ? "one"
-                  : backgroundcolor == 2
-                  ? "two"
-                  : backgroundcolor == 3
-                  ? "three"
-                  : ""
-              }
-              onMouseEnter={backChange}
-              to={'/login'}
-            >
-              Login{" "}
-            </Link>
+            {token ? (
+              <>
+                <Link
+                  className={
+                    backgroundcolor == 0
+                      ? "zero"
+                      : backgroundcolor == 1
+                      ? "one"
+                      : backgroundcolor == 2
+                      ? "two"
+                      : backgroundcolor == 3
+                      ? "three"
+                      : ""
+                  }
+                  onMouseEnter={backgroundChange}
+                  onClick={logout}
+                >
+                  Logout{" "}
+                </Link>
+              </>
+            ) : (
+              <>
+                <Link
+                  className={
+                    backgroundcolor == 0
+                      ? "zero"
+                      : backgroundcolor == 1
+                      ? "one"
+                      : backgroundcolor == 2
+                      ? "two"
+                      : backgroundcolor == 3
+                      ? "three"
+                      : ""
+                  }
+                  onMouseEnter={backgroundChange}
+                  to={"/loginregister"}
+                >
+                  Login{" "}
+                </Link>
+              </>
+            )}
           </ul>
         </div>
       </div>

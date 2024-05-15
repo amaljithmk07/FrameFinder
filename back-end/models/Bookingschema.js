@@ -1,5 +1,10 @@
 const mongoose = require("mongoose");
 const Bookingschema = new mongoose.Schema({
+  login_id: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "Login_DB",
+    required: true,
+  },
   name: {
     type: String,
     required: true,
@@ -25,10 +30,6 @@ const Bookingschema = new mongoose.Schema({
     required: true,
   },
   pincode: {
-    type: String,
-    required: true,
-  },
-  date: {
     type: String,
     required: true,
   },

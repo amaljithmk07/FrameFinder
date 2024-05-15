@@ -1,14 +1,15 @@
 const express = require("express");
 const Userroutes = express.Router();
 const BookingDB = require("../models/Bookingschema");
+const CheckAuth = require("../middleware/CheckAuth");
 
-Userroutes.post("/booking", async (req, res) => {
+Userroutes.post("/booking", CheckAuth, async (req, res) => {
   console.log(req.body);
   const Data = new BookingDB({
+    login_id: req.userData.userId,
     name: req.body.name,
     email: req.body.email,
     phone: req.body.phone,
-    date: req.body.date,
     address: req.body.address,
     city: req.body.city,
     state: req.body.state,
@@ -28,7 +29,7 @@ Userroutes.post("/booking", async (req, res) => {
         success: false,
         error: true,
         message: "failed",
-        errorMessage: err,
+        errorMessage: err.message,
       });
     });
 });
