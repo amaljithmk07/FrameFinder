@@ -1,8 +1,32 @@
 import "./UserHome.css";
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const UserHome = () => {
+  const navigate = useNavigate();
+
+  //use effect for photographers profile
+
+  const [profile, setProfile] = useState([]);
+  useEffect(() => {
+    axios
+      .get("http://localhost:2222/api/photographer/all-profile")
+      .then((data) => {
+        console.log(data.data.data);
+        setProfile(data.data.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
+
+  ///////////Photographer Profile review
+
+  const photographerProfile = (id) => {
+    navigate(`/photographer-review/${id}`);
+  };
+
   return (
     <div>
       <div className="userhome-main-body">
@@ -37,19 +61,53 @@ const UserHome = () => {
             Featured Photographers
           </div>
           <div className="userhome-photographers-profile-sec">
+            {/* <div className="userhome-photographers-profile-body">
+              <img src="2.webp" alt="" className="photographer-profile" />
+            </div>
             <div className="userhome-photographers-profile-body">
               <img src="2.webp" alt="" className="photographer-profile" />
             </div>
-            <div className="userhome-photographers-profile-body"></div>
-            <div className="userhome-photographers-profile-body"></div>
-            <div className="userhome-photographers-profile-body"></div>
-            <div className="userhome-photographers-profile-body"></div>
-            <div className="userhome-photographers-profile-body"></div>
-            <div className="userhome-photographers-profile-body"></div>
-            <div className="userhome-photographers-profile-body"></div>
-            <div className="userhome-photographers-profile-body"></div>
-            <div className="userhome-photographers-profile-body"></div>
-            <div className="userhome-photographers-profile-body"></div>
+            <div className="userhome-photographers-profile-body">
+              <img src="2.webp" alt="" className="photographer-profile" />
+            </div>
+            <div className="userhome-photographers-profile-body">
+              <img src="2.webp" alt="" className="photographer-profile" />
+            </div>
+            <div className="userhome-photographers-profile-body">
+              <img src="2.webp" alt="" className="photographer-profile" />
+            </div>
+            <div className="userhome-photographers-profile-body">
+              <img src="2.webp" alt="" className="photographer-profile" />
+            </div>
+            <div className="userhome-photographers-profile-body">
+              <img src="2.webp" alt="" className="photographer-profile" />
+            </div>
+            <div className="userhome-photographers-profile-body">
+              <img src="2.webp" alt="" className="photographer-profile" />
+            </div>
+            <div className="userhome-photographers-profile-body">
+              <img src="2.webp" alt="" className="photographer-profile" />
+            </div>
+            <div className="userhome-photographers-profile-body">
+              <img src="2.webp" alt="" className="photographer-profile" />
+            </div>
+            <div className="userhome-photographers-profile-body">
+              <img src="2.webp" alt="" className="photographer-profile" />
+            </div> */}
+            {profile.map((data) => (
+              <div
+                className="userhome-photographers-profile-body"
+                key={data._id}
+                onClick={() => photographerProfile(data.login_id)}
+              >
+                <img
+                  src={`/upload/${data.profile}`}
+                  alt=""
+                  className="photographer-profile"
+                />
+                {/* <span>{data.name}</span> */}
+              </div>
+            ))}
           </div>
         </div>
 
@@ -87,6 +145,42 @@ const UserHome = () => {
               <img src="/1.webp" alt="" className="userhome-gallery-img" />
             </div>
           </div>
+        </div>
+
+        {/* ////////////Content section */}
+
+        <div className="userhome-text-body">
+          <div className="userhome-text-title">FrameFinder: Your Gateway to Exceptional Photography</div>
+          In today's digital age, capturing life's special moments with
+          high-quality photography is essential. FrameFinder is your ultimate
+          solution for finding and booking top-tier photographers for any
+          occasion. Our platform connects you with a curated selection of
+          skilled photographers, making it easy to find the perfect professional
+          to meet your unique needs. FrameFinder understands that every event is
+          special and deserves to be immortalized through stunning visuals.
+          Whether you're planning a wedding, celebrating a milestone, organizing
+          a corporate event, or seeking a family portrait, our platform offers a
+          seamless experience to ensure you get the best results. By browsing
+          through diverse portfolios, you can explore various styles and
+          specialties, ensuring you find a photographer whose vision aligns with
+          yours. We pride ourselves on providing a user-friendly experience.
+          With FrameFinder, comparing competitive rates and reading authentic
+          reviews is just a few clicks away. Our detailed profiles for each
+          photographer include their previous work, client testimonials, and
+          pricing, giving you all the information you need to make an informed
+          decision. This transparency helps you feel confident in your choice,
+          knowing you are selecting a professional who will deliver exceptional
+          results. Booking a photographer has never been simpler. Once you've
+          found the right photographer, you can easily check their availability
+          and secure your session directly through our platform. This
+          streamlined process eliminates the hassle of back-and-forth
+          communications, allowing you to focus on preparing for your event.
+          FrameFinder is more than just a booking platform; it's a community of
+          passionate photographers dedicated to turning your moments into
+          timeless art. Trust FrameFinder to connect you with the perfect
+          photographer who will capture the essence of your special occasions,
+          ensuring your memories are beautifully preserved for years to come.
+          Your perfect shot is just a booking away with FrameFinder.
         </div>
       </div>
     </div>

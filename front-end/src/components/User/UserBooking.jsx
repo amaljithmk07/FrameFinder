@@ -249,85 +249,107 @@ const UserBooking = () => {
           </div>
         </div>
       </div>
-
       {/* //Booking section */}
       <div className="userbooking-booking-sec">
+        <div className="userbooking-booking-background">
+          <img
+            src="/capture.png"
+            alt=""
+            className="userbooking-background-text"
+          />{" "}
+          <img src="/your.png" alt="" className="userbooking-background-text" />{" "}
+          <img
+            src="/moments.png"
+            alt=""
+            className="userbooking-background-text"
+          />{" "}
+        </div>
+
         <div className="userbooking-booking-area">
           <form action="" className="userbooking-booking-form">
-            <div className="userbooking-form-heading">Booking </div>
-            <div className="userbooking-inputfield-sec">
-              <div className="userbooking-input-text">Name</div>{" "}
-              <input
-                type="text"
-                name="name"
-                onChange={formHandler}
-                value={SavedFormData ? formData.name : null}
-                className="userbooking-inputfield"
-              />{" "}
-            </div>
-            <div className="userbooking-inputfield-sec">
-              <div className="userbooking-input-text">Email</div>{" "}
-              <input
-                type="text"
-                name="email"
-                onChange={formHandler}
-                value={SavedFormData ? formData.email : null}
-                className="userbooking-inputfield"
-              />{" "}
-            </div>
-            <div className="userbooking-inputfield-sec">
-              <div className="userbooking-input-text">Phone</div>{" "}
-              <input
-                type="text"
-                name="phone"
-                onChange={formHandler}
-                value={SavedFormData ? formData.phone : null}
-                className="userbooking-inputfield"
-              />{" "}
-            </div>
-            <div className="userbooking-inputfield-sec">
-              <div className="userbooking-input-text">Address</div>{" "}
-              <input
-                type="text"
-                name="address"
-                onChange={formHandler}
-                value={SavedFormData ? formData.address : null}
-                className="userbooking-inputfield"
-              />{" "}
-            </div>
-            <div className="userbooking-inputfield-sec">
-              <div className="userbooking-input-text">City</div>{" "}
-              <input
-                type="text"
-                name="city"
-                onChange={formHandler}
-                value={SavedFormData ? formData.city : null}
-                className="userbooking-inputfield"
-              />{" "}
-            </div>
-            <div className="userbooking-inputfield-sec">
-              <div className="userbooking-input-text">State</div>{" "}
-              <input
-                type="text"
-                name="state"
-                onChange={formHandler}
-                value={SavedFormData ? formData.state : null}
-                className="userbooking-inputfield"
-              />{" "}
-            </div>
-            <div className="userbooking-inputfield-sec">
-              <div className="userbooking-input-text">Pincode</div>{" "}
-              <input
-                type="text"
-                name="pincode"
-                onChange={formHandler}
-                value={SavedFormData ? formData.pincode : null}
-                className="userbooking-inputfield"
-              />{" "}
-            </div>
-
+            {/* <div className="userbooking-form-heading"> </div> */}
+            {/* <div className="userbooking-inputfield-sec"> */}
+            <div className="userbooking-input-text">Name</div>{" "}
+            <input
+              type="text"
+              name="name"
+              placeholder="Name"
+              onChange={formHandler}
+              value={SavedFormData ? formData.name : null}
+              className="userbooking-inputfield"
+            />{" "}
+            {/* </div>
+            <div className="userbooking-inputfield-sec"> */}
+            <div className="userbooking-input-text">Email</div>{" "}
+            <input
+              type="text"
+              name="email"
+              placeholder="Email"
+              onChange={formHandler}
+              value={SavedFormData ? formData.email : null}
+              className="userbooking-inputfield"
+            />{" "}
+            {/* </div>
+            <div className="userbooking-inputfield-sec"> */}
+            <div className="userbooking-input-text">Phone</div>{" "}
+            <input
+              type="text"
+              name="phone"
+              placeholder="Phone"
+              onChange={formHandler}
+              value={SavedFormData ? formData.phone : null}
+              className="userbooking-inputfield"
+            />{" "}
+            {/* </div>
+            <div className="userbooking-inputfield-sec"> */}
+            <div className="userbooking-input-text">Address</div>{" "}
+            <input
+              type="text"
+              name="address"
+              placeholder="Address"
+              onChange={formHandler}
+              value={SavedFormData ? formData.address : null}
+              className="userbooking-inputfield"
+            />{" "}
+            {/* </div>
+            <div className="userbooking-inputfield-sec"> */}
+            <div className="userbooking-input-text">City</div>{" "}
+            <input
+              type="text"
+              name="city"
+              placeholder="City"
+              onChange={formHandler}
+              value={SavedFormData ? formData.city : null}
+              className="userbooking-inputfield"
+            />{" "}
+            {/* </div>
+            <div className="userbooking-inputfield-sec"> */}
+            <div className="userbooking-input-text">State</div>{" "}
+            <input
+              type="text"
+              name="state"
+              placeholder="State"
+              onChange={formHandler}
+              value={SavedFormData ? formData.state : null}
+              className="userbooking-inputfield"
+            />{" "}
+            {/* </div>
+            <div className="userbooking-inputfield-sec"> */}
+            <div className="userbooking-input-text">Pincode</div>{" "}
+            <input
+              type="text"
+              name="pincode"
+              placeholder="Pincode"
+              onChange={formHandler}
+              value={SavedFormData ? formData.pincode : null}
+              className="userbooking-inputfield"
+            />{" "}
+            {/* </div> */}
             <button onClick={submitHandler} className="userbooking-form-btn">
-              Submit
+              <img
+                src="/public/submit.png"
+                className="userbooking-form-btn-img"
+              />
             </button>
           </form>
         </div>

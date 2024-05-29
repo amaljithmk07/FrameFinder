@@ -26,6 +26,7 @@ const Navbar = () => {
   return (
     <div>
       <div className="navbar-main">
+       
         <div className="navbar-logo-sec">
           <img src="/title-logo.png" alt="" className="title-logo" />
           {/* <img src="/logo.png" alt="" className="title-logo-icon" /> */}
@@ -85,22 +86,6 @@ const Navbar = () => {
               {" "}
               Review
             </Link>{" "}
-            <Link
-              className={
-                backgroundcolor == 0
-                  ? "zero"
-                  : backgroundcolor == 1
-                  ? "one"
-                  : backgroundcolor == 2
-                  ? "two"
-                  : backgroundcolor == 3
-                  ? "three"
-                  : ""
-              }
-              onMouseEnter={backgroundChange}
-            >
-              Profile
-            </Link>
             {token ? (
               <>
                 <Link
