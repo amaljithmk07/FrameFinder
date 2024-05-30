@@ -5,19 +5,46 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
+  gap: 20px;
 }
+
+/* /////////////// */
+
+.photoregister-form-description {
+  min-height: 100vh;
+  width: 70%;
+  margin-top: 15vh;
+  /* background-color: #830000; */
+  font-family: fangsong, math, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: start;
+  flex-direction: column;
+  gap: 20px;
+  line-height: 30px;
+}
+
+.photoregister-form-description-title {
+  font-size: 1.6rem;
+  color: rgb(0, 0, 0);
+  font-weight: 700;
+}
+
+/* /////////////// */
+
 .photoregister-sub-body {
-  height: 550px;
+  height: 600px;
   width: 450px;
-  background-image: url("./booking-form1.jpg");
+  background-image: url("./booking-form.jpg");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   object-fit: cover;
-  border-radius: 30px;
   display: flex;
   justify-content: center;
   align-items: center;
+  border-radius: 10px;
 }
 .photoregister-form-sec {
   height: 500px;
@@ -34,23 +61,30 @@
   width: 100px;
   aspect-ratio: 1/1;
   border-radius: 50%;
+  transition: all 0.3s ease-in-out;
+  border: 2px solid transparent;
+}
+.photoregister-image-sec:hover {
+  transform: scale(1.05);
+  border: 2px solid #cf9e6c;
 }
 .photoregister-input-sec {
   height: 40px;
   width: 290px;
   font-size: 1rem;
   padding: 0 15px;
-  border-radius: 20px;
-  border: 1px solid transparent;
+  border-radius: 5px;
+  border: 2px solid transparent;
   transition: all 0.3s ease-in-out;
 }
 
 .photoregister-input-sec:focus {
   outline: none;
-  border: 1px solid rgb(89, 75, 0);
+  transform: scale(1.02);
+  border: 2px solid #cf9e6c;
 }
 .photoregister-submit-btn {
-  height: 40px;
+  height: 45px;
   width: 320px;
   border-radius: 20px;
   background-color: rgb(255, 255, 255);
@@ -59,7 +93,29 @@
   justify-content: center;
   align-items: center;
   cursor: pointer;
+  transition: all 0.3s ease-in-out;
 }
 .photoregister-submit-img {
-  height: 30px;
+  height: 25px;
+}
+.photoregister-submit-btn:hover {
+  transform: scale(1.02);
+  background-color: #ffb56b;
+}
+
+/* ///////////////////////////// */
+
+.photoregister-disclaimer-sec {
+  min-height: 20vh;
+  width: 70%;
+  margin-top: 10vh;
+  /* background-color: #830000; */
+  font-family: fangsong, math, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: start;
+  flex-direction: column;
+  gap: 20px;
+  line-height: 25px;
+
 }

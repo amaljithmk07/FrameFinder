@@ -163,7 +163,7 @@ h3 {
   height: 550px;
   width: 400px;
   /* background-color: rgb(255, 255, 255); */
-  background: url("/public/booking-form.jpg");
+  background: url("/booking-form.jpg");
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;

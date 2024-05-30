@@ -55,11 +55,41 @@ const UserHome = () => {
             <button className="userhome-intro-button">Book Now</button>
           </div>
         </div>
-
+        {/* //////////////// */}
         <div className="userhome-photographers-area">
           <div className="userhome-photographers-title">
             Featured Photographers
           </div>
+          <div className="userhome-photographers-description">
+            Meet some of the exceptional photographers in our Frame Finder
+            community. These talented individuals have been selected for their
+            outstanding work, creativity, and dedication to their craft.
+            Discover their unique styles, explore their portfolios, and get
+            inspired by their stunning photography.
+          </div>
+          <div className="userhome-photographers-title">Why Featured?</div>
+
+          <div className="userhome-photographers-description">
+            <ul>
+              <li>
+                Exceptional Talent: Our featured photographers have demonstrated
+                exceptional skill and artistic vision in their work.
+              </li>
+              <li>
+                Diverse Styles: From portrait and landscape to event and fine
+                art photography, explore a variety of genres and styles.
+              </li>
+              <li>
+                Inspiring Portfolios: Get inspired by the creativity and
+                dedication showcased in their portfolios.
+              </li>
+              <li>
+                Professional Excellence: These photographers have earned
+                recognition for their professionalism and quality of service.
+              </li>
+            </ul>
+          </div>
+
           <div className="userhome-photographers-profile-sec">
             {/* <div className="userhome-photographers-profile-body">
               <img src="2.webp" alt="" className="photographer-profile" />
@@ -113,6 +143,44 @@ const UserHome = () => {
 
         {/* ///Gallery section */}
         <div className="userhome-gallery-sec">
+          <div className="userhome-gallery-title-description-sec">
+            <div className=" userhome-gallery-title">Timeless Snapshots</div>
+            <div>
+              Welcome to our "Timeless Snapshots" gallery, a curated collection
+              of photographs that capture the essence of unforgettable moments.
+              Each image in this gallery is a window into a unique story, a
+              fleeting moment preserved forever in time. From candid portraits
+              to breathtaking landscapes, these photographs transcend the
+              ordinary, offering a glimpse into the beauty and diversity of
+              life's most precious memories.
+            </div>
+
+            <div className="userhome-gallery-title">Explore the Gallery:</div>
+            <ul>
+              <li>
+                <b> Moments of Joy </b>:Delight in the smiles, laughter, and joy
+                captured in these heartwarming images.
+              </li>
+              <li>
+                <b>Scenic Wonders </b>: Travel through stunning landscapes and
+                scenic vistas that showcase the beauty of our world.
+              </li>
+              <li>
+                <b>Candid Expressions </b>: Experience the raw and genuine
+                emotions in candid shots that tell authentic stories.
+              </li>
+              <li>
+                <b>Cultural Richness </b>: Discover the diverse cultures and
+                traditions through vibrant and dynamic photographs.
+              </li>
+              <li>
+                <b>Everyday Magic </b>: Appreciate the simple yet profound
+                moments that often go unnoticed in our daily lives.
+              </li>
+            </ul>
+          </div>
+
+          {/* ///////// */}
           <div className="userhome-gallery">
             <div className="userhome-gallery-colum">
               <img src="/3.jpg" alt="" className="userhome-gallery-img" />
@@ -150,7 +218,9 @@ const UserHome = () => {
         {/* ////////////Content section */}
 
         <div className="userhome-text-body">
-          <div className="userhome-text-title">FrameFinder: Your Gateway to Exceptional Photography</div>
+          <div className="userhome-text-title">
+            FrameFinder: Your Gateway to Exceptional Photography
+          </div>
           In today's digital age, capturing life's special moments with
           high-quality photography is essential. FrameFinder is your ultimate
           solution for finding and booking top-tier photographers for any

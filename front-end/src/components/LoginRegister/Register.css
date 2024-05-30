@@ -1,7 +1,14 @@
 .register-sub-body {
-  height: 500px;
+  /* height: 500px; */
+  height: 480px;
   width: 800px;
-  background-color: rgb(255, 255, 255);
+  /* background-color: rgb(255, 255, 255); */
+  background-image: linear-gradient(
+    to right,
+    rgb(227, 227, 227),
+    rgb(72, 72, 72)
+  );
+
   display: flex;
   justify-content: space-evenly;
   align-items: center;
@@ -129,7 +136,7 @@
   transform: scale(1.02);
 }
 .form-changer-area {
-  height: 30px;
+  height: 20px;
   width: 80%;
   /* background-color: red; */
   display: flex;

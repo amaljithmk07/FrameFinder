@@ -99,7 +99,7 @@
   /* background-color: rgb(56, 198, 13); */
   padding: 0 2%;
   display: flex;
-  justify-content: start;
+  justify-content: center;
   align-items: center;
   overflow-x: auto;
   /* overflow-y: hidden; */

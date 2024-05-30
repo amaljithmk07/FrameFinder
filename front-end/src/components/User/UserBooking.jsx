@@ -346,10 +346,7 @@ const UserBooking = () => {
             />{" "}
             {/* </div> */}
             <button onClick={submitHandler} className="userbooking-form-btn">
-              <img
-                src="/public/submit.png"
-                className="userbooking-form-btn-img"
-              />
+              <img src="/submit.png" className="userbooking-form-btn-img" />
             </button>
           </form>
         </div>

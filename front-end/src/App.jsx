@@ -14,6 +14,7 @@ function App() {
       <Router>
         <Navbar />
         <Routes>
+          {/* <Route path="/photographer-register" element={<Dem/>} /> */}
           <Route path="/photographer-register" element={<PhotoRegister />} />
           <Route path="/loginregister" element={<LoginRegister />} />
           <Route path="/" element={<UserHome />} />

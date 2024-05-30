@@ -84,7 +84,6 @@ const LoginRegister = () => {
   return (
     <div>
       <div className="login-main">
-       
         <div
           className={
             formChange == true ? "login-sub-body" : "register-sub-body"
@@ -135,10 +134,21 @@ const LoginRegister = () => {
                 <button onClick={loginsubmitForm} className="login-button">
                   Login
                 </button>
-                <div className="form-changer-area">
-                  Are you a new user ? &nbsp;
-                  <div onClick={formChanger} className="form-to-register">
-                    Register
+                <div className="form-changer-area-sec">
+                  <div className="form-changer-area">
+                    Are you a new user ? &nbsp;
+                    <div onClick={formChanger} className="form-to-register">
+                      Register
+                    </div>
+                  </div>
+                  <div className="form-changer-area">
+                    Register As Phtographer? &nbsp;
+                    <Link
+                      to={"/photographer-register"}
+                      className="form-to-register"
+                    >
+                      Click
+                    </Link>
                   </div>
                 </div>
               </form>

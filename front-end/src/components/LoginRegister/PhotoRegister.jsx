@@ -54,6 +54,85 @@ const PhotoRegister = () => {
   return (
     <div>
       <div className="photoregister-main-body">
+        <div className="photoregister-form-description">
+          <div className="photoregister-form-description-title">
+            Photographers Registration Form
+          </div>
+          <div>
+            Welcome to Frame Finder, the ultimate platform for showcasing your
+            photographic talent and connecting with clients who appreciate your
+            unique perspective. Join our vibrant community of photographers
+            today by completing the registration form below.
+          </div>
+
+          <div className="photoregister-form-description-title">
+            Why Register?
+          </div>
+          <ul>
+            <li>
+              Showcase Your Portfolio: Create a stunning profile to display your
+              best work and attract potential clients.
+            </li>
+            <li>
+              Connect with Clients: Reach a broader audience and find exciting
+              opportunities for commissioned projects.
+            </li>
+            <li>
+              Access Exclusive Features: Enjoy tools designed to enhance your
+              workflow, manage bookings, and more.
+            </li>
+            <li>
+              Join a Community: Network with fellow photographers, share
+              insights, and collaborate on creative projects.
+            </li>
+          </ul>
+
+          <div className="photoregister-form-description-title">
+            Registration Details:
+          </div>
+          <ul>
+            <li>
+              Full Name: Your real name as it will appear on your profile.
+            </li>
+            <li>
+              Username: A unique identifier for your profile on Frame Finder.
+            </li>
+            <li>
+              Email Address: A valid email for communication and account
+              verification.
+            </li>
+            <li>Password: Ensure it's strong and secure.</li>
+            <li>
+              Portfolio Link: A link to your existing portfolio (optional).
+            </li>
+            <li>
+              Specialty: Choose your photography specialty (e.g., portrait,
+              landscape, events).
+            </li>
+            <li>Location: Where you are based and available to work.</li>
+            <li>Bio: A brief introduction about you and your work.</li>
+            <li>
+              Profile Picture: Upload a professional photo to personalize your
+              profile.
+            </li>
+          </ul>
+
+          <div className="photoregister-form-description-title">
+            Get Started:
+          </div>
+          <div>
+            Fill out the form with accurate and detailed information to ensure
+            your profile stands out. Once submitted, our team will review your
+            registration and you will be notified via email upon approval.
+          </div>
+
+          <div className="photoregister-form-description-title">
+            Join Frame Finder today and take the next step in your photography
+            career!
+          </div>
+        </div>
+
+        {/* ////////// */}
         <div className="photoregister-sub-body">
           <form
             action=""
@@ -126,6 +205,21 @@ const PhotoRegister = () => {
               <img src="/submit.png" className="photoregister-submit-img" />
             </button>
           </form>
+        </div>
+
+        <div className="photoregister-disclaimer-sec">
+          <div className="photoregister-form-description-title">Disclaimer</div>
+          <div>
+            By registering, you agree to abide by our terms and conditions and
+            privacy policy. Frame Finder is committed to protecting your privacy
+            and ensuring the security of your personal information. Any misuse
+            of the platform may result in the suspension or termination of your
+            account. Frame Finder reserves the right to review and approve all
+            profiles and may request additional information if needed. For more
+            details, please refer to our full{" "}
+            <a href="/terms-and-conditions">Terms and Conditions</a> and{" "}
+            <a href="/privacy-policy">Privacy Policy</a>.
+          </div>
         </div>
       </div>
     </div>

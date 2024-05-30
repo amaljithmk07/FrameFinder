@@ -1,5 +1,119 @@
-.footer-main-body{
-    height: 60vh;
-    width: 100%;
-    background-color: red;
+.footer-main-body {
+  height: 55vh;
+  width: 100%;
+  margin-top: 50px;
+  background-image: url("/footer-background.jpg");
+  color: white;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  font-family: fangsong, math, sans-serif;
+  position: relative;
+  overflow: hidden;
+}
+.footer-background {
+  filter: contrast(20);
+  height: 55vh;
+  width: 300%;
+  position: absolute;
+  mix-blend-mode: lighten;
+  animation: move 180s linear infinite;
+}
+
+@keyframes move {
+  from {
+    transform: translateX(0%);
+  }
+  to {
+    transform: translateX(100%);
+  }
+}
+.footer-sub-body {
+  height: 350px;
+  width: 90%;
+  z-index: 0;
+
+  /* background-color: rgb(36, 50, 63); */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+/* ///////////////// */
+
+.footer-content-body {
+  height: 250px;
+  width: 100%;
+  /* background-color: aqua; */
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+}
+.footer-title-logo {
+  height: 30px;
+  width: auto;
+  filter: invert(1);
+}
+.footer-content-sec {
+  height: 250px;
+  width: 70%;
+  /* background-color: blue; */
+  display: flex;
+  gap: 20px;
+  justify-content: end;
+  align-items: center;
+}
+.footer-content {
+  height: 250px;
+  /* background-color: rgba(255, 255, 255, 0.205); */
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: start;
+}
+.footer-content:nth-child(1) {
+  width: 200px;
+  gap: 7px;
+  border-right: 1px solid white;
+}
+.footer-content:nth-child(2) {
+  width: 400px;
+  border-right: 1px solid white;
+  gap: 15px;
+}
+.footer-content:nth-child(3) {
+  width: 200px;
+  gap: 5px;
+}
+.footer-icon-data {
+  height: 40px;
+  width: 100%;
+  /* background-color: rgb(0, 0, 82); */
+  display: flex;
+  justify-content: start;
+  gap: 10px;
+  align-items: center;
+}
+.footer-social-media-logo {
+  height: 20px;
+  width: auto;
+}
+.footer-content-title {
+  font-size: 1.3rem;
+  font-weight: 700;
+}
+
+/* ///////////////// */
+
+.footer-bottom {
+  z-index: 0;
+
+  height: 30px;
+  width: 100%;
+  /* background-color: red; */
+  display: flex;
+  justify-content: center;
+  align-items: start;
 }
