@@ -29,7 +29,7 @@
   /* height: 90%; */
   height: 450px;
   width: 350px;
-  background: url("./login-back.webp");
+  background: url("/public/login-back.webp");
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;

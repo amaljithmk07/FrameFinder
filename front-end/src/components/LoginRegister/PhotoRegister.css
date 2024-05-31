@@ -36,7 +36,7 @@
 .photoregister-sub-body {
   height: 600px;
   width: 450px;
-  background-image: url("./booking-form.jpg");
+  background-image: url("/public/booking-form.jpg");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;

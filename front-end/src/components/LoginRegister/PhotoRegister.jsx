@@ -216,9 +216,8 @@ const PhotoRegister = () => {
             of the platform may result in the suspension or termination of your
             account. Frame Finder reserves the right to review and approve all
             profiles and may request additional information if needed. For more
-            details, please refer to our full{" "}
-            <a href="/terms-and-conditions">Terms and Conditions</a> and{" "}
-            <a href="/privacy-policy">Privacy Policy</a>.
+            details, please refer to our full <a href="">Terms and Conditions</a> and{" "}
+            <a href="">Privacy Policy</a>.
           </div>
         </div>
       </div>
