@@ -4,15 +4,18 @@ const Footer = () => {
   return (
     <div>
       <div className="footer-main-body">
+
         <img
           src="/footer-background.jpg"
           alt=""
           className="footer-background"
         />
 
-        <div className="footer-sub-body">
-          <div className="footer-content-body">
+          <div className="footer-sub-body">
+            <div className="footer-logo-sec">
+
             <img src="/title-logo.png" alt="" className="footer-title-logo" />
+            </div>
             <div className="footer-content-sec">
               <div className="footer-content">
                 <div className="footer-content-title">Quick Links</div>
@@ -73,7 +76,6 @@ const Footer = () => {
               </div>
             </div>
           </div>
-        </div>
         <div class="footer-bottom">
           <p>&copy; 2024 FrameFinder. All Rights Reserved.</p>
         </div>

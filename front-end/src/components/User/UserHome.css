@@ -59,6 +59,7 @@
   display: flex;
   justify-content: center;
   align-items: start;
+  /* background-color: red; */
   gap: 10px;
   flex-direction: column;
   position: absolute;
