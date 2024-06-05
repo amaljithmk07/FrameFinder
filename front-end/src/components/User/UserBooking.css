@@ -11,8 +11,8 @@
 .userbooking-image-body {
   height: 100vh;
   width: 100%;
-  background: url("/booking-background.jpg");
-  background-position: center;
+  background: url("/booking-background1.jpg");
+  /* background-position: center; */
   background-repeat: no-repeat;
   background-size: cover;
   object-fit: cover;
@@ -23,10 +23,10 @@
 }
 .userbooking-text-body {
   height: 300px;
+  left: 100px;
   position: absolute;
   text-transform: capitalize;
   width: 700px;
-  left: 100px;
   color: white;
   font-size: 3.5rem;
   display: flex;
@@ -34,14 +34,48 @@
   align-items: start;
   flex-direction: column;
   /* font-style: italic; */
-  font-family: math, sans-serif;
-
-  /* background-color: rgba(168, 168, 168, 0.359); */
+  /* background-color: rgba(100, 0, 0, 0.99); */
 }
-h1,
-h2,
-h3 {
-  margin: 0;
+.userbooking-text-wrap {
+  height: 210px;
+  width: 700px;
+  display: flex;
+  justify-content: center;
+  /* background-color: red; */
+  align-items: start;
+  flex-direction: column;
+  font-family: fangsong, math, sans-serif;
+  font-weight: 700;
+  position: relative;
+  overflow: hidden;
+}
+.userbooking-text-quote {
+  animation: text_show 1s linear;
+  position: absolute;
+  background-color: black;
+  /* background-color: red; */
+  font-size: 3rem;
+}
+.userbooking-text-quote:nth-child(1) {
+  top: 0px;
+}
+.userbooking-text-quote:nth-child(2) {
+  top: 60px;
+  /* font-size: 3.5rem; */
+  animation-delay: 1.5s;
+}
+.userbooking-text-quote:nth-child(3) {
+  top: 120px;
+  animation-delay: 3s;
+  /* font-size: 4rem; */
+}
+@keyframes text_show {
+  from {
+    left: -500px;
+  }
+  to {
+    left: 0px;
+  }
 }
 .userbooking-text-body-button {
   height: 40px;
@@ -50,10 +84,28 @@ h3 {
   font-family: math;
   border-radius: 5px;
   font-size: 1.3rem;
-  background-color: rgb(255, 255, 255);
   transition: all 0.3s ease-in-out;
   color: rgb(0, 0, 0);
   cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: btn 0.8s linear;
+  animation-delay: 4.5s;
+}
+
+@keyframes btn {
+  0% {
+    width: 140px;
+  }
+  50% {
+    width: 250px;
+    color: rgb(255, 255, 255);
+    background-color: black;
+  }
+  100% {
+    width: 140px;
+  }
 }
 .userbooking-text-body-button:hover {
   background-color: rgb(255, 210, 182);

@@ -9,10 +9,10 @@
   font-family: system-ui;
 }
 .p-review-profile-body {
-  height: 90vh;
+  height: 100vh;
   width: 100%;
   /* background-color: blue; */
-  background-image: url("/public/profile-background.jpg");
+  background-image: url("/public/profile-background1.jpg");
   background-position: center;
   background-size: cover;
   object-fit: cover;

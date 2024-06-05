@@ -54,11 +54,12 @@
 .three {
   /* height: 45%; */
   height: 30px;
-  width: 100px;
+  min-width: 50px;
   color: #000000;
   font-size: 0.95rem;
   font-weight: 400;
   border-radius: 10px 7px;
+  padding: 0 20px;
   /* background-color: aqua; */
   cursor: pointer;
   display: flex;

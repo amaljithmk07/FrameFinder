@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import "./PhotoRegister.css";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const PhotoRegister = () => {
+  const navigate = useNavigate();
   ////preview Photo
   const [profilepreview, setProfilepreview] = useState();
   /////////
@@ -46,6 +48,7 @@ const PhotoRegister = () => {
       )
       .then((data) => {
         console.log(data);
+        navigate("/loginregister");
       })
       .catch((err) => {
         console.log(err);
@@ -216,7 +219,8 @@ const PhotoRegister = () => {
             of the platform may result in the suspension or termination of your
             account. Frame Finder reserves the right to review and approve all
             profiles and may request additional information if needed. For more
-            details, please refer to our full <a href="">Terms and Conditions</a> and{" "}
+            details, please refer to our full{" "}
+            <a href="">Terms and Conditions</a> and{" "}
             <a href="">Privacy Policy</a>.
           </div>
         </div>

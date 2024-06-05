@@ -2,6 +2,7 @@
   min-height: 400px;
   width: 100%;
   margin-top: 50px;
+  /* background-color: black; */
   background-image: url("/footer-background.jpg");
   color: white;
   display: flex;
@@ -175,11 +176,8 @@
   }
 }
 
-
 @media screen and (max-width: 500px) {
-
   .footer-logo-sec {
     justify-content: center;
   }
-
 }

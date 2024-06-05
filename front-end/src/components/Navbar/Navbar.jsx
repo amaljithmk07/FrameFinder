@@ -2,6 +2,8 @@ import React, { forwardRef, useState } from "react";
 import "./Navbar.css";
 import { Link, useNavigate } from "react-router-dom";
 const Navbar = () => {
+  const role = sessionStorage.getItem("userRole");
+
   const [backgroundcolor, setBackgroundcolor] = useState(0);
   const navigate = useNavigate();
   const token = sessionStorage.getItem("token");
@@ -23,10 +25,10 @@ const Navbar = () => {
     navigate("/loginregister");
     window.location.reload();
   };
+
   return (
     <div>
       <div className="navbar-main">
-       
         <div className="navbar-logo-sec">
           <img src="/title-logo.png" alt="" className="title-logo" />
           {/* <img src="/logo.png" alt="" className="title-logo-icon" /> */}
@@ -34,58 +36,121 @@ const Navbar = () => {
         <div className="navbar-menu-sec">
           <ul className="navbar-menu-items">
             {/* <Link className="navbar-menu-data">Home</Link> */}
-            <Link
-              className={
-                backgroundcolor == 0
-                  ? "zero"
-                  : backgroundcolor == 1
-                  ? "one"
-                  : backgroundcolor == 2
-                  ? "two"
-                  : backgroundcolor == 3
-                  ? "three"
-                  : ""
-              }
-              onMouseEnter={backgroundChange}
-              to={"/"}
-            >
-              Home
-            </Link>
-            <Link
-              className={
-                backgroundcolor == 0
-                  ? "zero"
-                  : backgroundcolor == 1
-                  ? "one"
-                  : backgroundcolor == 2
-                  ? "two"
-                  : backgroundcolor == 3
-                  ? "three"
-                  : ""
-              }
-              onMouseEnter={backgroundChange}
-              to={"/user/booking"}
-            >
-              {" "}
-              Booking
-            </Link>{" "}
-            <Link
-              className={
-                backgroundcolor == 0
-                  ? "zero"
-                  : backgroundcolor == 1
-                  ? "one"
-                  : backgroundcolor == 2
-                  ? "two"
-                  : backgroundcolor == 3
-                  ? "three"
-                  : ""
-              }
-              onMouseEnter={backgroundChange}
-            >
-              {" "}
-              Review
-            </Link>{" "}
+
+            {role == 1 ? (
+              <>
+                <Link
+                  className={
+                    backgroundcolor == 0
+                      ? "zero"
+                      : backgroundcolor == 1
+                      ? "one"
+                      : backgroundcolor == 2
+                      ? "two"
+                      : backgroundcolor == 3
+                      ? "three"
+                      : ""
+                  }
+                  onMouseEnter={backgroundChange}
+                  to={""}
+                >
+                  {" "}
+                  Previous Booking
+                </Link>{" "}
+                <Link
+                  className={
+                    backgroundcolor == 0
+                      ? "zero"
+                      : backgroundcolor == 1
+                      ? "one"
+                      : backgroundcolor == 2
+                      ? "two"
+                      : backgroundcolor == 3
+                      ? "three"
+                      : ""
+                  }
+                  onMouseEnter={backgroundChange}
+                  to={""}
+                >
+                  {" "}
+                  Profile{" "}
+                </Link>{" "}
+                <Link
+                  className={
+                    backgroundcolor == 0
+                      ? "zero"
+                      : backgroundcolor == 1
+                      ? "one"
+                      : backgroundcolor == 2
+                      ? "two"
+                      : backgroundcolor == 3
+                      ? "three"
+                      : ""
+                  }
+                  onMouseEnter={backgroundChange}
+                  to={""}
+                >
+                  {" "}
+                  Photo Gallery{" "}
+                </Link>{" "}
+              </>
+            ) : (
+              <>
+                <Link
+                  className={
+                    backgroundcolor == 0
+                      ? "zero"
+                      : backgroundcolor == 1
+                      ? "one"
+                      : backgroundcolor == 2
+                      ? "two"
+                      : backgroundcolor == 3
+                      ? "three"
+                      : ""
+                  }
+                  onMouseEnter={backgroundChange}
+                  to={"/"}
+                >
+                  Home
+                </Link>
+                <Link
+                  className={
+                    backgroundcolor == 0
+                      ? "zero"
+                      : backgroundcolor == 1
+                      ? "one"
+                      : backgroundcolor == 2
+                      ? "two"
+                      : backgroundcolor == 3
+                      ? "three"
+                      : ""
+                  }
+                  onMouseEnter={backgroundChange}
+                  to={"/user/booking"}
+                >
+                  {" "}
+                  Booking
+                </Link>{" "}
+                <Link
+                  className={
+                    backgroundcolor == 0
+                      ? "zero"
+                      : backgroundcolor == 1
+                      ? "one"
+                      : backgroundcolor == 2
+                      ? "two"
+                      : backgroundcolor == 3
+                      ? "three"
+                      : ""
+                  }
+                  onMouseEnter={backgroundChange}
+                >
+                  {" "}
+                  Explore{" "}
+                </Link>{" "}
+              </>
+            )}
+
             {token ? (
               <>
                 <Link

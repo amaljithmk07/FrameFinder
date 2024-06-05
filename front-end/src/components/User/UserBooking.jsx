@@ -54,12 +54,14 @@ const UserBooking = () => {
       <Toaster />
       <div className="userbooking-image-body">
         <div className="userbooking-text-body">
-          <div style={{ fontSize: "3rem" }}>Capture</div>
-          <div style={{ fontSize: "3.5rem" }}>your ideal wedding</div>
-          <div style={{ fontSize: "4rem" }}>moments today.</div>
+          <div className="userbooking-text-wrap">
+            <div className="userbooking-text-quote">Capture</div>
+            <div className="userbooking-text-quote">your ideal wedding</div>
+            <div className="userbooking-text-quote">moments today.</div>
+          </div>
 
           <button className="userbooking-text-body-button">Book Now</button>
-        </div>
+        </div>{" "}
       </div>{" "}
       {/* //Select-categories */}
       <div className="userbooking-categories-sec">
