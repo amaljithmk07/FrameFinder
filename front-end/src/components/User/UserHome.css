@@ -284,11 +284,11 @@
     z-index: 1;
     filter: grayscale(20);
     animation: rotate 15s linear infinite;
-    }
-    @keyframes rotate {
+  }
+  @keyframes rotate {
     from {
       transform: rotate(1turn);
-      }
+    }
   }
   .userhome-intro-body-img {
     /* width: 70%; */
@@ -316,7 +316,7 @@
   .userhome-intro-left-body {
     padding-top: 80px;
     width: 100%;
-        background-image: url("./intro-back.jpg");
+    background-image: url("/intro-back.jpg");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;

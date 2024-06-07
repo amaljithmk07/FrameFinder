@@ -35,7 +35,7 @@ const UserHome = () => {
         <div className="userhome-introduction-body">
           <div className="userhome-intro-left-body">
             <img
-              src="/public/img-frame2.png"  
+              src="/img-frame2.png"  
               className="userhome-intro-image-sec"
             />
             <img src="7.jpg" alt="" className="userhome-intro-body-img" />
