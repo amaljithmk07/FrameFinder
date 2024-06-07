@@ -26,6 +26,28 @@ const Navbar = () => {
     window.location.reload();
   };
 
+  ////Class Name
+
+  const getClassName = (color) => {
+    switch (color) {
+      case 0:
+        return "zero";
+      case 1:
+        return "one";
+      case 2:
+        return "two";
+      case 3:
+        return "three";
+      default:
+        return "";
+    }
+  };
+
+  const [Hamburger, setHamburger] = useState(false);
+  const HamburgerHandler = () => {
+    setHamburger((prev) => !prev);
+  };
+
   return (
     <div>
       <div className="navbar-main">
@@ -40,17 +62,7 @@ const Navbar = () => {
             {role == 1 ? (
               <>
                 <Link
-                  className={
-                    backgroundcolor == 0
-                      ? "zero"
-                      : backgroundcolor == 1
-                      ? "one"
-                      : backgroundcolor == 2
-                      ? "two"
-                      : backgroundcolor == 3
-                      ? "three"
-                      : ""
-                  }
+                  className={getClassName(backgroundcolor)}
                   onMouseEnter={backgroundChange}
                   to={""}
                 >
@@ -58,17 +70,7 @@ const Navbar = () => {
                   Previous Booking
                 </Link>{" "}
                 <Link
-                  className={
-                    backgroundcolor == 0
-                      ? "zero"
-                      : backgroundcolor == 1
-                      ? "one"
-                      : backgroundcolor == 2
-                      ? "two"
-                      : backgroundcolor == 3
-                      ? "three"
-                      : ""
-                  }
+                  className={getClassName(backgroundcolor)}
                   onMouseEnter={backgroundChange}
                   to={""}
                 >
@@ -76,17 +78,7 @@ const Navbar = () => {
                   Profile{" "}
                 </Link>{" "}
                 <Link
-                  className={
-                    backgroundcolor == 0
-                      ? "zero"
-                      : backgroundcolor == 1
-                      ? "one"
-                      : backgroundcolor == 2
-                      ? "two"
-                      : backgroundcolor == 3
-                      ? "three"
-                      : ""
-                  }
+                  className={getClassName(backgroundcolor)}
                   onMouseEnter={backgroundChange}
                   to={""}
                 >
@@ -97,34 +89,14 @@ const Navbar = () => {
             ) : (
               <>
                 <Link
-                  className={
-                    backgroundcolor == 0
-                      ? "zero"
-                      : backgroundcolor == 1
-                      ? "one"
-                      : backgroundcolor == 2
-                      ? "two"
-                      : backgroundcolor == 3
-                      ? "three"
-                      : ""
-                  }
+                  className={getClassName(backgroundcolor)}
                   onMouseEnter={backgroundChange}
                   to={"/"}
                 >
                   Home
                 </Link>
                 <Link
-                  className={
-                    backgroundcolor == 0
-                      ? "zero"
-                      : backgroundcolor == 1
-                      ? "one"
-                      : backgroundcolor == 2
-                      ? "two"
-                      : backgroundcolor == 3
-                      ? "three"
-                      : ""
-                  }
+                  className={getClassName(backgroundcolor)}
                   onMouseEnter={backgroundChange}
                   to={"/user/booking"}
                 >
@@ -132,17 +104,7 @@ const Navbar = () => {
                   Booking
                 </Link>{" "}
                 <Link
-                  className={
-                    backgroundcolor == 0
-                      ? "zero"
-                      : backgroundcolor == 1
-                      ? "one"
-                      : backgroundcolor == 2
-                      ? "two"
-                      : backgroundcolor == 3
-                      ? "three"
-                      : ""
-                  }
+                  className={getClassName(backgroundcolor)}
                   onMouseEnter={backgroundChange}
                 >
                   {" "}
@@ -154,17 +116,7 @@ const Navbar = () => {
             {token ? (
               <>
                 <Link
-                  className={
-                    backgroundcolor == 0
-                      ? "zero"
-                      : backgroundcolor == 1
-                      ? "one"
-                      : backgroundcolor == 2
-                      ? "two"
-                      : backgroundcolor == 3
-                      ? "three"
-                      : ""
-                  }
+                  className={getClassName(backgroundcolor)}
                   onMouseEnter={backgroundChange}
                   onClick={logout}
                 >
@@ -174,17 +126,7 @@ const Navbar = () => {
             ) : (
               <>
                 <Link
-                  className={
-                    backgroundcolor == 0
-                      ? "zero"
-                      : backgroundcolor == 1
-                      ? "one"
-                      : backgroundcolor == 2
-                      ? "two"
-                      : backgroundcolor == 3
-                      ? "three"
-                      : ""
-                  }
+                  className={getClassName(backgroundcolor)}
                   onMouseEnter={backgroundChange}
                   to={"/loginregister"}
                 >
@@ -194,6 +136,21 @@ const Navbar = () => {
             )}
           </ul>
         </div>
+        {/* //// */}
+        <button onClick={HamburgerHandler}>|||</button>
+        {Hamburger == true ? (
+          <>
+            <div className="navbar-hamburger-body">
+              <div>Hjj</div>
+              <div>Hjj</div>
+              <div>Hjj</div>
+              <div>Hjj</div>
+              <div>Hjj</div>
+            </div>
+          </>
+        ) : (
+          <></>
+        )}
       </div>
     </div>
   );
