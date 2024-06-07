@@ -26,7 +26,8 @@
   left: 100px;
   position: absolute;
   text-transform: capitalize;
-  width: 700px;
+  /* width: 500px; */
+  width: 80%;
   color: white;
   font-size: 3.5rem;
   display: flex;
@@ -38,7 +39,8 @@
 }
 .userbooking-text-wrap {
   height: 210px;
-  width: 700px;
+  /* width: 500px; */
+  width: 100%;
   display: flex;
   justify-content: center;
   /* background-color: red; */
@@ -202,7 +204,7 @@
 /* ///booking section */
 
 .userbooking-booking-sec {
-  height: 100vh;
+  min-height: 100vh;
   width: 100%;
   display: flex;
   justify-content: center;
@@ -309,4 +311,34 @@
 }
 .userbooking-form-btn-img {
   height: 25px;
+}
+
+/* //////////////////////////// */
+
+/* Responsive area */
+
+@media screen and (max-width: 1000px) {
+  .userbooking-booking-sec {
+    flex-direction: column;
+  }
+  .userbooking-booking-background {
+    height: 400px;
+    width: 400px;
+    border-radius: 20px  20px 0 0;
+  }
+  .userbooking-background-text {
+    height: 80px;
+  }
+  .userbooking-booking-area {
+    height: 550px;
+    width: 400px;
+  }
+}
+@media screen and (max-width: 700px) {
+  .userbooking-text-body {
+    left: 50px;
+  }
+  .userbooking-text-quote {
+    font-size: 2.5rem;
+  }
 }

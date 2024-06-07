@@ -267,6 +267,8 @@ const UserBooking = () => {
           />{" "}
         </div>
 
+        {/* Booking Form Section */}
+
         <div className="userbooking-booking-area">
           <form action="" className="userbooking-booking-form">
             {/* <div className="userbooking-form-heading"> </div> */}

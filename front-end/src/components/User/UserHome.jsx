@@ -30,13 +30,15 @@ const UserHome = () => {
   return (
     <div>
       <div className="userhome-main-body">
-        {/* //carousel sec */}
+        {/* //introduction sec */}
 
         <div className="userhome-introduction-body">
           <div className="userhome-intro-left-body">
-            {/* <div className="userhome-intro-image-sec">
-              <img src="2.webp" alt="" className="userhome-intro-body-img" />
-            </div> */}
+            <img
+              src="/public/img-frame2.png"  
+              className="userhome-intro-image-sec"
+            />
+            <img src="7.jpg" alt="" className="userhome-intro-body-img" />
           </div>
 
           <div className="userhome-intro-right-body">
