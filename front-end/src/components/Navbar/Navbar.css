@@ -79,34 +79,9 @@
   background-color: rgb(247, 159, 255);
 }
 
-.navbar-hamburger-body {
-  height: 90vh;
-  width: 100%;
-  top: 10vh;
-  position: absolute;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  gap: 20px;
-  background-color: rgb(255, 255, 255);
-
-  /* background-image: url("/hamb-background.webp"); */
-  /* background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover; */
-}
-.navbar-hamburger-menu {
-  height: 50px;
-  width: 70%;
-  /* background-color: red; */
-  display: flex;
-  justify-content: center;
-  align-items: end;
-  border-top: 1px solid rgb(183, 183, 183);
-}
-.navbar-hamburger-menu:nth-child(1) {
-  border: 0px;
+.navbar-hamburger-body,
+.navbar-hamburger-icon {
+  display: none;
 }
 
 /* /////////////////////////// */
@@ -136,10 +111,10 @@
 @media screen and (max-width: 400px) {
   .navbar-logo-sec {
     height: 100%;
-    width: 250px;
+    width: 200px;
     /* background-color: rgb(0, 255, 149); */
     display: flex;
-    justify-content: center;
+    justify-content: start;
     align-items: center;
   }
   .title-logo {
@@ -157,5 +132,41 @@
   .navbar-menu-data {
     height: 45%;
     width: 80px;
+  }
+
+  /* /////////// */
+
+  .navbar-hamburger-icon {
+    display: flex;
+    height: 25px;
+  }
+  .navbar-hamburger-body {
+    height: 90vh;
+    width: 100%;
+    top: 10vh;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 20px;
+    background-color: rgb(255, 255, 255);
+
+    /* background-image: url("/hamb-background.webp"); */
+    /* background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover; */
+  }
+  .navbar-hamburger-menu {
+    height: 50px;
+    width: 70%;
+    /* background-color: red; */
+    display: flex;
+    justify-content: center;
+    align-items: end;
+    border-top: 1px solid rgb(183, 183, 183);
+  }
+  .navbar-hamburger-menu:nth-child(1) {
+    border: 0px;
   }
 }

@@ -137,7 +137,11 @@ const Navbar = () => {
           </ul>
         </div>
         {/* //// */}
-        <button onClick={HamburgerHandler}>|||</button>
+        <img
+          src={Hamburger == false ? "/hamburger.png" : "/hamb-close.png"}
+          onClick={HamburgerHandler}
+          className="navbar-hamburger-icon"
+        />
         {Hamburger == true ? (
           <>
             <div className="navbar-hamburger-body">
