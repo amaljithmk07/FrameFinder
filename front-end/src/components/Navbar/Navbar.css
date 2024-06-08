@@ -88,14 +88,26 @@
   justify-content: space-evenly;
   align-items: center;
   flex-direction: column;
-  /* background-color: rgb(253, 253, 253); */
+  background-color: rgb(255, 255, 255);
 
-  background-image: url("/hamb-background.webp");
-  background-position: center;
+  /* background-image: url("/hamb-background.webp"); */
+  /* background-position: center;
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: cover; */
 }
-
+.navbar-hamburger-menu {
+  height: 50px;
+  width: 70%;
+  /* background-color: red; */
+  display: flex;
+  justify-content: center;
+  align-items: end;
+  border-top: 1px solid rgb(183, 183, 183);
+  }
+  .navbar-hamburger-menu:nth-child(1) {
+border: 0px;
+  }
+  
 /* /////////////////////////// */
 
 /* Responsive area */
