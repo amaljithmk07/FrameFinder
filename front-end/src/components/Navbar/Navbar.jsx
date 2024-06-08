@@ -141,11 +141,13 @@ const Navbar = () => {
         {Hamburger == true ? (
           <>
             <div className="navbar-hamburger-body">
-              <div className="navbar-hamburger-menu">Hjj</div>
-              <div className="navbar-hamburger-menu">Hjj</div>
-              <div className="navbar-hamburger-menu">Hjj</div>
-              <div className="navbar-hamburger-menu">Hjj</div>
-              <div className="navbar-hamburger-menu">Hjj</div>
+              <div className="navbar-hamburger-menu">Home</div>
+              <div className="navbar-hamburger-menu">Explore</div>
+              <div className="navbar-hamburger-menu">Explore</div>
+              <div className="navbar-hamburger-menu">Explore</div>
+              <div className="navbar-hamburger-menu">Explore</div>
+              <div className="navbar-hamburger-menu">Booking</div>
+              <div className="navbar-hamburger-menu">Logout</div>
             </div>
           </>
         ) : (
