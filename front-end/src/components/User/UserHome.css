@@ -349,7 +349,6 @@
   .userhome-gallery {
     width: 85%;
     height: 300px;
-
   }
   .userhome-gallery-colum {
     height: 300px;
@@ -371,6 +370,7 @@
   }
   .userhome-photographers-title {
     font-size: 2rem;
+    text-align: center;
   }
   .userhome-photographers-title:nth-child(3) {
     font-size: 1.8rem;
@@ -405,7 +405,7 @@
     width: 85%;
     height: 300px;
     box-shadow: unset;
-    }
+  }
   .userhome-gallery-colum {
     height: 300px;
     width: 200px;
@@ -413,6 +413,21 @@
   .userhome-gallery-colum:nth-child(2),
   .userhome-gallery-colum:nth-child(3) {
     display: none;
+  }
+  .userhome-intro-title,
+  .userhome-photographers-title {
+    font-size: 1.8rem;
+  }
+
+  .userhome-photographers-title:nth-child(3) {
+    font-size: 1.6rem;
+  }
+  .userhome-gallery-title {
+    font-size: 1.6rem;
+  }
+  .userhome-text-title {
+    font-size: 1.4rem;
+    text-align: center;
   }
 }
 @media screen and (max-width: 370px) {
