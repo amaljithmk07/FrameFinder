@@ -327,8 +327,57 @@
     width: 80%;
     min-height: 80vh;
   }
+
+  .userhome-gallery {
+    width: 85%;
+  }
 }
 
+@media screen and (max-width: 800px) {
+  .userhome-gallery {
+    width: 85%;
+    height: 300px;
+  }
+  .userhome-gallery-colum {
+    height: 300px;
+    width: 200px;
+  }
+  .userhome-text-body {
+    width: 80%;
+  }
+}
+@media screen and (max-width: 750px) {
+  .userhome-intro-right-body {
+    width: 85%;
+  }
+  .userhome-intro-title {
+    background-color: aqua;
+    justify-content: center;
+    text-align: center;
+    font-size: 2rem;
+  }
+  .userhome-photographers-title {
+    font-size: 2rem;
+  }
+  .userhome-photographers-title:nth-child(3) {
+    font-size: 1.8rem;
+  }
+  .userhome-gallery-title {
+    font-size: 1.8rem;
+  }
+  .userhome-text-title {
+    font-size: 1.6rem;
+    text-align: center;
+  }
+  .userhome-photographers-description {
+    min-height: 100px;
+    width: 85%;
+  }
+  .userhome-gallery-title-description-sec {
+    width: 85%;
+  }
+ 
+}
 @media screen and (max-width: 500px) {
   .userhome-intro-image-sec {
     height: 250px;

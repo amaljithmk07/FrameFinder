@@ -22,7 +22,7 @@
   position: relative;
 }
 .userbooking-text-body {
-  height: 300px;
+  min-height: 300px;
   left: 100px;
   position: absolute;
   text-transform: capitalize;
@@ -38,7 +38,7 @@
   /* background-color: rgba(100, 0, 0, 0.99); */
 }
 .userbooking-text-wrap {
-  height: 210px;
+  min-height: 210px;
   /* width: 500px; */
   width: 100%;
   display: flex;
@@ -54,6 +54,7 @@
 .userbooking-text-quote {
   animation: text_show 1s linear;
   position: absolute;
+  height: auto;
   background-color: black;
   /* background-color: red; */
   font-size: 3rem;
