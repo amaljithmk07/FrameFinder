@@ -417,6 +417,7 @@
   .userhome-intro-title,
   .userhome-photographers-title {
     font-size: 1.8rem;
+    line-height: 35px;
   }
 
   .userhome-photographers-title:nth-child(3) {
