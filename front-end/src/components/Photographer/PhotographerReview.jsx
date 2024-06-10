@@ -27,9 +27,9 @@ const PhotographerReview = () => {
       <div className="p-review-main-body">
         <div className="p-review-profile-body">
           <div className="p-review-profile-left">
-            <img
+            <div
               // src="/3.jpg"
-              src={`/upload/${photoprofile.profile}`}
+              // src={`/upload/${photoprofile.profile}`}
               alt=""
               className="p-review-profile-img-background"
             />
@@ -78,7 +78,9 @@ const PhotographerReview = () => {
         {/* /////////////// */}
 
         <div className="p-review-text-body">
-          <div className="p-review-text-title">Capturing Life's Moments: A Portfolio by {photoprofile.name}</div>
+          <div className="p-review-text-title">
+            Capturing Life's Moments: A Portfolio by {photoprofile.name}
+          </div>
           Welcome to my photography portfolio, where each image tells a unique
           story. As a passionate photographer, I strive to capture the essence
           of every moment, transforming ordinary scenes into extraordinary

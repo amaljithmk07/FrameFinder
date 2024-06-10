@@ -64,7 +64,14 @@ const Navbar = () => {
                 <Link
                   className={getClassName(backgroundcolor)}
                   onMouseEnter={backgroundChange}
-                  to={""}
+                  to={"/home"}
+                >
+                  Home
+                </Link>
+                <Link
+                  className={getClassName(backgroundcolor)}
+                  onMouseEnter={backgroundChange}
+                  to={"/previous-booking"}
                 >
                   {" "}
                   Previous Booking
@@ -75,7 +82,7 @@ const Navbar = () => {
                   to={""}
                 >
                   {" "}
-                  Profile{" "}
+                  Photo Gallery{" "}
                 </Link>{" "}
                 <Link
                   className={getClassName(backgroundcolor)}
@@ -83,7 +90,7 @@ const Navbar = () => {
                   to={""}
                 >
                   {" "}
-                  Photo Gallery{" "}
+                  Profile{" "}
                 </Link>{" "}
               </>
             ) : (

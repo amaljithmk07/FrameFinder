@@ -34,9 +34,15 @@
   position: absolute;
   height: 280px;
   width: 280px;
+  /* min-height: 60px;
+  width: 300px; */
   border-radius: 50%;
   filter: blur(30px);
-  /* background-image: linear-gradient(to bottom,rgb(182, 255, 182),rgb(204, 152, 255)); */
+  background-image: linear-gradient(
+    to bottom,
+    rgb(125, 0, 160),
+    rgb(0, 255, 251)
+  );
   animation: profile-background 10s linear infinite;
 }
 
@@ -46,11 +52,12 @@
   }
 }
 .p-review-profile-img-sec {
-  height: 260px;
-  width: 260px;
+  height: 280px;
+  width: 280px;
   z-index: 0;
   border-radius: 50%;
-  border: 15px solid #ffffff;
+  /* border-radius: 15px; */
+  border: 8px solid #ffffff;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -155,8 +162,3 @@
   font-size: 1.8rem;
   font-weight: 600;
 }
-
-
-
-
-

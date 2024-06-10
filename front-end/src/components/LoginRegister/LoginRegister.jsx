@@ -41,6 +41,8 @@ const LoginRegister = () => {
         console.log(data);
         if (SavedFormData) {
           navigate("/user/booking");
+        } else if (data.data.userRole == 1) {
+          navigate("/home");
         } else {
           navigate("/");
         }
