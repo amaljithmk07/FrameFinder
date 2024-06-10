@@ -112,7 +112,7 @@
   font-size: 1.1rem;
 }
 .userhome-photographers-profile-sec {
-  height: 300px;
+  height: 250px;
   /* background-color: blue; */
   width: 95%;
   display: flex;
@@ -333,7 +333,20 @@
   }
 }
 
+@media screen and (max-width: 900px) {
+  .userhome-photographers-profile-sec {
+    height: 230px;
+    /* background-color: blue; */
+    width: 95%;
+  }
+
+  .userhome-photographers-profile-body {
+    height: 120px;
+    width: 120px;
+  }
+}
 @media screen and (max-width: 800px) {
+
   .userhome-gallery {
     width: 85%;
     height: 300px;
@@ -376,7 +389,6 @@
   .userhome-gallery-title-description-sec {
     width: 85%;
   }
- 
 }
 @media screen and (max-width: 500px) {
   .userhome-intro-image-sec {
