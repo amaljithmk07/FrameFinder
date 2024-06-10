@@ -5,11 +5,11 @@ const Footer = () => {
     <div>
       <div className="footer-main-body">
 
-        {/* <img
+        <img
           src="/footer-background.jpg"
           alt=""
           className="footer-background"
-        /> */}
+        />
 
           <div className="footer-sub-body">
             <div className="footer-logo-sec">
