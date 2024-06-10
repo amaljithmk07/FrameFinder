@@ -349,6 +349,7 @@
   .userhome-gallery {
     width: 85%;
     height: 300px;
+
   }
   .userhome-gallery-colum {
     height: 300px;
@@ -403,6 +404,7 @@
   .userhome-gallery {
     width: 85%;
     height: 300px;
+    box-shadow: unset;
     }
   .userhome-gallery-colum {
     height: 300px;
