@@ -5,6 +5,11 @@ const Bookingschema = new mongoose.Schema({
     ref: "Login_DB",
     required: true,
   },
+  photographers_id: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "Login_DB",
+    required: true,
+  },
   name: {
     type: String,
     required: true,

@@ -3,10 +3,11 @@ const Userroutes = express.Router();
 const BookingDB = require("../models/Bookingschema");
 const CheckAuth = require("../middleware/CheckAuth");
 
-Userroutes.post("/booking", CheckAuth, async (req, res) => {
+Userroutes.post("/booking/:id", CheckAuth, async (req, res) => {
   console.log(req.body);
   const Data = new BookingDB({
     login_id: req.userData.userId,
+    photographers_id: req.params.id,
     name: req.body.name,
     email: req.body.email,
     phone: req.body.phone,

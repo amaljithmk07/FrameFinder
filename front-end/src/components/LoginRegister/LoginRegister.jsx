@@ -30,6 +30,7 @@ const LoginRegister = () => {
 
   //Saved form Data for Booked Users
   const SavedFormData = sessionStorage.getItem("SavedFormData");
+  const photographerId = sessionStorage.getItem("photographerId");
   // console.log(SavedFormData);
   const loginsubmitForm = (e) => {
     e.preventDefault();
@@ -44,7 +45,7 @@ const LoginRegister = () => {
         console.log(data);
 
         if (SavedFormData) {
-          navigate("/user/booking");
+          navigate(`/photographer-review/${photographerId}`);
         } else if (data.data.userRole == 1) {
           navigate("/home");
         } else {
@@ -52,7 +53,8 @@ const LoginRegister = () => {
         }
       })
       .catch((err) => {
-        console.log(err);
+        toast.error(err.response.data.message);
+        console.log(err.response.data.message);
       });
   };
 
@@ -85,6 +87,7 @@ const LoginRegister = () => {
       })
       .catch((err) => {
         console.log(err);
+        toast.error(err.response.data.message);
       });
   };
 
@@ -141,6 +144,7 @@ const LoginRegister = () => {
                 </div>
                 <button onClick={loginsubmitForm} className="login-button">
                   Login
+                  <div className="login-btn-back"></div>
                 </button>
                 <div className="form-changer-area-sec">
                   <div className="form-changer-area">
@@ -220,6 +224,7 @@ const LoginRegister = () => {
                 </div>
                 <button onClick={submitForm} className="register-button">
                   Register
+                  <div className="register-btn-back"></div>
                 </button>
                 <div className="form-changer-area">
                   Already a User ? &nbsp;

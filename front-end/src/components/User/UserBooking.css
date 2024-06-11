@@ -202,139 +202,41 @@
   font-weight: 600;
 }
 
-/* ///booking section */
+/* ////photographers area */
 
-.userbooking-booking-sec {
-  min-height: 100vh;
+.userbooking-photographer-sec {
+  min-height: 300px;
   width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-/* //booking area */
-
-.userbooking-booking-background {
-  height: 550px;
-  width: 400px;
-  /* background-color: rgb(255, 255, 255); */
-  background: url("/booking-form.jpg");
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-  object-fit: cover;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  font-size: 2rem;
-  border-bottom-left-radius: 10px;
-  border-top-left-radius: 10px;
-  color: white;
-  font-family: system-ui;
-  box-shadow: -5px 0px 20px rgba(0, 0, 0, 0.453);
-}
-.userbooking-background-text {
-  height: 100px;
-  filter: invert(1) drop-shadow(2px 2px 5px rgb(0, 0, 0));
-}
-.userbooking-booking-area {
-  height: 550px;
-  width: 400px;
-  background-color: rgb(255, 255, 255);
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  box-shadow: 5px 0px 20px rgba(0, 0, 0, 0.453);
-}
-.userbooking-booking-form {
-  height: 90%;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  /* background-color: red; */
-  /* gap: 10px; */
   gap: 20px;
-  align-items: center;
-  flex-direction: column;
+  /* background-color: rgb(255, 214, 214); */
+  font-family: math, system-ui;
+  padding: 20px 0;
 }
-.userbooking-form-heading {
-  font-size: 2rem;
-}
-
-.userbooking-inputfield-sec {
-  height: 50px;
-  width: 300px;
-  display: flex;
-  justify-content: end;
-  align-items: start;
-  flex-direction: column;
+.userbooking-photographer-title {
+  height: 70px;
   /* background-color: red; */
-  position: relative;
-}
-.userbooking-input-text {
-  position: absolute;
-  font-size: 0.9rem;
-  left: 10px;
-  top: 0;
-  display: none;
-}
-.userbooking-inputfield {
-  /* border-radius: 50px; */
-  border-radius: 5px;
-  /* height: 35px; */
-  height: 40px;
-  width: 280px;
-  border: 1px solid rgba(0, 0, 0, 0.238);
-  padding: 0 10px;
-  background-color: rgb(255, 255, 255);
-  transition: all 0.2s ease-in-out;
-}
-.userbooking-inputfield:focus {
-  outline: none;
-  transform: scale(1.02);
-  border: 1px solid #ffcb97;
-}
-.userbooking-form-btn {
-  height: 40px;
-  width: 300px;
-  border: 0;
-  padding: 5px 20px;
-  border-radius: 50px;
-  font-size: 1.3rem;
-  color: white;
-  background-color: #ffcb97;
-  cursor: pointer;
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
+  font-size: 1.8rem;
+  font-weight: 600;
 }
-.userbooking-form-btn-img {
-  height: 25px;
+.userhome-photographers-profile-text{
+  width: 70%;
+  height: auto;
+  font-size: 1.1rem;
+  line-height: 35px;
+  /* background-color: aliceblue; */
 }
-
 /* //////////////////////////// */
 
 /* Responsive area */
 
-@media screen and (max-width: 1000px) {
-  .userbooking-booking-sec {
-    flex-direction: column;
-  }
-  .userbooking-booking-background {
-    height: 400px;
-    width: 400px;
-    border-radius: 20px  20px 0 0;
-  }
-  .userbooking-background-text {
-    height: 80px;
-  }
-  .userbooking-booking-area {
-    height: 550px;
-    width: 400px;
-  }
-}
 @media screen and (max-width: 700px) {
   .userbooking-text-body {
     left: 50px;

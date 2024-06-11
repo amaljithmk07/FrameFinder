@@ -162,3 +162,154 @@
   font-size: 1.8rem;
   font-weight: 600;
 }
+
+/* ///booking section */
+
+.p-review-booking-sec {
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  /* background-color: rebeccapurple; */
+  justify-content: center;
+  align-items: center;
+}
+
+/* //booking area */
+
+.p-review-booking-background {
+  height: 550px;
+  width: 400px;
+  /* background-color: rgb(255, 255, 255); */
+  background: url("/booking-form.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  object-fit: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  font-size: 2rem;
+  border-bottom-left-radius: 10px;
+  border-top-left-radius: 10px;
+  color: white;
+  font-family: system-ui;
+  box-shadow: -5px 0px 20px rgba(0, 0, 0, 0.453);
+}
+.p-review-background-text {
+  height: 100px;
+  filter: invert(1) drop-shadow(2px 2px 5px rgb(0, 0, 0));
+}
+.p-review-booking-area {
+  height: 550px;
+  width: 400px;
+  background-color: rgb(255, 255, 255);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 5px 0px 20px rgba(0, 0, 0, 0.453);
+}
+.p-review-booking-form {
+  height: 90%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  /* background-color: red; */
+  /* gap: 10px; */
+  gap: 20px;
+  align-items: center;
+  flex-direction: column;
+}
+.p-review-form-heading {
+  font-size: 2rem;
+}
+
+.p-review-inputfield-sec {
+  height: 50px;
+  width: 300px;
+  display: flex;
+  justify-content: end;
+  align-items: start;
+  flex-direction: column;
+  /* background-color: red; */
+  position: relative;
+}
+.p-review-input-text {
+  position: absolute;
+  font-size: 0.9rem;
+  left: 10px;
+  top: 0;
+  display: none;
+}
+.p-review-inputfield {
+  /* border-radius: 50px; */
+  border-radius: 5px;
+  /* height: 35px; */
+  height: 40px;
+  width: 280px;
+  border: 1px solid rgba(0, 0, 0, 0.238);
+  padding: 0 10px;
+  background-color: rgb(255, 255, 255);
+  transition: all 0.2s ease-in-out;
+}
+.p-review-inputfield:focus {
+  outline: none;
+  transform: scale(1.02);
+  border: 1px solid #ffcb97;
+}
+.p-review-form-btn {
+  height: 40px;
+  width: 300px;
+  border: 0;
+  padding: 5px 20px;
+  border-radius: 50px;
+  font-size: 1.3rem;
+  color: white;
+  background-color: #ffcb97;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+.p-review-form-btn-img {
+  height: 25px;
+  z-index: 1;
+}
+.p-review-form-btn-back {
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  background-color: #ffdcba;
+  position: absolute;
+  bottom: -20px;
+  transition: all .7s ease-in-out;
+}
+.p-review-form-btn:hover .p-review-form-btn-back {
+  /* bottom: -50px; */
+  border-radius: 20%;
+  height: 700px;
+  width: 700px;
+}
+
+/* /////////Responsive Area */
+
+@media screen and (max-width: 1000px) {
+  .p-review-booking-sec {
+    flex-direction: column;
+  }
+  .p-review-booking-background {
+    height: 400px;
+    width: 400px;
+    border-radius: 20px 20px 0 0;
+  }
+  .p-review-background-text {
+    height: 80px;
+  }
+  .p-review-booking-area {
+    height: 550px;
+    width: 400px;
+  }
+}

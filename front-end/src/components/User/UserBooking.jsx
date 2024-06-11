@@ -8,48 +8,23 @@ const UserBooking = () => {
   const navigate = useNavigate();
   const token = sessionStorage.getItem("token");
 
-  ///////////////////
-  var [formData, setFormdata] = useState({}); //Booking form input data handler
+  //use effect for photographers profile
 
-  ////if the user doesnt logged in then the form get stored
-
-  var SavedFormData = sessionStorage.getItem("SavedFormData");
-
-  /////stored form data gets reset on a state
-  if (SavedFormData) {
-    var [formData, setFormdata] = useState(JSON.parse(SavedFormData)); //Booking form input data handler
-  }
-  ///form Input handler
-  const formHandler = (e) => {
-    const { name, value } = e.target;
-
-    setFormdata({ ...formData, [name]: value });
+  const [profile, setProfile] = useState([]);
+  useEffect(() => {
+    axios
+      .get("http://localhost:2222/api/photographer/all-profile")
+      .then((data) => {
+        console.log(data.data.data);
+        setProfile(data.data.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
+  const photographerProfile = (id) => {
+    navigate(`/photographer-review/${id}`);
   };
-  console.log(formData);
-
-  ///fom submit handler
-  const submitHandler = (e) => {
-    e.preventDefault();
-    if (token != null) {
-      axios
-        .post(`http://localhost:2222/api/user/booking`, formData, {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        })
-        .then((data) => {
-          console.log(data);
-          toast.success("Booking Successful");
-        })
-        .catch((err) => {
-          console.log(err);
-        });
-    } else {
-      sessionStorage.setItem("SavedFormData", JSON.stringify(formData));
-      navigate("/loginregister");
-    }
-  };
-
   return (
     <div className="userbooking-main-body">
       <Toaster />
@@ -252,110 +227,31 @@ const UserBooking = () => {
           </div>
         </div>
       </div>
-      {/* //Booking section */}
-      <div className="userbooking-booking-sec">
-        <div className="userbooking-booking-background">
-          <img
-            src="/capture.png"
-            alt=""
-            className="userbooking-background-text"
-          />{" "}
-          <img src="/your.png" alt="" className="userbooking-background-text" />{" "}
-          <img
-            src="/moments.png"
-            alt=""
-            className="userbooking-background-text"
-          />{" "}
-        </div>
-
-        {/* Booking Form Section */}
-
-        <div className="userbooking-booking-area">
-          <form action="" className="userbooking-booking-form">
-            {/* <div className="userbooking-form-heading"> </div> */}
-            {/* <div className="userbooking-inputfield-sec"> */}
-            <div className="userbooking-input-text">Name</div>{" "}
-            <input
-              type="text"
-              name="name"
-              placeholder="Name"
-              onChange={formHandler}
-              value={SavedFormData ? formData.name : null}
-              className="userbooking-inputfield"
-            />{" "}
-            {/* </div>
-            <div className="userbooking-inputfield-sec"> */}
-            <div className="userbooking-input-text">Email</div>{" "}
-            <input
-              type="text"
-              name="email"
-              placeholder="Email"
-              onChange={formHandler}
-              value={SavedFormData ? formData.email : null}
-              className="userbooking-inputfield"
-            />{" "}
-            {/* </div>
-            <div className="userbooking-inputfield-sec"> */}
-            <div className="userbooking-input-text">Phone</div>{" "}
-            <input
-              type="text"
-              name="phone"
-              placeholder="Phone"
-              onChange={formHandler}
-              value={SavedFormData ? formData.phone : null}
-              className="userbooking-inputfield"
-            />{" "}
-            {/* </div>
-            <div className="userbooking-inputfield-sec"> */}
-            <div className="userbooking-input-text">Address</div>{" "}
-            <input
-              type="text"
-              name="address"
-              placeholder="Address"
-              onChange={formHandler}
-              value={SavedFormData ? formData.address : null}
-              className="userbooking-inputfield"
-            />{" "}
-            {/* </div>
-            <div className="userbooking-inputfield-sec"> */}
-            <div className="userbooking-input-text">City</div>{" "}
-            <input
-              type="text"
-              name="city"
-              placeholder="City"
-              onChange={formHandler}
-              value={SavedFormData ? formData.city : null}
-              className="userbooking-inputfield"
-            />{" "}
-            {/* </div>
-            <div className="userbooking-inputfield-sec"> */}
-            <div className="userbooking-input-text">State</div>{" "}
-            <input
-              type="text"
-              name="state"
-              placeholder="State"
-              onChange={formHandler}
-              value={SavedFormData ? formData.state : null}
-              className="userbooking-inputfield"
-            />{" "}
-            {/* </div>
-            <div className="userbooking-inputfield-sec"> */}
-            <div className="userbooking-input-text">Pincode</div>{" "}
-            <input
-              type="text"
-              name="pincode"
-              placeholder="Pincode"
-              onChange={formHandler}
-              value={SavedFormData ? formData.pincode : null}
-              className="userbooking-inputfield"
-            />{" "}
-            {/* </div> */}
-            <button onClick={submitHandler} className="userbooking-form-btn">
-              <img src="/submit.png" className="userbooking-form-btn-img" />
-            </button>
-          </form>
-        </div>
+      <div className="userbooking-photographer-sec">
+        <div className="userbooking-photographer-title">Book Your Ideal Photographer</div>
+      <div className="userhome-photographers-profile-sec">
+        {profile.map((data) => (
+          <div
+          className="userhome-photographers-profile-body"
+            key={data._id}
+            onClick={() => photographerProfile(data.login_id)}
+          >
+            <img
+              src={`/upload/${data.profile}`}
+              alt=""
+              className="photographer-profile"
+            />
+            {/* <span>{data.name}</span> */}
+          </div>
+        ))}
       </div>
+          <div className="userhome-photographers-profile-text">
+            Discover and book the perfect photographer for your needs. Browse our
+            curated list of professional photographers, visit their websites to
+            review their stunning photo collections, and book directly through
+            their site for a seamless experience.
+          </div>
+        </div>
     </div>
   );
 };

@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import "./PhotographerReview.css";
 import axios from "axios";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
+import toast, { Toaster } from "react-hot-toast";
 const PhotographerReview = () => {
   // getting profile id
 
@@ -22,8 +23,63 @@ const PhotographerReview = () => {
       });
   }, []);
   console.log(photoprofile);
+
+  //////////////////
+
+  const navigate = useNavigate();
+  const token = sessionStorage.getItem("token");
+
+  ///////////////////
+  var [formData, setFormdata] = useState({}); //Booking form input data handler
+
+  ////if the user doesnt logged in, then the form get stored
+
+  var SavedFormData = sessionStorage.getItem("SavedFormData");
+
+  /////stored form data gets reset on a state
+  if (SavedFormData) {
+    var [formData, setFormdata] = useState(JSON.parse(SavedFormData)); //Booking form input data handler
+  }
+  ///form Input handler
+  const formHandler = (e) => {
+    const { name, value } = e.target;
+
+    setFormdata({ ...formData, [name]: value });
+  };
+  console.log(formData);
+
+  ///form submit handler
+  const submitHandler = (e) => {
+    e.preventDefault();
+    if (token != null) {
+      axios
+        .post(`http://localhost:2222/api/user/booking/${id}`, formData, {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        })
+        .then((data) => {
+          console.log(data);
+          toast.success("Booking Successful");
+          sessionStorage.removeItem("SavedFormData");
+          sessionStorage.removeItem("photographerId");
+          setTimeout(() => {
+            window.location.reload();
+          }, 1000);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    } else {
+      toast.error("You need to login first");
+      sessionStorage.setItem("SavedFormData", JSON.stringify(formData));
+      sessionStorage.setItem("photographerId", id);
+      navigate("/loginregister");
+    }
+  };
   return (
     <div>
+      <Toaster />
       <div className="p-review-main-body">
         <div className="p-review-profile-body">
           <div className="p-review-profile-left">
@@ -116,6 +172,113 @@ const PhotographerReview = () => {
           my dedication to capturing life's moments, big and small. Let's create
           beautiful memories together. Contact me to book a session or discuss
           your photography needs.
+        </div>
+
+        {/* //Booking section */}
+        <div className="p-review-booking-sec">
+          <div className="p-review-booking-background">
+            <img
+              src="/capture.png"
+              alt=""
+              className="p-review-background-text"
+            />{" "}
+            <img src="/your.png" alt="" className="p-review-background-text" />{" "}
+            <img
+              src="/moments.png"
+              alt=""
+              className="p-review-background-text"
+            />{" "}
+          </div>
+
+          {/* Booking Form Section */}
+
+          <div className="p-review-booking-area">
+            <form action="" className="p-review-booking-form">
+              <div className="p-review-input-text">Name</div>{" "}
+              <input
+                type="text"
+                name="name"
+                placeholder="Name"
+                onChange={formHandler}
+                value={SavedFormData ? formData.name : null}
+                className="p-review-inputfield"
+              />{" "}
+              {/* </div>
+            <div className="p-review-inputfield-sec"> */}
+              <div className="p-review-input-text">Email</div>{" "}
+              <input
+                type="text"
+                name="email"
+                placeholder="Email"
+                onChange={formHandler}
+                value={SavedFormData ? formData.email : null}
+                className="p-review-inputfield"
+              />{" "}
+              {/* </div>
+            <div className="p-review-inputfield-sec"> */}
+              <div className="p-review-input-text">Phone</div>{" "}
+              <input
+                type="text"
+                name="phone"
+                placeholder="Phone"
+                onChange={formHandler}
+                value={SavedFormData ? formData.phone : null}
+                className="p-review-inputfield"
+              />{" "}
+              {/* </div>
+            <div className="p-review-inputfield-sec"> */}
+              <div className="p-review-input-text">Address</div>{" "}
+              <input
+                type="text"
+                name="address"
+                placeholder="Address"
+                onChange={formHandler}
+                value={SavedFormData ? formData.address : null}
+                className="p-review-inputfield"
+              />{" "}
+              {/* </div>
+            <div className="p-review-inputfield-sec"> */}
+              <div className="p-review-input-text">City</div>{" "}
+              <input
+                type="text"
+                name="city"
+                placeholder="City"
+                onChange={formHandler}
+                value={SavedFormData ? formData.city : null}
+                className="p-review-inputfield"
+              />{" "}
+              {/* </div>
+            <div className="p-review-inputfield-sec"> */}
+              <div className="p-review-input-text">State</div>{" "}
+              <input
+                type="text"
+                name="state"
+                placeholder="State"
+                onChange={formHandler}
+                value={SavedFormData ? formData.state : null}
+                className="p-review-inputfield"
+              />{" "}
+              {/* </div>
+            <div className="p-review-inputfield-sec"> */}
+              <div className="p-review-input-text">Pincode</div>{" "}
+              <input
+                type="text"
+                name="pincode"
+                placeholder="Pincode"
+                onChange={formHandler}
+                value={SavedFormData ? formData.pincode : null}
+                className="p-review-inputfield"
+              />{" "}
+              {/* </div> */}
+              <button onClick={submitHandler} className="p-review-form-btn">
+                <img src="/submit.png" className="p-review-form-btn-img" />
+
+                <div className="p-review-form-btn-back">
+
+                </div>
+              </button>
+            </form>
+          </div>
         </div>
       </div>
     </div>

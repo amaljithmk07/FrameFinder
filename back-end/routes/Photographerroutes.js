@@ -3,6 +3,8 @@ const mongoose = require("mongoose");
 const photographerroutes = express.Router();
 const PhotographersRegisterDB = require("../models/PhotoRegisterSchema");
 const LoginDB = require("../models/Loginschema");
+const BookingDB = require("../models/Bookingschema");
+const checkAuth = require("../middleware/CheckAuth");
 
 ///////////All Profile
 photographerroutes.get("/all-profile", async (req, res) => {
@@ -93,6 +95,39 @@ photographerroutes.get("/seperate-profile/:id", async (req, res) => {
         error: true,
         message: "All photographers profile ",
         data: Data,
+      });
+    } else
+      (err) => {
+        return res.status(400).json({
+          success: false,
+          error: true,
+          message: "404 error",
+          errorMessage: err.message,
+        });
+      };
+  } catch (err) {
+    return res.status(500).json({
+      success: false,
+      error: true,
+      message: "Network Error",
+      errorMessage: err.message,
+    });
+  }
+});
+
+///////////Previous Booking
+photographerroutes.get("/previous-booking", checkAuth, async (req, res) => {
+  try {
+    console.log(req.userData.userId);
+    const allBooking = await BookingDB.find({
+      photographers_id:req.userData.userId,
+    });
+    if (allBooking) {
+      return res.status(200).json({
+        success: true,
+        error: false,
+        message: "All Bookings available ",
+        data: allBooking,
       });
     } else
       (err) => {
