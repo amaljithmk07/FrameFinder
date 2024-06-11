@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "./PhotoRegister.css";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { Toaster, toast } from "react-hot-toast";
 
 const PhotoRegister = () => {
   const navigate = useNavigate();
@@ -47,6 +48,8 @@ const PhotoRegister = () => {
         formData
       )
       .then((data) => {
+        toast.success("Register Successful");
+
         console.log(data);
         navigate("/loginregister");
       })
@@ -56,6 +59,7 @@ const PhotoRegister = () => {
   };
   return (
     <div>
+      <Toaster />
       <div className="photoregister-main-body">
         <div className="photoregister-form-description">
           <div className="photoregister-form-description-title">

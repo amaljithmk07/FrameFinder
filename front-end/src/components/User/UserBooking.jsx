@@ -39,6 +39,7 @@ const UserBooking = () => {
         })
         .then((data) => {
           console.log(data);
+          toast.success("Booking Successful");
         })
         .catch((err) => {
           console.log(err);

@@ -3,6 +3,7 @@ import "./Login.css";
 import "./Register.css";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
+import { Toaster, toast } from "react-hot-toast";
 
 const LoginRegister = () => {
   const [formChange, setFormchange] = useState(true); //Form changer
@@ -35,10 +36,13 @@ const LoginRegister = () => {
     axios
       .post(`http://localhost:2222/api/login/`, loginData)
       .then((data) => {
+        toast.success("Login Successful");
+
         sessionStorage.setItem("userRole", data.data.userRole);
         sessionStorage.setItem("userId", data.data.userId);
         sessionStorage.setItem("token", data.data.token);
         console.log(data);
+
         if (SavedFormData) {
           navigate("/user/booking");
         } else if (data.data.userRole == 1) {
@@ -76,6 +80,7 @@ const LoginRegister = () => {
       .post(`http://localhost:2222/api/register`, registerData)
       .then((data) => {
         console.log(data);
+        toast.success("Register Successful");
         setFormchange(true);
       })
       .catch((err) => {
@@ -85,6 +90,7 @@ const LoginRegister = () => {
 
   return (
     <div>
+      <Toaster />
       <div className="login-main">
         <div
           className={

@@ -44,8 +44,17 @@ const Navbar = () => {
   };
 
   const [Hamburger, setHamburger] = useState(false);
+
+  //////Toggle Bar Function
+
   const HamburgerHandler = () => {
     setHamburger((prev) => !prev);
+  };
+
+  ////////////
+
+  const HamburgerOff = () => {
+    setHamburger(false);
   };
 
   return (
@@ -56,7 +65,7 @@ const Navbar = () => {
           {/* <img src="/logo.png" alt="" className="title-logo-icon" /> */}
         </div>
         <div className="navbar-menu-sec">
-          <ul className="navbar-menu-items">
+          <div className="navbar-menu-items">
             {/* <Link className="navbar-menu-data">Home</Link> */}
 
             {role == 1 ? (
@@ -141,7 +150,7 @@ const Navbar = () => {
                 </Link>
               </>
             )}
-          </ul>
+          </div>
         </div>
         {/* //// */}
         <img
@@ -152,13 +161,87 @@ const Navbar = () => {
         {Hamburger == true ? (
           <>
             <div className="navbar-hamburger-body">
-              <div className="navbar-hamburger-menu">Home</div>
-              <div className="navbar-hamburger-menu">Explore</div>
-              <div className="navbar-hamburger-menu">Explore</div>
-              <div className="navbar-hamburger-menu">Explore</div>
-              <div className="navbar-hamburger-menu">Explore</div>
-              <div className="navbar-hamburger-menu">Booking</div>
-              <div className="navbar-hamburger-menu">Logout</div>
+              {role == 1 ? (
+                <>
+                  <Link
+                    className="navbar-hamburger-menu"
+                    to={"/home"}
+                    onClick={HamburgerOff}
+                  >
+                    Home
+                  </Link>
+                  <Link
+                    className="navbar-hamburger-menu"
+                    to={"/previous-booking"}
+                    onClick={HamburgerOff}
+                  >
+                    {" "}
+                    Previous Booking
+                  </Link>{" "}
+                  <Link
+                    className="navbar-hamburger-menu"
+                    to={""}
+                    onClick={HamburgerOff}
+                  >
+                    {" "}
+                    Photo Gallery{" "}
+                  </Link>{" "}
+                  <Link
+                    className="navbar-hamburger-menu"
+                    to={""}
+                    onClick={HamburgerOff}
+                  >
+                    {" "}
+                    Profile{" "}
+                  </Link>{" "}
+                </>
+              ) : (
+                <>
+                  <Link
+                    className="navbar-hamburger-menu"
+                    to={"/"}
+                    onClick={HamburgerOff}
+                  >
+                    Home
+                  </Link>
+                  <Link
+                    className="navbar-hamburger-menu"
+                    to={"/user/booking"}
+                    onClick={HamburgerOff}
+                  >
+                    {" "}
+                    Booking
+                  </Link>{" "}
+                  <Link
+                    className="navbar-hamburger-menu"
+                    onClick={HamburgerOff}
+                  >
+                    {" "}
+                    Explore{" "}
+                  </Link>{" "}
+                </>
+              )}
+
+              {token ? (
+                <>
+                  <Link
+                    className="navbar-hamburger-menu"
+                    onClick={(() => logout, HamburgerOff)}
+                  >
+                    Logout{" "}
+                  </Link>
+                </>
+              ) : (
+                <>
+                  <Link
+                    className="navbar-hamburger-menu"
+                    to={"/loginregister"}
+                    onClick={HamburgerOff}
+                  >
+                    Login{" "}
+                  </Link>
+                </>
+              )}
             </div>
           </>
         ) : (
