@@ -3,6 +3,7 @@ import "./UserBooking.css";
 import axios from "axios";
 import { Toaster, toast } from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
+import BASE_URI from "../Constant/Constant";
 
 const UserBooking = () => {
   const navigate = useNavigate();
@@ -13,7 +14,8 @@ const UserBooking = () => {
   const [profile, setProfile] = useState([]);
   useEffect(() => {
     axios
-      .get("http://localhost:2222/api/photographer/all-profile")
+      // .get("http://localhost:2222/api/photographer/all-profile")
+      .get(`${BASE_URI}/api/photographer/all-profile`)
       .then((data) => {
         console.log(data.data.data);
         setProfile(data.data.data);

@@ -2,6 +2,7 @@ import "./UserHome.css";
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import BASE_URI from "../Constant/Constant";
 
 const UserHome = () => {
   const navigate = useNavigate();
@@ -11,7 +12,8 @@ const UserHome = () => {
   const [profile, setProfile] = useState([]);
   useEffect(() => {
     axios
-      .get("http://localhost:2222/api/photographer/all-profile")
+      // .get("http://localhost:2222/api/photographer/all-profile")
+      .get(`${BASE_URI}/api/photographer/all-profile`)
       .then((data) => {
         console.log(data.data.data);
         setProfile(data.data.data);
@@ -34,10 +36,7 @@ const UserHome = () => {
 
         <div className="userhome-introduction-body">
           <div className="userhome-intro-left-body">
-            <img
-              src="/img-frame2.png"  
-              className="userhome-intro-image-sec"
-            />
+            <img src="/img-frame2.png" className="userhome-intro-image-sec" />
             <img src="7.jpg" alt="" className="userhome-intro-body-img" />
           </div>
 
@@ -93,39 +92,6 @@ const UserHome = () => {
           </div>
 
           <div className="userhome-photographers-profile-sec">
-            {/* <div className="userhome-photographers-profile-body">
-              <img src="2.webp" alt="" className="photographer-profile" />
-            </div>
-            <div className="userhome-photographers-profile-body">
-              <img src="2.webp" alt="" className="photographer-profile" />
-            </div>
-            <div className="userhome-photographers-profile-body">
-              <img src="2.webp" alt="" className="photographer-profile" />
-            </div>
-            <div className="userhome-photographers-profile-body">
-              <img src="2.webp" alt="" className="photographer-profile" />
-            </div>
-            <div className="userhome-photographers-profile-body">
-              <img src="2.webp" alt="" className="photographer-profile" />
-            </div>
-            <div className="userhome-photographers-profile-body">
-              <img src="2.webp" alt="" className="photographer-profile" />
-            </div>
-            <div className="userhome-photographers-profile-body">
-              <img src="2.webp" alt="" className="photographer-profile" />
-            </div>
-            <div className="userhome-photographers-profile-body">
-              <img src="2.webp" alt="" className="photographer-profile" />
-            </div>
-            <div className="userhome-photographers-profile-body">
-              <img src="2.webp" alt="" className="photographer-profile" />
-            </div>
-            <div className="userhome-photographers-profile-body">
-              <img src="2.webp" alt="" className="photographer-profile" />
-            </div>
-            <div className="userhome-photographers-profile-body">
-              <img src="2.webp" alt="" className="photographer-profile" />
-            </div> */}
             {profile.map((data) => (
               <div
                 className="userhome-photographers-profile-body"

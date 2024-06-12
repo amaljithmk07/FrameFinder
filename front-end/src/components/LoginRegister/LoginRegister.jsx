@@ -4,6 +4,7 @@ import "./Register.css";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { Toaster, toast } from "react-hot-toast";
+import BASE_URI from "../Constant/Constant";
 
 const LoginRegister = () => {
   const [formChange, setFormchange] = useState(true); //Form changer
@@ -35,7 +36,8 @@ const LoginRegister = () => {
   const loginsubmitForm = (e) => {
     e.preventDefault();
     axios
-      .post(`http://localhost:2222/api/login/`, loginData)
+      // .post(`http://localhost:2222/api/login/`, loginData)
+      .post(`${BASE_URI}/api/login/`, loginData)
       .then((data) => {
         toast.success("Login Successful");
 
@@ -79,7 +81,8 @@ const LoginRegister = () => {
   const submitForm = (e) => {
     e.preventDefault();
     axios
-      .post(`http://localhost:2222/api/register`, registerData)
+      // .post(`http://localhost:2222/api/register`, registerData)
+      .post(`${BASE_URI}/api/register`, registerData)
       .then((data) => {
         console.log(data);
         toast.success("Register Successful");

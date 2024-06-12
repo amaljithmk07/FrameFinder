@@ -3,6 +3,7 @@ import "./PhotoRegister.css";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { Toaster, toast } from "react-hot-toast";
+import BASE_URI from "../Constant/Constant";
 
 const PhotoRegister = () => {
   const navigate = useNavigate();
@@ -44,7 +45,8 @@ const PhotoRegister = () => {
     formData.append("password", formInputs.password);
     axios
       .post(
-        "http://localhost:2222/api/register/photographer-register",
+        // "http://localhost:2222/api/register/photographer-register",
+        `${BASE_URI}/register/photographer-register`,
         formData
       )
       .then((data) => {

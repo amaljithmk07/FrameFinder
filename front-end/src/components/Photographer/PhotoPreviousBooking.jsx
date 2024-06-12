@@ -2,12 +2,14 @@ import React, { useEffect, useState } from "react";
 import "./PhotoPreviousBooking.css";
 import axios from "axios";
 import toast, { Toaster } from "react-hot-toast";
+import BASE_URI from "../Constant/Constant";
 const PhotoPreviousBooking = () => {
   const token = sessionStorage.getItem("token");
   const [bookings, setBookings] = useState([]);
   useEffect(() => {
     axios
-      .get(`http://localhost:2222/api/photographer/previous-booking`, {
+      // .get(`http://localhost:2222/api/photographer/previous-booking`, {
+      .get(`${BASE_URI}/api/photographer/previous-booking`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },

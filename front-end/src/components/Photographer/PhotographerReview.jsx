@@ -3,6 +3,7 @@ import "./PhotographerReview.css";
 import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
 import toast, { Toaster } from "react-hot-toast";
+import BASE_URI from "../Constant/Constant";
 const PhotographerReview = () => {
   // getting profile id
 
@@ -13,7 +14,8 @@ const PhotographerReview = () => {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:2222/api/photographer/seperate-profile/${id}`)
+      // .get(`http://localhost:2222/api/photographer/seperate-profile/${id}`)
+      .get(`${BASE_URI}/api/photographer/seperate-profile/${id}`)
       .then((data) => {
         // console.log(data.data.data);
         setPhotoProfile(data.data.data[0]);
@@ -53,7 +55,8 @@ const PhotographerReview = () => {
     e.preventDefault();
     if (token != null) {
       axios
-        .post(`http://localhost:2222/api/user/booking/${id}`, formData, {
+        // .post(`http://localhost:2222/api/user/booking/${id}`, formData, {
+        .post(`${BASE_URI}/api/user/booking/${id}`, formData, {
           headers: {
             Authorization: `Bearer ${token}`,
           },
