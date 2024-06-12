@@ -111,6 +111,8 @@
   align-items: center;
   font-size: 1.1rem;
 }
+
+/* ///////// */
 .userhome-photographers-profile-sec {
   height: 250px;
   /* background-color: blue; */
@@ -361,6 +363,11 @@
 @media screen and (max-width: 750px) {
   .userhome-intro-right-body {
     width: 85%;
+    padding: 0px 0 30px 0;
+  }
+  .userhome-intro-button {
+    height: 35px;
+    width: 120px;
   }
   .userhome-intro-title {
     /* background-color: aqua; */
@@ -391,6 +398,9 @@
   }
 }
 @media screen and (max-width: 500px) {
+  .userhome-main-body {
+    text-align: justify;
+  }
   .userhome-intro-image-sec {
     height: 250px;
     width: 250px;
@@ -402,6 +412,9 @@
   .userhome-intro-paragraph {
     font-size: 1.1rem;
     line-height: 30px;
+  }
+  .userhome-photographers-profile-sec {
+    height: 200px;
   }
 }
 @media screen and (max-width: 450px) {

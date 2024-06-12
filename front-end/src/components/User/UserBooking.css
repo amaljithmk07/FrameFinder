@@ -212,3 +212,13 @@
     line-height: 20px;
   }
 }
+
+@media screen and (max-width: 500px) {
+  .userbooking-categories-title {
+    font-size: 1.5rem;
+  }
+  .userbooking-photographer-title {
+    font-size: 1.35rem;
+    align-items: end;
+  }
+}
