@@ -37,7 +37,6 @@ const UserBooking = () => {
             <div className="userbooking-text-quote">your ideal wedding</div>
             <div className="userbooking-text-quote">moments today.</div>
           </div>
-
           <button className="userbooking-text-body-button">Book Now</button>
         </div>{" "}
       </div>{" "}
@@ -230,30 +229,32 @@ const UserBooking = () => {
         </div>
       </div>
       <div className="userbooking-photographer-sec">
-        <div className="userbooking-photographer-title">Book Your Ideal Photographer</div>
-      <div className="userhome-photographers-profile-sec">
-        {profile.map((data) => (
-          <div
-          className="userhome-photographers-profile-body"
-            key={data._id}
-            onClick={() => photographerProfile(data.login_id)}
-          >
-            <img
-              src={`/upload/${data.profile}`}
-              alt=""
-              className="photographer-profile"
-            />
-            {/* <span>{data.name}</span> */}
-          </div>
-        ))}
-      </div>
-          <div className="userhome-photographers-profile-text">
-            Discover and book the perfect photographer for your needs. Browse our
-            curated list of professional photographers, visit their websites to
-            review their stunning photo collections, and book directly through
-            their site for a seamless experience.
-          </div>
+        <div className="userbooking-photographer-title">
+          Book Your Ideal Photographer
         </div>
+        <div className="userhome-photographers-profile-sec">
+          {profile.map((data) => (
+            <div
+              className="userhome-photographers-profile-body"
+              key={data._id}
+              onClick={() => photographerProfile(data.login_id)}
+            >
+              <img
+                src={`/upload/${data.profile}`}
+                alt=""
+                className="photographer-profile"
+              />
+              {/* <span>{data.name}</span> */}
+            </div>
+          ))}
+        </div>
+        <div className="userhome-photographers-profile-text">
+          Discover and book the perfect photographer for your needs. Browse our
+          curated list of professional photographers, visit their websites to
+          review their stunning photo collections, and book directly through
+          their site for a seamless experience.
+        </div>
+      </div>
     </div>
   );
 };

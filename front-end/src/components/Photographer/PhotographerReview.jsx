@@ -276,9 +276,7 @@ const PhotographerReview = () => {
               <button onClick={submitHandler} className="p-review-form-btn">
                 <img src="/submit.png" className="p-review-form-btn-img" />
 
-                <div className="p-review-form-btn-back">
-
-                </div>
+                <div className="p-review-form-btn-back"></div>
               </button>
             </form>
           </div>
