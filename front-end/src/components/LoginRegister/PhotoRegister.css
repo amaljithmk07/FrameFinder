@@ -117,5 +117,25 @@
   flex-direction: column;
   gap: 20px;
   line-height: 25px;
+}
 
+/* /////////Responsive area */
+
+@media screen and (max-width: 460px) {
+  .photoregister-sub-body {
+    height: 600px;
+    width: 95%;
+  }
+
+  .photoregister-form-sec {
+    height: 500px;
+    width: 85%;
+    /* background-color: red; */
+  }
+  .photoregister-input-sec {
+    width: 90%;
+  }
+  .photoregister-submit-btn {
+    width: 100%;
+  }
 }

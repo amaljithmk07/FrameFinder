@@ -209,3 +209,39 @@
 .form-to-register:hover {
   color: rgb(232, 155, 0);
 }
+
+/* //////////////Responsive Area */
+@media screen and (max-width: 850px) {
+  .login-image-sec {
+    display: none;
+  }
+  .login-sub-body {
+    height: 455px;
+    width: 405px;
+    justify-content: center;
+    background-image: unset;
+    background-color: rgb(191, 191, 191);
+  }
+  .login-form-sec {
+    animation: unset;
+  }
+}
+@media screen and (max-width: 450px) {
+  .login-sub-body {
+    width: 90%;
+  }
+  .login-form-sec {
+    width: 98%;
+  }
+  .login-form {
+    /* height: 90%; */
+    width: 90%;
+    /* background-color: red; */
+  }
+  .login-inputfield-sec {
+    width: 90%;
+  }
+  .form-changer-area-sec {
+    width: 100%;
+  }
+}

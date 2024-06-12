@@ -182,7 +182,7 @@ const LoginRegister = () => {
                     placeholder="Name"
                   />
                 </div>
-                <div className="login-inputfield-sec">
+                <div className="register-inputfield-sec">
                   <img src="/email.png" alt="" className="input-logo" />
                   <input
                     type="text"
@@ -192,7 +192,7 @@ const LoginRegister = () => {
                     placeholder="Email"
                   />
                 </div>
-                <div className="login-inputfield-sec">
+                <div className="register-inputfield-sec">
                   <img src="/phone.png" alt="" className="input-logo" />
                   <input
                     type="text"
@@ -202,7 +202,7 @@ const LoginRegister = () => {
                     placeholder="Phone"
                   />
                 </div>
-                <div className="login-inputfield-sec">
+                <div className="register-inputfield-sec">
                   <img
                     src={
                       hidePass == true
