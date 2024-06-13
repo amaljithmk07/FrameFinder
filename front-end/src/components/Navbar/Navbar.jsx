@@ -159,11 +159,11 @@ const Navbar = () => {
           onClick={HamburgerHandler}
           className="navbar-hamburger-icon"
           /> */}
-        <label htmlFor="hamb" className="hamb-main" onClick={HamburgerHandler}>
-          <div className={Hamburger == false ? "hamb-line":"hamb-line-after"}></div>
-          <div className={Hamburger == false ? "hamb-line":"hamb-line-after"}></div>
-          <div className={Hamburger == false ? "hamb-line":"hamb-line-after"}></div>
-        </label>
+        <div className="navbar-hamb-main" onClick={HamburgerHandler}>
+          <div className={Hamburger == false ? "navbar-hamb-line":"navbar-hamb-line-after"}></div>
+          <div className={Hamburger == false ? "navbar-hamb-line":"navbar-hamb-line-after"}></div>
+          <div className={Hamburger == false ? "navbar-hamb-line":"navbar-hamb-line-after"}></div>
+        </div>
         {Hamburger == true ? (
           <>
             <div className="navbar-hamburger-body">

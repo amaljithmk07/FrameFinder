@@ -152,7 +152,7 @@
 
   /* ////////This for Animation//////////// */
 
-  .hamb-main {
+  .navbar-hamb-main {
     /* background-color: blue; */
     height: 50px;
     width: 50px;
@@ -165,7 +165,7 @@
     position: relative;
   }
 
-  .hamb-line {
+  .navbar-hamb-line {
     height: 4px;
     width: 60%;
     background-color: rgb(92, 92, 92);
@@ -173,16 +173,16 @@
     transition: all 0.18s ease-in-out;
     position: absolute;
   }
-  .hamb-line:nth-child(1) {
+  .navbar-hamb-line:nth-child(1) {
     top: 30%;
     width: 20%;
   }
-  .hamb-line:nth-child(3) {
+  .navbar-hamb-line:nth-child(3) {
     top: 65%;
     width: 40%;
   }
 
-  .hamb-line-after {
+  .navbar-hamb-line-after {
     height: 4px;
     width: 50%;
     background-color: rgb(131, 131, 131);
@@ -190,15 +190,15 @@
     transition: all 0.18s ease-in-out;
     position: absolute;
   }
-  .hamb-line-after:nth-child(1) {
+  .navbar-hamb-line-after:nth-child(1) {
     transform: rotate(45deg);
     top: 50%;
     width: 55%;
   }
-  .hamb-line-after:nth-child(2) {
+  .navbar-hamb-line-after:nth-child(2) {
     opacity: 0;
   }
-  .hamb-line-after:nth-child(3) {
+  .navbar-hamb-line-after:nth-child(3) {
     width: 55%;
     top: 50%;
     transform: rotate(-45deg);
