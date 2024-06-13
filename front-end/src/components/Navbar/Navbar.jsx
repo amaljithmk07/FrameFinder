@@ -152,7 +152,8 @@ const Navbar = () => {
             )}
           </div>
         </div>
-        {/* //// */}
+
+        {/* //Hamburger Secion// */}
         <img
           src={Hamburger == false ? "/hamburger.png" : "/hamb-close.png"}
           onClick={HamburgerHandler}
@@ -226,7 +227,9 @@ const Navbar = () => {
                 <>
                   <Link
                     className="navbar-hamburger-menu"
-                    onClick={(() => logout, HamburgerOff)}
+                    onClick={() => {
+                      logout(), HamburgerOff();
+                    }}
                   >
                     Logout{" "}
                   </Link>
