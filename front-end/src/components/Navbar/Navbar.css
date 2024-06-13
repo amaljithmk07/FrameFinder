@@ -84,7 +84,7 @@
   display: none;
 }
 
-.jam-main {
+.hamb-main {
   display: none;
 }
 
@@ -113,9 +113,14 @@
 }
 
 @media screen and (max-width: 400px) {
+  .navbar-main {
+    height: 10vh;
+    width: 100%;
+    /* background-color: red; */
+  }
   .navbar-logo-sec {
     height: 100%;
-    width: 200px;
+    width: 210px;
     /* background-color: rgb(0, 255, 149); */
     display: flex;
     justify-content: start;
@@ -129,56 +134,26 @@
     display: none;
     justify-content: center;
   }
-  .navbar-menu-items {
+  /* .navbar-menu-items {
     justify-content: center;
     width: 90%;
   }
   .navbar-menu-data {
     height: 45%;
     width: 80px;
-  }
+    } */
 
-  /* /////////// */
+  /* ///////This for Image//// */
 
   .navbar-hamburger-icon {
     display: flex;
     height: 25px;
   }
-  .navbar-hamburger-body {
-    height: 90vh;
-    width: 100%;
-    top: 10vh;
-    position: absolute;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    gap: 20px;
-    background-color: rgb(255, 255, 255);
 
-    /* background-image: url("/hamb-background.webp"); */
-    /* background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover; */
-  }
-  .navbar-hamburger-menu {
-    height: 50px;
-    width: 70%;
-    /* background-color: red; */
-    text-decoration: none;
-    color: #000000;
-    display: flex;
-    justify-content: center;
-    align-items: end;
-    border-top: 1px solid rgb(183, 183, 183);
-  }
-  .navbar-hamburger-menu:nth-child(1) {
-    border: 0px;
-  }
+  /* ////////This for Animation//////////// */
 
-  /* //////////////////// */
-
-  .jam-main {
+  .hamb-main {
+    /* background-color: blue; */
     height: 50px;
     width: 50px;
     display: flex;
@@ -195,33 +170,66 @@
     position: absolute;
     visibility: hidden;
   }
-  .line {
+  .hamb-line {
     height: 4px;
     width: 60%;
-    background-color: rgb(56, 56, 56);
+    background-color: rgb(92, 92, 92);
     border-radius: 10px;
-    transition: all 0.3s ease-in-out;
+    transition: all 0.18s ease-in-out;
     position: absolute;
   }
-  .line:nth-child(2) {
+  .hamb-line:nth-child(2) {
     top: 30%;
     width: 20%;
   }
-  .line:nth-child(4) {
+  .hamb-line:nth-child(4) {
     top: 65%;
     width: 40%;
   }
-  #hamb:checked ~ .line:nth-child(2) {
+  #hamb:checked ~ .hamb-line:nth-child(2) {
     transform: rotate(45deg);
     top: 50%;
     width: 60%;
   }
-  #hamb:checked ~ .line:nth-child(3) {
+  #hamb:checked ~ .hamb-line:nth-child(3) {
     opacity: 0;
   }
-  #hamb:checked ~ .line:nth-child(4) {
+  #hamb:checked ~ .hamb-line:nth-child(4) {
     width: 60%;
     top: 50%;
     transform: rotate(-45deg);
+  }
+
+  /* /////////Hamvurger Body */
+  .navbar-hamburger-body {
+    height: 90vh;
+    width: 100%;
+    top: 10vh;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 20px;
+    background-color: rgb(255, 255, 255);
+
+    /* background-image: url("/hamb-background.webp"); */
+    /* background-position: center;
+              background-repeat: no-repeat;
+              background-size: cover; */
+  }
+  .navbar-hamburger-menu {
+    height: 50px;
+    width: 70%;
+    /* background-color: red; */
+    text-decoration: none;
+    color: #000000;
+    display: flex;
+    justify-content: center;
+    align-items: end;
+    border-top: 1px solid rgb(183, 183, 183);
+  }
+  .navbar-hamburger-menu:nth-child(1) {
+    border: 0px;
   }
 }

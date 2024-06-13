@@ -1,7 +1,6 @@
 import React, { forwardRef, useState } from "react";
 import "./Navbar.css";
 import { Link, useNavigate } from "react-router-dom";
-import Jamb from "../Loader/Jamb";
 const Navbar = () => {
   const role = sessionStorage.getItem("userRole");
 
@@ -160,11 +159,11 @@ const Navbar = () => {
           onClick={HamburgerHandler}
           className="navbar-hamburger-icon"
           /> */}
-        <label htmlFor="hamb" className="jam-main">
+        <label htmlFor="hamb" className="hamb-main">
           <input type="checkbox" id="hamb" onClick={HamburgerHandler} />
-          <div className="line"></div>
-          <div className="line"></div>
-          <div className="line"></div>
+          <div className="hamb-line"></div>
+          <div className="hamb-line"></div>
+          <div className="hamb-line"></div>
         </label>
         {Hamburger == true ? (
           <>
