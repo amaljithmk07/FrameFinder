@@ -9,7 +9,7 @@
   font-family: system-ui;
 }
 .p-review-profile-body {
-  height: 100vh;
+  min-height: 100vh;
   width: 100%;
   /* background-color: blue; */
   background-image: url("/public/profile-background1.jpg");
@@ -96,6 +96,10 @@
   font-size: 1.2rem;
   font-weight: 700;
   text-transform: capitalize;
+  /* background-color: rebeccapurple; */
+}
+.p-review-profile-data:nth-child(1) {
+  font-size: 4rem;
   /* background-color: rebeccapurple; */
 }
 /* ////////////////////////// */
@@ -200,6 +204,9 @@
   height: 100px;
   filter: invert(1) drop-shadow(2px 2px 5px rgb(0, 0, 0));
 }
+
+/* /// */
+
 .p-review-booking-area {
   height: 550px;
   width: 400px;
@@ -210,6 +217,7 @@
   align-items: center;
   box-shadow: 5px 0px 20px rgba(0, 0, 0, 0.453);
 }
+
 .p-review-booking-form {
   height: 90%;
   width: 100%;
@@ -285,7 +293,7 @@
   background-color: #ffdcba;
   position: absolute;
   bottom: -20px;
-  transition: all .7s ease-in-out;
+  transition: all 0.7s ease-in-out;
 }
 .p-review-form-btn:hover .p-review-form-btn-back {
   /* bottom: -50px; */
@@ -297,6 +305,10 @@
 /* /////////Responsive Area */
 
 @media screen and (max-width: 1000px) {
+  .p-review-profile-body {
+    flex-direction: column;
+  }
+
   .p-review-booking-sec {
     flex-direction: column;
   }
@@ -311,5 +323,28 @@
   .p-review-booking-area {
     height: 550px;
     width: 400px;
+  }
+}
+
+@media screen and (max-width: 560px) {
+  .p-review-profile-left,
+  .p-review-profile-right {
+    width: 90%;
+  }
+
+  .p-review-profile-data:nth-child(1) {
+    font-size: 2rem;
+  }
+  .p-review-profile-data {
+    font-size: 1rem;
+  }
+}
+@media screen and (max-width: 450px) {
+  .p-review-booking-background,
+  .p-review-booking-area {
+    width: 90%;
+  }
+  .p-review-inputfield {
+    width: 80%;
   }
 }

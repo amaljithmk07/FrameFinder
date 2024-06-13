@@ -6,7 +6,6 @@ import toast, { Toaster } from "react-hot-toast";
 import BASE_URI from "../Constant/Constant";
 import Loader from "../Loader/Loader";
 const PhotographerReview = () => {
-
   const navigate = useNavigate();
   const token = sessionStorage.getItem("token");
 
@@ -17,10 +16,8 @@ const PhotographerReview = () => {
   // show Loader
   const [showloader, setShowloader] = useState(false);
 
-
   ///for photographer profile
   const [photoprofile, setPhotoProfile] = useState({});
-
 
   useEffect(() => {
     setShowloader(true);
@@ -122,10 +119,7 @@ const PhotographerReview = () => {
               </div>
               <div className="p-review-profile-right">
                 <div className="p-review-profile-details">
-                  <div
-                    className="p-review-profile-data"
-                    style={{ fontSize: "4rem" }}
-                  >
+                  <div className="p-review-profile-data">
                     {photoprofile.name}
                   </div>
                   <div className="p-review-profile-data">
