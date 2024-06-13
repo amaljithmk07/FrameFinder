@@ -3,10 +3,18 @@ import "./PhotoPreviousBooking.css";
 import axios from "axios";
 import toast, { Toaster } from "react-hot-toast";
 import BASE_URI from "../Constant/Constant";
+import Loader from "../Loader/Loader";
 const PhotoPreviousBooking = () => {
   const token = sessionStorage.getItem("token");
+
+  // show Loader
+  const [showloader, setShowloader] = useState(false);
+
+  ///Bookings state
   const [bookings, setBookings] = useState([]);
+
   useEffect(() => {
+    setShowloader(true);
     axios
       // .get(`http://localhost:2222/api/photographer/previous-booking`, {
       .get(`${BASE_URI}/api/photographer/previous-booking`, {
@@ -16,11 +24,15 @@ const PhotoPreviousBooking = () => {
       })
       .then((data) => {
         console.log(data);
+        setShowloader(false);
+
         toast.success(data.data.message);
         setBookings(data.data.data);
       })
       .catch((err) => {
         toast.error(err.response.data.message);
+        setShowloader(false);
+
         console.log(err);
       });
   }, []);
@@ -42,18 +54,38 @@ const PhotoPreviousBooking = () => {
           </div>
         </div>
 
-        <div className="p-previous-booking-sec">
-          {bookings.map((data) => (
-            <div className="p-previous-booking-card-body">
-              <div>{data.name}</div>
-              <div>{data.email}</div>
-              <div>
-                {data.address},{data.city},{data.state}
-              </div>
-              <div>{data.phone}</div>
-              <button>Review</button>
-            </div>
-          ))}
+        <div
+          className={
+            showloader == true
+              ? "p-previous-loading-sec"
+              : "p-previous-booking-sec"
+          }
+        >
+          {showloader == true ? (
+            <Loader />
+          ) : (
+            <>
+              {bookings.map((data) => (
+                <div className="p-previous-booking-card-body">
+                  <div className="p-previous-booking-card-title">
+                    {data.name}
+                  </div>
+                  <div className="p-previous-booking-card-content">
+                    {data.email}
+                  </div>
+                  <div className="p-previous-booking-card-content">
+                    {data.address},{data.city},{data.state}
+                  </div>
+                  <div className="p-previous-booking-card-content">
+                    {data.phone}
+                  </div>
+                  <button className="p-previous-booking-card-btn">
+                    Review
+                  </button>
+                </div>
+              ))}
+            </>
+          )}
         </div>
       </div>
     </div>

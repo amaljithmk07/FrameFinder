@@ -33,6 +33,18 @@
   text-align: justify;
   line-height: 25px;
 }
+
+/* ////loading */
+
+.p-previous-loading-sec {
+  height: 50vh;
+  width: 90%;
+  /* background-color: rgb(255, 34, 9); */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
 .p-previous-booking-sec {
   min-height: 50vh;
   width: 90%;
@@ -44,14 +56,46 @@
   gap: 50px;
   padding: 10px 0;
 }
-.p-previous-booking-card-body{
-  height: 350px;
-  width: 400px;
-  background-color: rgb(231, 231, 231);
-  border-radius: 10px;
-  /* border: 2px solid red; */
+
+/* /////// */
+
+.p-previous-booking-card-body {
+  height: 300px;
+  width: 380px;
+  /* background-color: rgb(240, 240, 240); */
+  border-radius: 30px;
+  border: 3px solid rgb(223, 223, 223);
+  gap: 20px;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: center;
   align-items: center;
   flex-direction: column;
+}
+.p-previous-booking-card-title {
+  height: 40px;
+  width: 75%;
+  display: flex;
+  align-items: center;
+  font-size: 1.3rem;
+  font-weight: 600;
+  /* background-color: rgb(205, 153, 153); */
+}
+.p-previous-booking-card-content {
+  height: 30px;
+  width: 75%;
+  display: flex;
+  align-items: center;
+  font-size: 1rem;
+  font-weight: 600;
+  /* background-color: rgb(205, 153, 153); */
+}
+.p-previous-booking-card-btn {
+  height: 40px;
+  width: 75%;
+  font-size: 1.1rem;
+  border-radius: 10px;
+  border: 0;
+  cursor: pointer;
+  color: rgb(255, 255, 255);
+  background-color: rgb(61, 155, 255);
 }
