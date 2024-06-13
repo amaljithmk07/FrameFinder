@@ -126,6 +126,14 @@
   white-space: nowrap; /* Prevent items from wrapping */
   scrollbar-width: none; /* Hide scrollbar in Firefox */
 }
+.userhome-photographers-loader-sec {
+  height: 250px;
+  width: 95%;
+  display: flex;
+  justify-content: center; /* Adjust alignment as needed */
+  align-items: center;
+  overflow: hidden;
+}
 
 .userhome-photographers-profile-body {
   height: 150px;

@@ -5,8 +5,13 @@ import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { Toaster, toast } from "react-hot-toast";
 import BASE_URI from "../Constant/Constant";
+import Loader from "../Loader/Loader";
 
 const LoginRegister = () => {
+  // show Loader
+
+  const [showloader, setShowloader] = useState(false);
+
   const [formChange, setFormchange] = useState(true); //Form changer
 
   //////Password Hide and show
@@ -34,11 +39,13 @@ const LoginRegister = () => {
   const photographerId = sessionStorage.getItem("photographerId");
   // console.log(SavedFormData);
   const loginsubmitForm = (e) => {
+    setShowloader(true);
     e.preventDefault();
     axios
       // .post(`http://localhost:2222/api/login/`, loginData)
       .post(`${BASE_URI}/api/login/`, loginData)
       .then((data) => {
+        setShowloader(false);
         toast.success("Login Successful");
 
         sessionStorage.setItem("userRole", data.data.userRole);
@@ -55,6 +62,8 @@ const LoginRegister = () => {
         }
       })
       .catch((err) => {
+        setShowloader(false);
+
         toast.error(err.response.data.message);
         console.log(err.response.data.message);
       });
@@ -97,149 +106,155 @@ const LoginRegister = () => {
   return (
     <div>
       <Toaster />
-      <div className="login-main">
-        <div
-          className={
-            formChange == true ? "login-sub-body" : "register-sub-body"
-          }
-        >
-          <div
-            className={
-              formChange == true ? "login-image-sec" : "register-image-sec"
-            }
-          ></div>
+      {showloader == true ? (
+        <Loader name={true} />
+      ) : (
+        <>
+          <div className="login-main">
+            <div
+              className={
+                formChange == true ? "login-sub-body" : "register-sub-body"
+              }
+            >
+              <div
+                className={
+                  formChange == true ? "login-image-sec" : "register-image-sec"
+                }
+              ></div>
 
-          {formChange == true ? (
-            <div className="login-form-sec">
-              {/* ///Login Form */}
+              {formChange == true ? (
+                <div className="login-form-sec">
+                  {/* ///Login Form */}
 
-              <form action="" className="login-form">
-                <div className="form-title">LOGIN</div>
-                <div className="login-inputfield-sec">
-                  <img src="/email.png" alt="" className="input-logo" />
-                  <input
-                    type="text"
-                    name="email"
-                    onChange={loginformHandler}
-                    className="login-input-field"
-                    placeholder="Email"
-                  />
-                </div>
-                <div className="login-inputfield-sec">
-                  <img
-                    src={
-                      hidePass == true
-                        ? "open-eye-login.png"
-                        : "/closed-eye-login.png"
-                    }
-                    alt=""
-                    className="input-logo"
-                    style={{ cursor: "pointer" }}
-                    onClick={passwordHandler}
-                  />
-                  <input
-                    type={hidePass == true ? "text" : "password"}
-                    name="password"
-                    onChange={loginformHandler}
-                    className="login-input-field"
-                    placeholder="Password"
-                  />
-                </div>
-                <button onClick={loginsubmitForm} className="login-button">
-                  Login
-                  <div className="login-btn-back"></div>
-                </button>
-                <div className="form-changer-area-sec">
-                  <div className="form-changer-area">
-                    Are you a new user ? &nbsp;
-                    <div onClick={formChanger} className="form-to-register">
-                      Register
+                  <form action="" className="login-form">
+                    <div className="form-title">LOGIN</div>
+                    <div className="login-inputfield-sec">
+                      <img src="/email.png" alt="" className="input-logo" />
+                      <input
+                        type="text"
+                        name="email"
+                        onChange={loginformHandler}
+                        className="login-input-field"
+                        placeholder="Email"
+                      />
                     </div>
-                  </div>
-                  <div className="form-changer-area">
-                    Register As Phtographer? &nbsp;
-                    <Link
-                      to={"/photographer-register"}
-                      className="form-to-register"
-                    >
-                      Click
-                    </Link>
-                  </div>
+                    <div className="login-inputfield-sec">
+                      <img
+                        src={
+                          hidePass == true
+                            ? "open-eye-login.png"
+                            : "/closed-eye-login.png"
+                        }
+                        alt=""
+                        className="input-logo"
+                        style={{ cursor: "pointer" }}
+                        onClick={passwordHandler}
+                      />
+                      <input
+                        type={hidePass == true ? "text" : "password"}
+                        name="password"
+                        onChange={loginformHandler}
+                        className="login-input-field"
+                        placeholder="Password"
+                      />
+                    </div>
+                    <button onClick={loginsubmitForm} className="login-button">
+                      Login
+                      <div className="login-btn-back"></div>
+                    </button>
+                    <div className="form-changer-area-sec">
+                      <div className="form-changer-area">
+                        Are you a new user ? &nbsp;
+                        <div onClick={formChanger} className="form-to-register">
+                          Register
+                        </div>
+                      </div>
+                      <div className="form-changer-area">
+                        Register As Phtographer? &nbsp;
+                        <Link
+                          to={"/photographer-register"}
+                          className="form-to-register"
+                        >
+                          Click
+                        </Link>
+                      </div>
+                    </div>
+                  </form>
                 </div>
-              </form>
-            </div>
-          ) : (
-            ///Register Form
+              ) : (
+                ///Register Form
 
-            <div className="register-form-sec">
-              <form action="" className="register-form">
-                <div className="register-form-title">REGISTER</div>
+                <div className="register-form-sec">
+                  <form action="" className="register-form">
+                    <div className="register-form-title">REGISTER</div>
 
-                <div className="register-inputfield-sec">
-                  <img src="/userlogin.png" alt="" className="input-logo" />
-                  <input
-                    type="text"
-                    name="name"
-                    onChange={formHandler}
-                    className="register-input-field"
-                    placeholder="Name"
-                  />
+                    <div className="register-inputfield-sec">
+                      <img src="/userlogin.png" alt="" className="input-logo" />
+                      <input
+                        type="text"
+                        name="name"
+                        onChange={formHandler}
+                        className="register-input-field"
+                        placeholder="Name"
+                      />
+                    </div>
+                    <div className="register-inputfield-sec">
+                      <img src="/email.png" alt="" className="input-logo" />
+                      <input
+                        type="text"
+                        name="email"
+                        onChange={formHandler}
+                        className="register-input-field"
+                        placeholder="Email"
+                      />
+                    </div>
+                    <div className="register-inputfield-sec">
+                      <img src="/phone.png" alt="" className="input-logo" />
+                      <input
+                        type="text"
+                        name="phone"
+                        onChange={formHandler}
+                        className="register-input-field"
+                        placeholder="Phone"
+                      />
+                    </div>
+                    <div className="register-inputfield-sec">
+                      <img
+                        src={
+                          hidePass == true
+                            ? "open-eye-login.png"
+                            : "/closed-eye-login.png"
+                        }
+                        alt=""
+                        className="input-logo"
+                        onClick={passwordHandler}
+                        style={{ cursor: "pointer" }}
+                      />
+                      <input
+                        type={hidePass == true ? "text" : "password"}
+                        name="password"
+                        onChange={formHandler}
+                        className="register-input-field"
+                        placeholder="Password"
+                      />
+                    </div>
+                    <button onClick={submitForm} className="register-button">
+                      Register
+                      <div className="register-btn-back"></div>
+                    </button>
+                    <div className="form-changer-area">
+                      Already a User ? &nbsp;
+                      <div onClick={formChanger} className="form-to-login">
+                        Login
+                      </div>
+                    </div>
+                  </form>{" "}
                 </div>
-                <div className="register-inputfield-sec">
-                  <img src="/email.png" alt="" className="input-logo" />
-                  <input
-                    type="text"
-                    name="email"
-                    onChange={formHandler}
-                    className="register-input-field"
-                    placeholder="Email"
-                  />
-                </div>
-                <div className="register-inputfield-sec">
-                  <img src="/phone.png" alt="" className="input-logo" />
-                  <input
-                    type="text"
-                    name="phone"
-                    onChange={formHandler}
-                    className="register-input-field"
-                    placeholder="Phone"
-                  />
-                </div>
-                <div className="register-inputfield-sec">
-                  <img
-                    src={
-                      hidePass == true
-                        ? "open-eye-login.png"
-                        : "/closed-eye-login.png"
-                    }
-                    alt=""
-                    className="input-logo"
-                    onClick={passwordHandler}
-                    style={{ cursor: "pointer" }}
-                  />
-                  <input
-                    type={hidePass == true ? "text" : "password"}
-                    name="password"
-                    onChange={formHandler}
-                    className="register-input-field"
-                    placeholder="Password"
-                  />
-                </div>
-                <button onClick={submitForm} className="register-button">
-                  Register
-                  <div className="register-btn-back"></div>
-                </button>
-                <div className="form-changer-area">
-                  Already a User ? &nbsp;
-                  <div onClick={formChanger} className="form-to-login">
-                    Login
-                  </div>
-                </div>
-              </form>{" "}
+              )}
             </div>
-          )}
-        </div>
-      </div>
+          </div>
+        </>
+      )}
     </div>
   );
 };

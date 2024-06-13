@@ -3,22 +3,31 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import BASE_URI from "../Constant/Constant";
+import Loader from "../Loader/Loader";
 
 const UserHome = () => {
+  // show Loader
+
+  const [showloader, setShowloader] = useState(false);
+
   const navigate = useNavigate();
 
   //use effect for photographers profile
 
   const [profile, setProfile] = useState([]);
   useEffect(() => {
+    setShowloader(true);
+
     axios
       // .get("http://localhost:2222/api/photographer/all-profile")
       .get(`${BASE_URI}/api/photographer/all-profile`)
       .then((data) => {
         console.log(data.data.data);
         setProfile(data.data.data);
+        setShowloader(false);
       })
       .catch((err) => {
+        setShowloader(false);
         console.log(err);
       });
   }, []);
@@ -91,21 +100,32 @@ const UserHome = () => {
             </ul>
           </div>
 
-          <div className="userhome-photographers-profile-sec">
-            {profile.map((data) => (
-              <div
-                className="userhome-photographers-profile-body"
-                key={data._id}
-                onClick={() => photographerProfile(data.login_id)}
-              >
-                <img
-                  src={`/upload/${data.profile}`}
-                  alt=""
-                  className="photographer-profile"
-                />
-                {/* <span>{data.name}</span> */}
-              </div>
-            ))}
+          <div
+            className={
+              showloader == true
+                ? "userhome-photographers-loader-sec"
+                : "userhome-photographers-profile-sec"
+            }
+          >
+            {showloader == true ? (
+              <Loader />
+            ) : (
+              <>
+                {profile.map((data) => (
+                  <div
+                    className="userhome-photographers-profile-body"
+                    key={data._id}
+                    onClick={() => photographerProfile(data.login_id)}
+                  >
+                    <img
+                      src={`/upload/${data.profile}`}
+                      alt=""
+                      className="photographer-profile"
+                    />
+                  </div>
+                ))}
+              </>
+            )}
           </div>
         </div>
 
