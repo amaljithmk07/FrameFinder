@@ -9,6 +9,7 @@ import PhotographerReview from "./components/Photographer/PhotographerReview";
 import Footer from "./components/Footer/Footer";
 import PhotographerHome from "./components/Photographer/PhotographerHome";
 import PhotoPreviousBooking from "./components/Photographer/PhotoPreviousBooking";
+import PhotoProfile from "./components/Photographer/PhotoProfile";
 
 function App() {
   return (
@@ -30,6 +31,7 @@ function App() {
             path="/photographer-review/:id"
             element={<PhotographerReview />}
           />
+          <Route path="/photographer-profile" element={<PhotoProfile />} />
         </Routes>
         <Footer />
       </Router>

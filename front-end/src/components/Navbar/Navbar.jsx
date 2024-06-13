@@ -88,15 +88,7 @@ const Navbar = () => {
                 <Link
                   className={getClassName(backgroundcolor)}
                   onMouseEnter={backgroundChange}
-                  to={""}
-                >
-                  {" "}
-                  Photo Gallery{" "}
-                </Link>{" "}
-                <Link
-                  className={getClassName(backgroundcolor)}
-                  onMouseEnter={backgroundChange}
-                  to={""}
+                  to={"/photographer-profile"}
                 >
                   {" "}
                   Profile{" "}
@@ -160,9 +152,21 @@ const Navbar = () => {
           className="navbar-hamburger-icon"
           /> */}
         <div className="navbar-hamb-main" onClick={HamburgerHandler}>
-          <div className={Hamburger == false ? "navbar-hamb-line":"navbar-hamb-line-after"}></div>
-          <div className={Hamburger == false ? "navbar-hamb-line":"navbar-hamb-line-after"}></div>
-          <div className={Hamburger == false ? "navbar-hamb-line":"navbar-hamb-line-after"}></div>
+          <div
+            className={
+              Hamburger == false ? "navbar-hamb-line" : "navbar-hamb-line-after"
+            }
+          ></div>
+          <div
+            className={
+              Hamburger == false ? "navbar-hamb-line" : "navbar-hamb-line-after"
+            }
+          ></div>
+          <div
+            className={
+              Hamburger == false ? "navbar-hamb-line" : "navbar-hamb-line-after"
+            }
+          ></div>
         </div>
         {Hamburger == true ? (
           <>
@@ -186,15 +190,7 @@ const Navbar = () => {
                   </Link>{" "}
                   <Link
                     className="navbar-hamburger-menu"
-                    to={""}
-                    onClick={HamburgerOff}
-                  >
-                    {" "}
-                    Photo Gallery{" "}
-                  </Link>{" "}
-                  <Link
-                    className="navbar-hamburger-menu"
-                    to={""}
+                    to={"/photographer-profile"}
                     onClick={HamburgerOff}
                   >
                     {" "}
@@ -261,10 +257,3 @@ const Navbar = () => {
 };
 
 export default Navbar;
-
-// activeClass="active"
-// to="contact-sec"
-// spy={true}
-// smooth={true}
-// offset={-70}
-// duration={500}

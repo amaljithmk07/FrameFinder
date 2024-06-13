@@ -1,0 +1,7 @@
+.p-profile-main-body {
+  height: 100vh;
+  width: 100%;
+  background-color: rgb(237, 137, 255);
+  display: flex;
+  flex-direction: column;
+}
