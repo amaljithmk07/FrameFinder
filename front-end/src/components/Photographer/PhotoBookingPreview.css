@@ -1,8 +1,33 @@
 .p-booking-preview-main-body {
   min-height: 100vh;
   width: 100%;
-  background-color: antiquewhite;
+  /* background-color: rgb(233, 233, 233); */
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 10vh 0;
+}
+.p-booking-preview-sub-body {
+  margin: 10vh 0 0 0;
+  min-height: 600px;
+  width: 700px;
+  border-radius: 20px;
+  background-color: rgb(246, 246, 246);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  position: relative;
+  gap: 30px;
+}
+.p-booking-preview-back-btn {
+  height: 25px;
+  width: auto;
+  font-size: 2rem;
+  border: 0;
+  cursor: pointer;
+  /* background-color: red; */
+  position: absolute;
+  left: 30px;
+  top: 30px;
 }

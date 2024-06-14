@@ -120,7 +120,7 @@ photographerroutes.get("/previous-booking", checkAuth, async (req, res) => {
   try {
     console.log(req.userData.userId);
     const allBooking = await BookingDB.find({
-      photographers_id:req.userData.userId,
+      photographers_id: req.userData.userId,
     });
     if (allBooking) {
       return res.status(200).json({
@@ -128,6 +128,39 @@ photographerroutes.get("/previous-booking", checkAuth, async (req, res) => {
         error: false,
         message: "All Bookings available ",
         data: allBooking,
+      });
+    } else
+      (err) => {
+        return res.status(400).json({
+          success: false,
+          error: true,
+          message: "404 error",
+          errorMessage: err.message,
+        });
+      };
+  } catch (err) {
+    return res.status(500).json({
+      success: false,
+      error: true,
+      message: "Network Error",
+      errorMessage: err.message,
+    });
+  }
+});
+
+///////Selected Booking details
+
+photographerroutes.get("/booking/:id", checkAuth, async (req, res) => {
+  try {
+    const Booking = await BookingDB.findOne({
+      _id: req.params.id,
+    });
+    if (Booking) {
+      return res.status(200).json({
+        success: true,
+        error: false,
+        message: "All Bookings available ",
+        data: Booking,
       });
     } else
       (err) => {
