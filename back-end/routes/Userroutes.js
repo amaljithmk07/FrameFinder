@@ -15,6 +15,7 @@ Userroutes.post("/booking/:id", CheckAuth, async (req, res) => {
     city: req.body.city,
     state: req.body.state,
     pincode: req.body.pincode,
+    status: "pending",
   });
   Data.save()
     .then((data) => {

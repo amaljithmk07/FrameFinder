@@ -4,7 +4,10 @@ import axios from "axios";
 import toast, { Toaster } from "react-hot-toast";
 import BASE_URI from "../Constant/Constant";
 import Loader from "../Loader/Loader";
+import { useNavigate } from "react-router-dom";
+
 const PhotoPreviousBooking = () => {
+  const navigate = useNavigate();
   const token = sessionStorage.getItem("token");
 
   // show Loader
@@ -37,6 +40,10 @@ const PhotoPreviousBooking = () => {
       });
   }, []);
   console.log(bookings);
+
+  const bookingPreview = (id) => {
+    navigate(`/photo-booking-preview/${id}`);
+  };
   return (
     <div>
       <Toaster />
@@ -79,7 +86,10 @@ const PhotoPreviousBooking = () => {
                   <div className="p-previous-booking-card-content">
                     {data.phone}
                   </div>
-                  <button className="p-previous-booking-card-btn">
+                  <button
+                    className="p-previous-booking-card-btn"
+                    onClick={() => bookingPreview(data._id)}
+                  >
                     Review
                   </button>
                 </div>

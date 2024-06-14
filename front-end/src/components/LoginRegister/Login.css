@@ -229,13 +229,17 @@
 @media screen and (max-width: 450px) {
   .login-sub-body {
     width: 90%;
+  height: 425px;
   }
   .login-form-sec {
     width: 98%;
+  height: 420px;
   }
   .login-form {
+    height: 350px;
     /* height: 90%; */
     width: 90%;
+    gap: 25px;
     /* background-color: red; */
   }
   .login-inputfield-sec {

@@ -2,8 +2,8 @@
   min-height: 400px;
   width: 100%;
   margin-top: 50px;
-  /* background-color: black; */
-  background-image: url("/footer-background.jpg");
+  background-color: black;
+  /* background-image: url("/footer-background.jpg"); */
   color: white;
   display: flex;
   justify-content: end;
@@ -20,7 +20,7 @@
   width: 300%;
   position: absolute;
   mix-blend-mode: lighten;
-  animation: move 180s linear infinite;
+  animation: move 260s linear infinite;
 }
 
 @keyframes move {

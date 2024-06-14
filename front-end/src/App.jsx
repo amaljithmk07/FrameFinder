@@ -5,11 +5,12 @@ import UserBooking from "./components/User/UserBooking";
 import Navbar from "./components/Navbar/Navbar";
 import LoginRegister from "./components/LoginRegister/LoginRegister";
 import PhotoRegister from "./components/LoginRegister/PhotoRegister";
-import PhotographerReview from "./components/Photographer/PhotographerReview";
 import Footer from "./components/Footer/Footer";
-import PhotographerHome from "./components/Photographer/PhotographerHome";
 import PhotoPreviousBooking from "./components/Photographer/PhotoPreviousBooking";
 import PhotoProfile from "./components/Photographer/PhotoProfile";
+import PhotographerHome from "./components/Photographer/PhotoHome";
+import PhotoBookingPreview from "./components/Photographer/PhotoBookingPreview";
+import UserPhotoBooking from "./components/User/UserPhotoBooking";
 
 function App() {
   return (
@@ -23,15 +24,19 @@ function App() {
           {/* //////////// */}
           <Route path="/" element={<UserHome />} />
           <Route path="/user/booking" element={<UserBooking />} />
+          <Route
+            path="/photographer-review/:id"
+            element={<UserPhotoBooking />}
+          />
 
           {/* ///////////////////// */}
           <Route path="/home" element={<PhotographerHome />} />
           <Route path="/previous-booking" element={<PhotoPreviousBooking />} />
-          <Route
-            path="/photographer-review/:id"
-            element={<PhotographerReview />}
-          />
           <Route path="/photographer-profile" element={<PhotoProfile />} />
+          <Route
+            path="/photo-booking-preview/:id"
+            element={<PhotoBookingPreview />}
+          />
         </Routes>
         <Footer />
       </Router>

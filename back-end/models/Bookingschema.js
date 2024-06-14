@@ -38,6 +38,11 @@ const Bookingschema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  status: {
+    type: String,
+    default: "",
+    required: true,
+  },
 });
 const Data = mongoose.model("Booking_DB", Bookingschema);
 module.exports = Data;
