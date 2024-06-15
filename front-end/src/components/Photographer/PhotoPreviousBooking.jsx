@@ -13,43 +13,85 @@ const PhotoPreviousBooking = () => {
   // show Loader
   const [showloader, setShowloader] = useState(false);
 
-  ///Bookings state
-  const [bookings, setBookings] = useState([]);
+  ////////////////////////////////
+
+  //////Booking Changer state
+  const [bookchanger, setBookchanger] = useState(true);
+
+  const formPending = () => {
+    setBookchanger(false);
+  };
+  const formAccepted = () => {
+    setBookchanger(true);
+  };
+
+  ///////////
+
+  ///for Pending Bookings state
+  const [pendingbookings, setPendingbookings] = useState([]);
+
+  ////////Bookings State
+  const [acceptbooking, setAcceptbooking] = useState([]);
 
   useEffect(() => {
-    setShowloader(true);
-    axios
-      // .get(`http://localhost:2222/api/photographer/previous-booking`, {
-      .get(`${BASE_URI}/api/photographer/previous-booking`, {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      })
-      .then((data) => {
-        console.log(data);
-        setShowloader(false);
+    if (bookchanger == false) {
+      setShowloader(true);
+      axios
+        // .get(`http://localhost:2222/api/photographer/previous-booking`, {
+        .get(`${BASE_URI}/api/photographer/previous-booking`, {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        })
+        .then((data) => {
+          console.log(data);
+          setShowloader(false);
 
-        toast.success(data.data.message);
-        setBookings(data.data.data);
-      })
-      .catch((err) => {
-        toast.error(err.response.data.message);
-        setShowloader(false);
+          toast.success(data.data.message);
+          setPendingbookings(data.data.data);
+        })
+        .catch((err) => {
+          toast.error(err.response.data.message);
+          setShowloader(false);
 
-        console.log(err);
-      });
-  }, []);
-  console.log(bookings);
+          console.log(err);
+        });
+    } else {
+      setShowloader(true);
+      axios
+        .get(`${BASE_URI}/api/photographer/accepted-bookings`, {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        })
+        .then((data) => {
+          console.log(data);
+          toast.success(data.data.message);
+
+          setAcceptbooking(data.data.data);
+          setShowloader(false);
+        })
+        .catch((err) => {
+          toast.error(err.response.data.message);
+
+          setShowloader(false);
+          console.log(err);
+        });
+    }
+  }, [bookchanger]);
 
   const bookingPreview = (id) => {
     navigate(`/photo-booking-preview/${id}`);
   };
+
   return (
     <div>
       <Toaster />
       <div className="p-previous-booking-main-body">
         <div className="p-previous-booking-description-body">
-          <div className="p-previous-booking-title">Client Bookings</div>
+          <div className="p-previous-booking-description-title">
+            Client Bookings
+          </div>
           <div className="p-previous-booking-paragraph">
             Welcome to the booking overview page. Below is a comprehensive list
             of clients who have scheduled sessions with me. Each booking
@@ -61,39 +103,95 @@ const PhotoPreviousBooking = () => {
           </div>
         </div>
 
-        <div
-          className={
-            showloader == true
-              ? "p-previous-loading-sec"
-              : "p-previous-booking-sec"
-          }
-        >
-          {showloader == true ? (
-            <Loader />
+        <div className="p-previous-togglebar-sec">
+          <div
+            className={bookchanger == false ? "toggle-active" : "toggle"}
+            onClick={formPending}
+          >
+            Pending
+          </div>
+          <div
+            className={bookchanger == true ? "toggle-active" : "toggle"}
+            onClick={formAccepted}
+          >
+            Accepted
+          </div>
+        </div>
+        <div className="p-previous-booking-sec">
+          <div className="p-previous-booking-title">
+            {bookchanger == false ? "Pending Bookings" : "Accepted Bookings"}
+          </div>
+          {bookchanger == false ? (
+            <>
+              <div className="p-previous-booking-card-area">
+                {pendingbookings.map((data) => (
+                  <>
+                    <div className="p-previous-booking-card-body">
+                      <div className="p-previous-booking-card-title">
+                        {data.name}
+                      </div>
+                      <div className="p-previous-booking-card-content">
+                        {data.email}
+                      </div>
+                      <div className="p-previous-booking-card-content">
+                        {data.address},{data.city},{data.state}
+                      </div>
+                      <div className="p-previous-booking-card-content">
+                        {data.phone}
+                      </div>
+                      <button
+                        className="p-previous-booking-card-btn"
+                        onClick={() => bookingPreview(data._id)}
+                      >
+                        Review
+                      </button>
+                    </div>
+                    <div className="p-previous-booking-card-body">
+                      <div className="p-previous-booking-card-title">
+                        {data.name}
+                      </div>
+                      <div className="p-previous-booking-card-content">
+                        {data.email}
+                      </div>
+                      <div className="p-previous-booking-card-content">
+                        {data.address},{data.city},{data.state}
+                      </div>
+                      <div className="p-previous-booking-card-content">
+                        {data.phone}
+                      </div>
+                      <button
+                        className="p-previous-booking-card-btn"
+                        onClick={() => bookingPreview(data._id)}
+                      >
+                        Review
+                      </button>
+                    </div>
+                  </>
+                ))}
+              </div>
+            </>
           ) : (
             <>
-              {bookings.map((data) => (
-                <div className="p-previous-booking-card-body">
-                  <div className="p-previous-booking-card-title">
+              <div className="p-previous-booking-card-area">
+                {" "}
+                {acceptbooking.map((data) => (
+                  <div className="card">
                     {data.name}
+                    <div>id :{data._id}</div>
+                    <div>Name :{data.name}</div>
+                    <div>Email :{data.email}</div>
+                    <div style={{ color: "green" }}>Status :{data.status}</div>
+                    <div>Place :{data.address}</div>
+                    <div>State :{data.state}</div>
+                    <div> Phone :9652348</div>
+                    <div>Type :wedding Photography</div>
+                    <div>
+                      {" "}
+                      Description : the couple dshfsjhdfgjsdhgfjsdfgsjdfhg
+                    </div>
                   </div>
-                  <div className="p-previous-booking-card-content">
-                    {data.email}
-                  </div>
-                  <div className="p-previous-booking-card-content">
-                    {data.address},{data.city},{data.state}
-                  </div>
-                  <div className="p-previous-booking-card-content">
-                    {data.phone}
-                  </div>
-                  <button
-                    className="p-previous-booking-card-btn"
-                    onClick={() => bookingPreview(data._id)}
-                  >
-                    Review
-                  </button>
-                </div>
-              ))}
+                ))}
+              </div>
             </>
           )}
         </div>

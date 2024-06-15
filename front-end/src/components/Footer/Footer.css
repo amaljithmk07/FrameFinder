@@ -17,10 +17,11 @@
 .footer-background {
   filter: contrast(20);
   height: 100%;
-  width: 300%;
+  /* width: 300%; */
+  width: 3000px;
   position: absolute;
   mix-blend-mode: lighten;
-  animation: move 260s linear infinite;
+  animation: move 360s linear infinite;
 }
 
 @keyframes move {

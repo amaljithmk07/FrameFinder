@@ -12,7 +12,8 @@
   min-height: 600px;
   width: 700px;
   border-radius: 20px;
-  background-color: rgb(246, 246, 246);
+  background-color: #ffffff;
+  box-shadow: 0px 0px 15px rgb(165, 165, 165);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -28,6 +29,47 @@
   cursor: pointer;
   /* background-color: red; */
   position: absolute;
-  left: 30px;
-  top: 30px;
+  left: 40px;
+  top: 40px;
+}
+
+.p-booking-preview-form-body {
+  margin: 60px 0;
+  min-height: 500px;
+  width: 500px;
+  /* background-color: rgb(255, 222, 222); */
+  display: flex;
+  justify-content: end;
+  align-items: start;
+  flex-direction: column;
+  gap: 25px;
+}
+.p-booking-preview-data {
+  min-height: 20px;
+  width: 90%;
+  /* background-color: rgb(165, 255, 82); */
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  text-transform: capitalize;
+  font-size: 1.2rem;
+  gap: 30px;
+}
+.p-booking-preview-btn {
+  height: 35px;
+  width: 100px;
+  display: flex;
+  color: white;
+  font-size: 1rem;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  border: 0;
+  cursor: pointer;
+}
+.accept{
+  background-color: rgb(34, 130, 255);
+}
+.reject{
+  background-color: rgb(255, 88, 32);
 }

@@ -115,18 +115,19 @@ photographerroutes.get("/seperate-profile/:id", async (req, res) => {
   }
 });
 
-///////////Previous Booking
+///////////Previous pending Booking
 photographerroutes.get("/previous-booking", checkAuth, async (req, res) => {
   try {
     console.log(req.userData.userId);
     const allBooking = await BookingDB.find({
       photographers_id: req.userData.userId,
+      // $or: [{ status: "rejected" }, { status: "pending" }],
     });
     if (allBooking) {
       return res.status(200).json({
         success: true,
         error: false,
-        message: "All Bookings available ",
+        message: "Booking list fetched ",
         data: allBooking,
       });
     } else
@@ -152,14 +153,14 @@ photographerroutes.get("/previous-booking", checkAuth, async (req, res) => {
 
 photographerroutes.get("/booking/:id", checkAuth, async (req, res) => {
   try {
-    const Booking = await BookingDB.findOne({
+    const Booking = await BookingDB.find({
       _id: req.params.id,
     });
     if (Booking) {
       return res.status(200).json({
         success: true,
         error: false,
-        message: "All Bookings available ",
+        message: "Successful",
         data: Booking,
       });
     } else
@@ -181,4 +182,107 @@ photographerroutes.get("/booking/:id", checkAuth, async (req, res) => {
   }
 });
 
+///////Accepting Booking
+
+photographerroutes.put("/accept-booking/:id", checkAuth, async (req, res) => {
+  try {
+    console.log(req.params.id);
+    const Booking = await BookingDB.updateOne({
+      _id: req.params.id,
+      status: "accepted",
+    });
+    if (Booking) {
+      return res.status(200).json({
+        success: true,
+        error: false,
+        message: " Bookings accepted ",
+        data: Booking,
+      });
+    } else
+      (err) => {
+        return res.status(400).json({
+          success: false,
+          error: true,
+          message: "404 error",
+          errorMessage: err.message,
+        });
+      };
+  } catch (err) {
+    return res.status(500).json({
+      success: false,
+      error: true,
+      message: "Network Error",
+      errorMessage: err.message,
+    });
+  }
+});
+
+///////Rejecting Booking
+
+photographerroutes.put("/reject-booking/:id", checkAuth, async (req, res) => {
+  try {
+    console.log(req.params.id);
+    const Booking = await BookingDB.updateOne({
+      _id: req.params.id,
+      status: "rejected",
+    });
+    console.log(Booking);
+    if (Booking) {
+      return res.status(200).json({
+        success: true,
+        error: false,
+        message: " Bookings accepted ",
+        data: Booking,
+      });
+    } else
+      (err) => {
+        return res.status(400).json({
+          success: false,
+          error: true,
+          message: "404 error",
+          errorMessage: err.message,
+        });
+      };
+  } catch (err) {
+    return res.status(500).json({
+      success: false,
+      error: true,
+      message: "Network Error",
+      errorMessage: err.message,
+    });
+  }
+});
+
+///////Accepted Bookings
+
+photographerroutes.get("/accepted-bookings", checkAuth, async (req, res) => {
+  try {
+    const Booking = await BookingDB.find({
+      status: "accepted",
+    });
+    if (Booking) {
+      return res.status(200).json({
+        success: true,
+        error: false,
+        message: " Bookings Fetched successful ",
+        data: Booking,
+      });
+    } else
+      (err) => {
+        return res.status(400).json({
+          success: false,
+          error: true,
+          message: "404 error",
+          errorMessage: err.message,
+        });
+      };
+  } catch (err) {
+    return res.status(500).json({
+      success: false,
+      error: true,
+      message: "Network Error",
+      errorMessage: err.message,
+    });
+  }
+});
 module.exports = photographerroutes;

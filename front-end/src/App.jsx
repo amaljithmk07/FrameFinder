@@ -1,5 +1,10 @@
 import "./App.css";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  useNavigate,
+} from "react-router-dom";
 import UserHome from "./components/User/UserHome";
 import UserBooking from "./components/User/UserBooking";
 import Navbar from "./components/Navbar/Navbar";
@@ -11,6 +16,7 @@ import PhotoProfile from "./components/Photographer/PhotoProfile";
 import PhotographerHome from "./components/Photographer/PhotoHome";
 import PhotoBookingPreview from "./components/Photographer/PhotoBookingPreview";
 import UserPhotoBooking from "./components/User/UserPhotoBooking";
+import PhotoAcceptedBooking from "./components/Photographer/PhotoAcceptedBooking";
 
 function App() {
   return (
@@ -32,6 +38,7 @@ function App() {
           {/* ///////////////////// */}
           <Route path="/home" element={<PhotographerHome />} />
           <Route path="/previous-booking" element={<PhotoPreviousBooking />} />
+          <Route path="/accepted-booking" element={<PhotoAcceptedBooking />} />
           <Route path="/photographer-profile" element={<PhotoProfile />} />
           <Route
             path="/photo-booking-preview/:id"

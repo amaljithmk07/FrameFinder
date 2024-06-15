@@ -88,6 +88,14 @@ const Navbar = () => {
                 <Link
                   className={getClassName(backgroundcolor)}
                   onMouseEnter={backgroundChange}
+                  to={"/accepted-booking"}
+                >
+                  {" "}
+                  Accepted Booking
+                </Link>{" "}
+                <Link
+                  className={getClassName(backgroundcolor)}
+                  onMouseEnter={backgroundChange}
                   to={"/photographer-profile"}
                 >
                   {" "}

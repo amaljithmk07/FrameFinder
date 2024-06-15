@@ -7,18 +7,25 @@
   align-items: center;
   flex-direction: column;
   font-family: fangsong, math, sans-serif;
+  gap: 20px;
 }
 .p-previous-booking-description-body {
   min-height: 300px;
-  width: 80%;
+  width: 100%;
+  background: url("/booking-background1.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  object-fit: cover;
+  gap: 20px;
   /* background-color: rgb(255, 219, 219); */
   display: flex;
-  justify-content: start;
-  padding: 10vh 0 0 0;
+  justify-content: center;
+  margin: 10vh 0 0 0;
   align-items: center;
   flex-direction: column;
 }
-.p-previous-booking-title {
+.p-previous-booking-description-title {
   font-size: 2rem;
   font-weight: 600;
   display: flex;
@@ -29,9 +36,53 @@
 }
 .p-previous-booking-paragraph {
   min-height: 150px;
+  width: 80%;
   /* background-color: rgb(236, 194, 194); */
   text-align: justify;
   line-height: 25px;
+}
+
+/* //////////Toggle bar section */
+
+.p-previous-togglebar-sec {
+  height: 50px;
+  width: 400px;
+  border-radius: 50px;
+  background-color: rgb(232, 232, 232);
+  /* background: url("/booking-background1.jpg"); */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  object-fit: cover;
+  gap: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.toggle {
+  border-radius: 50px;
+  height: 40px;
+  width: 190px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: black;
+
+  transition: all 0.1s ease-in-out;
+  cursor: pointer;
+}
+.toggle-active {
+  cursor: pointer;
+  border-radius: 50px;
+  font-weight: 700;
+  height: 40px;
+  width: 190px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(255, 255, 255);
+  color: rgb(0, 0, 0);
+  transition: all 0.1s ease-in-out;
 }
 
 /* ////loading */
@@ -44,21 +95,41 @@
   justify-content: center;
   align-items: center;
   overflow: hidden;
+  flex-direction: column;
 }
 .p-previous-booking-sec {
   min-height: 50vh;
   width: 90%;
+  /* background-color: rgb(9, 255, 206); */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 40px;
+  padding: 30px 0 0 0;
+}
+
+/* /////// */
+
+.p-previous-booking-title {
+  height: 30px;
+  width: 380px;
+  /* background-color: rgb(255, 28, 28); */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.8rem;
+}
+.p-previous-booking-card-area {
+  min-height: 50vh;
+  width: 100%;
   /* background-color: rgb(79, 255, 9); */
   display: flex;
   justify-content: center;
   align-items: start;
   flex-wrap: wrap;
   gap: 50px;
-  padding: 30px 0 0 0;
 }
-
-/* /////// */
-
 .p-previous-booking-card-body {
   height: 300px;
   width: 380px;

@@ -2,7 +2,6 @@ const jwt = require("jsonwebtoken");
 
 module.exports = (req, res, next) => {
   try {
-
     const token = req.headers.authorization.split(" ")[1];
 
     const decoded_token = jwt.verify(token, "this_should_be_secret");
@@ -19,7 +18,10 @@ module.exports = (req, res, next) => {
     res.status(401).json({
       errr: true,
       success: false,
-      message: "Auth Failed",
+      message:
+        err.message == "jwt expired"
+          ? "You need to login again"
+          : "Auth Failed",
       errorMessage: err.message,
     });
   }

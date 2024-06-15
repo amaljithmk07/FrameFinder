@@ -51,6 +51,9 @@ const LoginRegister = () => {
         sessionStorage.setItem("userRole", data.data.userRole);
         sessionStorage.setItem("userId", data.data.userId);
         sessionStorage.setItem("token", data.data.token);
+        setTimeout(() => {
+          sessionStorage.clear();
+        }, 1000 * 60 * 60);
         console.log(data);
 
         if (SavedFormData) {
