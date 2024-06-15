@@ -108,6 +108,9 @@ const PhotoBookingPreview = () => {
                   <div className="p-booking-preview-data">
                     Email :{data.email}
                   </div>
+                  <div className="p-booking-preview-data">
+                    Date :{data.date}
+                  </div>
                   <div
                     className="p-booking-preview-data"
                     style={

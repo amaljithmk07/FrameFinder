@@ -4,6 +4,7 @@ const photographerroutes = express.Router();
 const PhotographersRegisterDB = require("../models/PhotoRegisterSchema");
 const LoginDB = require("../models/Loginschema");
 const BookingDB = require("../models/Bookingschema");
+const CalenderDB = require("../models/CalenderSchema");
 const checkAuth = require("../middleware/CheckAuth");
 
 ///////////All Profile
@@ -191,12 +192,24 @@ photographerroutes.put("/accept-booking/:id", checkAuth, async (req, res) => {
       _id: req.params.id,
       status: "accepted",
     });
-    if (Booking) {
+    const savedBooking = await BookingDB.findOne({
+      _id: req.params.id,
+    });
+
+    const Calender = {
+      photographer_id: req.userData.userId,
+      booking_id: savedBooking._id,
+      date: savedBooking.date,
+    };
+    const CalenderData = await CalenderDB(Calender).save();
+
+    if (Booking && CalenderData) {
       return res.status(200).json({
         success: true,
         error: false,
         message: " Bookings accepted ",
         data: Booking,
+        Calender,
       });
     } else
       (err) => {
@@ -226,12 +239,16 @@ photographerroutes.put("/reject-booking/:id", checkAuth, async (req, res) => {
       _id: req.params.id,
       status: "rejected",
     });
+    const Calender = await CalenderDB.deleteOne({
+      booking_id: req.params.id,
+      photographer_id: req.userData.userId,
+    });
     console.log(Booking);
-    if (Booking) {
+    if (Booking && Calender) {
       return res.status(200).json({
         success: true,
         error: false,
-        message: " Bookings accepted ",
+        message: " Bookings Rejected ",
         data: Booking,
       });
     } else

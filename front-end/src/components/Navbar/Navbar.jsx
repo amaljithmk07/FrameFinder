@@ -88,6 +88,14 @@ const Navbar = () => {
                 <Link
                   className={getClassName(backgroundcolor)}
                   onMouseEnter={backgroundChange}
+                  to={"/photographer-calender"}
+                >
+                  {" "}
+                  Calender{" "}
+                </Link>{" "}
+                <Link
+                  className={getClassName(backgroundcolor)}
+                  onMouseEnter={backgroundChange}
                   to={"/photographer-profile"}
                 >
                   {" "}
@@ -187,6 +195,14 @@ const Navbar = () => {
                   >
                     {" "}
                     Previous Booking
+                  </Link>{" "}
+                  <Link
+                    className="navbar-hamburger-menu"
+                    to={"/photographer-calender"}
+                    onClick={HamburgerOff}
+                  >
+                    {" "}
+                    Calender
                   </Link>{" "}
                   <Link
                     className="navbar-hamburger-menu"
