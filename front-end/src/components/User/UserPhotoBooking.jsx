@@ -78,6 +78,7 @@ const UserPhotoBooking = () => {
         })
         .catch((err) => {
           setShowloader(false);
+          toast.error(err.response.data.errorMessage);
 
           console.log(err);
         });
@@ -124,7 +125,9 @@ const UserPhotoBooking = () => {
                   <div className="u-photo-booking-profile-data">
                     {photoprofile.email}
                   </div>
-                  <div className="u-photo-booking-profile-data">Studio Name</div>
+                  <div className="u-photo-booking-profile-data">
+                    Studio Name
+                  </div>
                   <div className="u-photo-booking-profile-data">
                     Social media Accounts
                   </div>
@@ -136,16 +139,32 @@ const UserPhotoBooking = () => {
 
             <div className="u-photo-booking-gallery-body">
               <div className="u-photo-booking-gallery-img-body">
-                <img src="/5.webp" alt="" className="u-photo-booking-gallery-img" />
+                <img
+                  src="/5.webp"
+                  alt=""
+                  className="u-photo-booking-gallery-img"
+                />
               </div>
               <div className="u-photo-booking-gallery-img-body">
-                <img src="/6.jpg" alt="" className="u-photo-booking-gallery-img" />
+                <img
+                  src="/6.jpg"
+                  alt=""
+                  className="u-photo-booking-gallery-img"
+                />
               </div>
               <div className="u-photo-booking-gallery-img-body">
-                <img src="/10.jpg" alt="" className="u-photo-booking-gallery-img" />
+                <img
+                  src="/10.jpg"
+                  alt=""
+                  className="u-photo-booking-gallery-img"
+                />
               </div>
               <div className="u-photo-booking-gallery-img-body">
-                <img src="/7.jpg" alt="" className="u-photo-booking-gallery-img" />
+                <img
+                  src="/7.jpg"
+                  alt=""
+                  className="u-photo-booking-gallery-img"
+                />
               </div>
             </div>
 
@@ -286,16 +305,22 @@ const UserPhotoBooking = () => {
             <div className="u-photo-booking-inputfield-sec"> */}
                   <div className="u-photo-booking-input-text">Pincode</div>{" "}
                   <input
-                    type="text"
-                    name="pincode"
-                    placeholder="Pincode"
+                    type="date"
+                    name="date"
+                    placeholder="Session Date"
                     onChange={formHandler}
                     value={SavedFormData ? formData.pincode : null}
                     className="u-photo-booking-inputfield"
                   />{" "}
                   {/* </div> */}
-                  <button onClick={submitHandler} className="u-photo-booking-form-btn">
-                    <img src="/submit.png" className="u-photo-booking-form-btn-img" />
+                  <button
+                    onClick={submitHandler}
+                    className="u-photo-booking-form-btn"
+                  >
+                    <img
+                      src="/submit.png"
+                      className="u-photo-booking-form-btn-img"
+                    />
 
                     <div className="u-photo-booking-form-btn-back"></div>
                   </button>

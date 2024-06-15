@@ -34,7 +34,7 @@ const Bookingschema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  pincode: {
+  date: {
     type: String,
     required: true,
   },

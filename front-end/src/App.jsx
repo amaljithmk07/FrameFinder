@@ -16,7 +16,6 @@ import PhotoProfile from "./components/Photographer/PhotoProfile";
 import PhotographerHome from "./components/Photographer/PhotoHome";
 import PhotoBookingPreview from "./components/Photographer/PhotoBookingPreview";
 import UserPhotoBooking from "./components/User/UserPhotoBooking";
-import PhotoAcceptedBooking from "./components/Photographer/PhotoAcceptedBooking";
 
 function App() {
   return (
@@ -38,7 +37,6 @@ function App() {
           {/* ///////////////////// */}
           <Route path="/home" element={<PhotographerHome />} />
           <Route path="/previous-booking" element={<PhotoPreviousBooking />} />
-          <Route path="/accepted-booking" element={<PhotoAcceptedBooking />} />
           <Route path="/photographer-profile" element={<PhotoProfile />} />
           <Route
             path="/photo-booking-preview/:id"

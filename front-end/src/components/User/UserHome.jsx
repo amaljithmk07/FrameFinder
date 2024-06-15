@@ -6,8 +6,8 @@ import BASE_URI from "../Constant/Constant";
 import Loader from "../Loader/Loader";
 
 const UserHome = () => {
+  
   // show Loader
-
   const [showloader, setShowloader] = useState(false);
 
   const navigate = useNavigate();

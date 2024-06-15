@@ -59,7 +59,7 @@
   align-items: center;
   justify-content: center;
 }
-.toggle {
+.p-previous-toggle {
   border-radius: 50px;
   height: 40px;
   width: 190px;
@@ -71,7 +71,7 @@
   transition: all 0.1s ease-in-out;
   cursor: pointer;
 }
-.toggle-active {
+.p-previous-toggle-active {
   cursor: pointer;
   border-radius: 50px;
   font-weight: 700;
@@ -130,6 +130,18 @@
   flex-wrap: wrap;
   gap: 50px;
 }
+.p-previous-booking-card-loading-area {
+  height: 50vh;
+  width: 100%;
+  /* background-color: rgb(79, 255, 9); */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+/* ///////Pending Bookings */
+
 .p-previous-booking-card-body {
   height: 300px;
   width: 380px;
@@ -171,7 +183,36 @@
   color: rgb(255, 255, 255);
   background-color: rgb(61, 155, 255);
 }
+
+/* //////////Accepted Booking Card */
+
+.card {
+  min-height: 300px;
+  width: 350px;
+  background-color: rgb(255, 213, 213);
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: start;
+  flex-direction: column;
+}
+
+
 @media screen and (max-width: 450px) {
+
+
+  /* /////////////// */
+  .p-previous-togglebar-sec {
+    width: 90%;
+  }
+  .p-previous-toggle ,
+  .p-previous-toggle-active {
+    width: 48%;
+  }
+
+
+
+
   .p-previous-booking-card-body {
     height: 300px;
     width: 90%;

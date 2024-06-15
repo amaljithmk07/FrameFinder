@@ -4,23 +4,32 @@ import axios from "axios";
 import { Toaster, toast } from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 import BASE_URI from "../Constant/Constant";
+import Loader from "../Loader/Loader";
 
 const UserBooking = () => {
   const navigate = useNavigate();
   const token = sessionStorage.getItem("token");
 
+  // show Loader
+  const [showloader, setShowloader] = useState(false);
+
   //use effect for photographers profile
 
   const [profile, setProfile] = useState([]);
   useEffect(() => {
+    setShowloader(true);
     axios
       // .get("http://localhost:2222/api/photographer/all-profile")
       .get(`${BASE_URI}/api/photographer/all-profile`)
       .then((data) => {
         console.log(data.data.data);
+        setShowloader(false);
+
         setProfile(data.data.data);
       })
       .catch((err) => {
+        setShowloader(false);
+
         console.log(err);
       });
   }, []);
@@ -232,21 +241,33 @@ const UserBooking = () => {
         <div className="userbooking-photographer-title">
           Book Your Ideal Photographer
         </div>
-        <div className="userhome-photographers-profile-sec">
-          {profile.map((data) => (
-            <div
-              className="userhome-photographers-profile-body"
-              key={data._id}
-              onClick={() => photographerProfile(data.login_id)}
-            >
-              <img
-                src={`/upload/${data.profile}`}
-                alt=""
-                className="photographer-profile"
-              />
-              {/* <span>{data.name}</span> */}
-            </div>
-          ))}
+        <div
+          className={
+            showloader == true
+              ? "userhome-photographers-loader-sec"
+              : "userhome-photographers-profile-sec"
+          }
+        >
+          {showloader == true ? (
+            <Loader />
+          ) : (
+            <>
+              {profile.map((data) => (
+                <div
+                  className="userhome-photographers-profile-body"
+                  key={data._id}
+                  onClick={() => photographerProfile(data.login_id)}
+                >
+                  <img
+                    src={`/upload/${data.profile}`}
+                    alt=""
+                    className="photographer-profile"
+                  />
+                  {/* <span>{data.name}</span> */}
+                </div>
+              ))}
+            </>
+          )}
         </div>
         <div className="userhome-photographers-profile-text">
           Discover and book the perfect photographer for your needs. Browse our

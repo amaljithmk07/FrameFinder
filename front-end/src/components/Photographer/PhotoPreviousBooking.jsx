@@ -105,13 +105,21 @@ const PhotoPreviousBooking = () => {
 
         <div className="p-previous-togglebar-sec">
           <div
-            className={bookchanger == false ? "toggle-active" : "toggle"}
+            className={
+              bookchanger == false
+                ? "p-previous-toggle-active"
+                : "p-previous-toggle"
+            }
             onClick={formPending}
           >
             Pending
           </div>
           <div
-            className={bookchanger == true ? "toggle-active" : "toggle"}
+            className={
+              bookchanger == true
+                ? "p-previous-toggle-active"
+                : "p-previous-toggle"
+            }
             onClick={formAccepted}
           >
             Accepted
@@ -123,74 +131,84 @@ const PhotoPreviousBooking = () => {
           </div>
           {bookchanger == false ? (
             <>
-              <div className="p-previous-booking-card-area">
-                {pendingbookings.map((data) => (
+              <div
+                className={
+                  showloader == false
+                    ? "p-previous-booking-card-area"
+                    : "p-previous-booking-card-loading-area"
+                }
+              >
+                {/* ///////////////Pending / Rejected Bookings Displays Here */}
+                {showloader == true ? (
+                  <Loader />
+                ) : (
                   <>
-                    <div className="p-previous-booking-card-body">
-                      <div className="p-previous-booking-card-title">
-                        {data.name}
-                      </div>
-                      <div className="p-previous-booking-card-content">
-                        {data.email}
-                      </div>
-                      <div className="p-previous-booking-card-content">
-                        {data.address},{data.city},{data.state}
-                      </div>
-                      <div className="p-previous-booking-card-content">
-                        {data.phone}
-                      </div>
-                      <button
-                        className="p-previous-booking-card-btn"
-                        onClick={() => bookingPreview(data._id)}
-                      >
-                        Review
-                      </button>
-                    </div>
-                    <div className="p-previous-booking-card-body">
-                      <div className="p-previous-booking-card-title">
-                        {data.name}
-                      </div>
-                      <div className="p-previous-booking-card-content">
-                        {data.email}
-                      </div>
-                      <div className="p-previous-booking-card-content">
-                        {data.address},{data.city},{data.state}
-                      </div>
-                      <div className="p-previous-booking-card-content">
-                        {data.phone}
-                      </div>
-                      <button
-                        className="p-previous-booking-card-btn"
-                        onClick={() => bookingPreview(data._id)}
-                      >
-                        Review
-                      </button>
-                    </div>
+                    {pendingbookings.map((data) => (
+                      <>
+                        <div className="p-previous-booking-card-body">
+                          <div className="p-previous-booking-card-title">
+                            {data.name}
+                          </div>
+                          <div className="p-previous-booking-card-content">
+                            {data.email}
+                          </div>
+                          <div className="p-previous-booking-card-content">
+                            {data.address},{data.city},{data.state}
+                          </div>
+                          <div className="p-previous-booking-card-content">
+                            {data.phone}
+                          </div>
+                          <button
+                            className="p-previous-booking-card-btn"
+                            onClick={() => bookingPreview(data._id)}
+                          >
+                            Review
+                          </button>
+                        </div>
+                      </>
+                    ))}
                   </>
-                ))}
+                )}
               </div>
             </>
           ) : (
+            ///////////////Accepted Bookings Displays Here
             <>
-              <div className="p-previous-booking-card-area">
+              <div
+                className={
+                  showloader == false
+                    ? "p-previous-booking-card-area"
+                    : "p-previous-booking-card-loading-area"
+                }
+              >
                 {" "}
-                {acceptbooking.map((data) => (
-                  <div className="card">
-                    {data.name}
-                    <div>id :{data._id}</div>
-                    <div>Name :{data.name}</div>
-                    <div>Email :{data.email}</div>
-                    <div style={{ color: "green" }}>Status :{data.status}</div>
-                    <div>Place :{data.address}</div>
-                    <div>State :{data.state}</div>
-                    <div> Phone :9652348</div>
-                    <div>Type :wedding Photography</div>
-                    <div>
-                      {" "}
-                      Description : the couple dshfsjhdfgjsdhgfjsdfgsjdfhg
-                    </div>
-                  </div>
-                ))}
+                {showloader == true ? (
+                  <Loader />
+                ) : (
+                  <>
+                    {acceptbooking.map((data) => (
+                      <>
+                        <div className="card">
+                          {data.name}
+                          <div>id :{data._id}</div>
+                          <div>Name :{data.name}</div>
+                          <div>Email :{data.email}</div>
+                          <div style={{ color: "green" }}>
+                            Status :{data.status}
+                          </div>
+                          <div>Place :{data.address}</div>
+                          <div>State :{data.state}</div>
+                          <div> Phone :9652348</div>
+                          <div>Type :wedding Photography</div>
+                          <div>
+                            {" "}
+                            Description : the couple dshfsjhdfgjsdhgfjsdfgsjdfhg
+                          </div>
+                        </div>
+                      </>
+                    ))}
+                  </>
+                )}
               </div>
             </>
           )}
