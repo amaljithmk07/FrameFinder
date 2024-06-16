@@ -194,7 +194,7 @@ photographerroutes.put("/accept-booking/:id", checkAuth, async (req, res) => {
         _id: req.params.id,
       },
       {
-        $set: { status: "accepted" },
+        $set: { status: "accepted", rejection_note: "" },
       }
     );
     const savedBooking = await BookingDB.findOne({
@@ -246,7 +246,7 @@ photographerroutes.put("/reject-booking/:id", checkAuth, async (req, res) => {
         _id: req.params.id,
       },
       {
-        $set: { status: "rejected" },
+        $set: { status: "rejected", rejection_note: req.body.rejection_note },
       }
     );
     const Calender = await CalendarDB.deleteOne({

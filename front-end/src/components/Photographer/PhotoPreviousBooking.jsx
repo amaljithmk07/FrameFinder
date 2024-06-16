@@ -163,7 +163,11 @@ const PhotoPreviousBooking = () => {
                             {data.phone}
                           </div>
                           <button
-                            className="p-previous-booking-card-btn"
+                            className={
+                              data.status == "rejected"
+                                ? "p-previous-booking-card-rejected-btn"
+                                : "p-previous-booking-card-btn"
+                            }
                             onClick={() => bookingPreview(data._id)}
                           >
                             Review

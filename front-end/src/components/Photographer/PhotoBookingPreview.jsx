@@ -16,6 +16,9 @@ const PhotoBookingPreview = () => {
   ////////Bookings State
   const [booking, setBooking] = useState([]);
 
+  //////////Rejection Note display
+  const [rejectionNoteBody, setRejectionnoteBody] = useState(false);
+
   useEffect(() => {
     setShowloader(true);
     axios
@@ -54,29 +57,41 @@ const PhotoBookingPreview = () => {
           return (data.status = "accepted");
         });
         setBooking(filterdata);
+        setRejectionnoteBody(false);
       })
       .catch((err) => {
         console.log(err);
       });
   };
+  ////////Rejection Note Handler
 
+  const rejectionNoteHandler = () => {
+    setRejectionnoteBody(true);
+  };
+
+  //////Rejection form data
+  const [rejectionform, setRejectionform] = useState({});
+
+  const rejectionNoteformHandler = (e) => {
+    const { name, value } = e.target;
+    setRejectionform({ ...rejectionform, [name]: value });
+  };
+  console.log(rejectionform);
   ////Reject the booking
   const rejectBooking = () => {
     axios
-      .put(
-        `${BASE_URI}/api/photographer/reject-booking/${id}`,
-        {},
-        {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        }
-      )
+      .put(`${BASE_URI}/api/photographer/reject-booking/${id}`, rejectionform, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      })
       .then((data) => {
         console.log(data);
         const filterdata = booking.filter((data) => {
           return (data.status = "rejected");
         });
+        setRejectionnoteBody(false);
+
         setBooking(filterdata);
       })
       .catch((err) => {
@@ -133,10 +148,11 @@ const PhotoBookingPreview = () => {
                   <div className="p-booking-preview-data">
                     Type :wedding Photography
                   </div>
-                  <div className="p-booking-preview-data">
+                  {/* <div className="p-booking-preview-data">
                     {" "}
-                    Description : the couple dshfsjhdfgjsdhgfjsdfgsjdfhg
-                  </div>
+                    Description :{" "}
+                    {data.rejection_note ? data.rejection_note : ""}
+                  </div> */}
                   <div className="p-booking-preview-data">
                     {" "}
                     <button
@@ -152,7 +168,7 @@ const PhotoBookingPreview = () => {
                     </button>
                     <button
                       className="p-booking-preview-btn reject"
-                      onClick={rejectBooking}
+                      onClick={rejectionNoteHandler}
                       style={
                         data.status == "rejected"
                           ? { cursor: "not-allowed" }
@@ -164,6 +180,28 @@ const PhotoBookingPreview = () => {
                   </div>
                 </div>
               ))}
+
+              {rejectionNoteBody == true ? (
+                <div className="p-booking-rejection-body">
+                  <div className="p-booking-rejection-title">
+                    Rejection Note
+                  </div>
+                  <textarea
+                    onChange={rejectionNoteformHandler}
+                    name="rejection_note"
+                    id=""
+                    className="p-booking-rejection-textarea"
+                  ></textarea>
+                  <button
+                    onClick={rejectBooking}
+                    className="p-booking-rejection-btn"
+                  >
+                    Submit
+                  </button>
+                </div>
+              ) : (
+                <></>
+              )}
             </div>
           </>
         )}

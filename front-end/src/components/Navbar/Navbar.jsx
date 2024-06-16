@@ -138,6 +138,12 @@ const Navbar = () => {
                 >
                   Logout{" "}
                 </Link>
+                <Link
+                  className={getClassName(backgroundcolor)}
+                  onMouseEnter={backgroundChange}
+                >
+                  .{" "}
+                </Link>
               </>
             ) : (
               <>

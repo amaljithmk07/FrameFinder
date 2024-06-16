@@ -38,6 +38,10 @@ const Bookingschema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  rejection_note: {
+    type: String,
+    require: true,
+  },
   status: {
     type: String,
     default: "",
