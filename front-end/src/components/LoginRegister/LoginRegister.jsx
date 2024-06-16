@@ -173,7 +173,7 @@ const LoginRegister = () => {
                         </div>
                       </div>
                       <div className="form-changer-area">
-                        Register As Phtographer? &nbsp;
+                        Register As Photographer? &nbsp;
                         <Link
                           to={"/photographer-register"}
                           className="form-to-register"

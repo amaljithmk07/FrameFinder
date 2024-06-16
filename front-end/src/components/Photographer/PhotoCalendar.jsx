@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./PhotoCalendar.css";
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import BASE_URI from "../Constant/Constant";
 
@@ -23,8 +23,12 @@ const PhotoCalendar = () => {
         },
       })
       .then((data) => {
-        console.log(data);
-        setCalendarData(data.data.data);
+        const sortedData = data.data.data.sort((a, b) => {
+          const dateA = new Date(a.date.split("/").reverse().join("-"));
+          const dateB = new Date(b.date.split("/").reverse().join("-"));
+          return dateA - dateB;
+        });
+        setCalendarData(sortedData);
         setShowloader(false);
       })
       .catch((err) => {
@@ -35,6 +39,17 @@ const PhotoCalendar = () => {
   return (
     <div>
       <div className="p-calendar-main-body">
+        <div className="p-calendar-text-body">
+          <div className="p-calendar-text-title">
+            Photographer's Booked Sessions Calendar
+          </div>
+          Welcome to our booked sessions calendar! This feature allows you to
+          view all confirmed bookings for our photographers, helping you stay
+          informed about their schedules and availability. The calendar provides
+          a clear overview of each photographer's engagements, ensuring you can
+          easily check when they are occupied.
+        </div>
+
         <div className="p-calendar-body">
           {calendarData.map((data) => (
             <div className="p-calendar-content" key={data._id}>
