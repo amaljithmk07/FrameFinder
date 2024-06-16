@@ -44,11 +44,7 @@ const PhotoRegister = () => {
     formData.append("phone", formInputs.phone);
     formData.append("password", formInputs.password);
     axios
-      .post(
-        // "http://localhost:2222/api/register/photographer-register",
-        `${BASE_URI}/register/photographer-register`,
-        formData
-      )
+      .post(`${BASE_URI}/api/register/photographer-register`, formData)
       .then((data) => {
         toast.success("Register Successful");
 

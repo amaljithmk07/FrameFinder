@@ -35,6 +35,8 @@ const PhotoPreviousBooking = () => {
 
   useEffect(() => {
     if (bookchanger == false) {
+      //////////Pending Bookings
+
       setShowloader(true);
       axios
         // .get(`http://localhost:2222/api/photographer/previous-booking`, {
@@ -57,6 +59,8 @@ const PhotoPreviousBooking = () => {
           console.log(err);
         });
     } else {
+      //////////Accepted Bookings
+
       setShowloader(true);
       axios
         .get(`${BASE_URI}/api/photographer/accepted-bookings`, {
@@ -188,22 +192,25 @@ const PhotoPreviousBooking = () => {
                   <>
                     {acceptbooking.map((data) => (
                       <>
-                        <div className="card">
-                          {data.name}
-                          <div>id :{data._id}</div>
-                          <div>Name :{data.name}</div>
-                          <div>Email :{data.email}</div>
-                          <div style={{ color: "green" }}>
-                            Status :{data.status}
+                        <div className="p-previous-accepted-card-body">
+                          <div className="p-previous-accepted-card-title">
+                            {data.name}
                           </div>
-                          <div>Place :{data.address}</div>
-                          <div>State :{data.state}</div>
-                          <div> Phone :9652348</div>
-                          <div>Type :wedding Photography</div>
-                          <div>
-                            {" "}
-                            Description : the couple dshfsjhdfgjsdhgfjsdfgsjdfhg
+                          <div className="p-previous-accepted-card-content">
+                            {data.email}
                           </div>
+                          <div className="p-previous-accepted-card-content">
+                            {data.address},{data.city},{data.state}
+                          </div>
+                          <div className="p-previous-accepted-card-content">
+                            {data.phone}
+                          </div>
+                          <button
+                            className="p-previous-accepted-card-btn"
+                            onClick={() => bookingPreview(data._id)}
+                          >
+                            Review
+                          </button>
                         </div>
                       </>
                     ))}

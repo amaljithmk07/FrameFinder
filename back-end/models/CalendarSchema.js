@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-const CalenderSchema = new mongoose.Schema({
+const CalendarSchema = new mongoose.Schema({
   photographer_id: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "Login_DB",
@@ -15,5 +15,5 @@ const CalenderSchema = new mongoose.Schema({
     require: true,
   },
 });
-const data = mongoose.model("Calender_DB", CalenderSchema);
+const data = mongoose.model("Calender_DB", CalendarSchema);
 module.exports = data;

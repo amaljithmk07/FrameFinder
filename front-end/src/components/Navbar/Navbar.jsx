@@ -88,10 +88,10 @@ const Navbar = () => {
                 <Link
                   className={getClassName(backgroundcolor)}
                   onMouseEnter={backgroundChange}
-                  to={"/photographer-calender"}
+                  to={"/photographer-calendar"}
                 >
                   {" "}
-                  Calender{" "}
+                  Calendar{" "}
                 </Link>{" "}
                 <Link
                   className={getClassName(backgroundcolor)}
@@ -198,11 +198,11 @@ const Navbar = () => {
                   </Link>{" "}
                   <Link
                     className="navbar-hamburger-menu"
-                    to={"/photographer-calender"}
+                    to={"/photographer-calendar"}
                     onClick={HamburgerOff}
                   >
                     {" "}
-                    Calender
+                    Calendar
                   </Link>{" "}
                   <Link
                     className="navbar-hamburger-menu"

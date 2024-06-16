@@ -142,12 +142,22 @@ const PhotoBookingPreview = () => {
                     <button
                       className="p-booking-preview-btn accept"
                       onClick={acceptBooking}
+                      style={
+                        data.status == "accepted"
+                          ? { cursor: "not-allowed" }
+                          : { cursor: "pointer" }
+                      }
                     >
                       Accept
                     </button>
                     <button
                       className="p-booking-preview-btn reject"
                       onClick={rejectBooking}
+                      style={
+                        data.status == "rejected"
+                          ? { cursor: "not-allowed" }
+                          : { cursor: "pointer" }
+                      }
                     >
                       Reject
                     </button>

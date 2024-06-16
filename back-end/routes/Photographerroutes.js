@@ -4,7 +4,7 @@ const photographerroutes = express.Router();
 const PhotographersRegisterDB = require("../models/PhotoRegisterSchema");
 const LoginDB = require("../models/Loginschema");
 const BookingDB = require("../models/Bookingschema");
-const CalenderDB = require("../models/CalenderSchema");
+const CalendarDB = require("../models/CalendarSchema");
 const checkAuth = require("../middleware/CheckAuth");
 
 ///////////All Profile
@@ -122,7 +122,7 @@ photographerroutes.get("/previous-booking", checkAuth, async (req, res) => {
     console.log(req.userData.userId);
     const allBooking = await BookingDB.find({
       photographers_id: req.userData.userId,
-      // $or: [{ status: "rejected" }, { status: "pending" }],
+      $or: [{ status: "rejected" }, { status: "pending" }],
     });
     if (allBooking) {
       return res.status(200).json({
@@ -188,10 +188,15 @@ photographerroutes.get("/booking/:id", checkAuth, async (req, res) => {
 photographerroutes.put("/accept-booking/:id", checkAuth, async (req, res) => {
   try {
     console.log(req.params.id);
-    const Booking = await BookingDB.updateOne({
-      _id: req.params.id,
-      status: "accepted",
-    });
+    const Booking = await BookingDB.updateOne(
+      {
+        photographers_id: req.userData.userId,
+        _id: req.params.id,
+      },
+      {
+        $set: { status: "accepted" },
+      }
+    );
     const savedBooking = await BookingDB.findOne({
       _id: req.params.id,
     });
@@ -201,7 +206,7 @@ photographerroutes.put("/accept-booking/:id", checkAuth, async (req, res) => {
       booking_id: savedBooking._id,
       date: savedBooking.date,
     };
-    const CalenderData = await CalenderDB(Calender).save();
+    const CalenderData = await CalendarDB(Calender).save();
 
     if (Booking && CalenderData) {
       return res.status(200).json({
@@ -235,11 +240,16 @@ photographerroutes.put("/accept-booking/:id", checkAuth, async (req, res) => {
 photographerroutes.put("/reject-booking/:id", checkAuth, async (req, res) => {
   try {
     console.log(req.params.id);
-    const Booking = await BookingDB.updateOne({
-      _id: req.params.id,
-      status: "rejected",
-    });
-    const Calender = await CalenderDB.deleteOne({
+    const Booking = await BookingDB.updateOne(
+      {
+        photographers_id: req.userData.userId,
+        _id: req.params.id,
+      },
+      {
+        $set: { status: "rejected" },
+      }
+    );
+    const Calender = await CalendarDB.deleteOne({
       booking_id: req.params.id,
       photographer_id: req.userData.userId,
     });
@@ -270,12 +280,13 @@ photographerroutes.put("/reject-booking/:id", checkAuth, async (req, res) => {
   }
 });
 
-///////Accepted Bookings
+///////Accepted Bookings Lists
 
 photographerroutes.get("/accepted-bookings", checkAuth, async (req, res) => {
   try {
     const Booking = await BookingDB.find({
       status: "accepted",
+      photographers_id: req.userData.userId,
     });
     if (Booking) {
       return res.status(200).json({
@@ -283,6 +294,86 @@ photographerroutes.get("/accepted-bookings", checkAuth, async (req, res) => {
         error: false,
         message: " Bookings Fetched successful ",
         data: Booking,
+      });
+    } else
+      (err) => {
+        return res.status(400).json({
+          success: false,
+          error: true,
+          message: "404 error",
+          errorMessage: err.message,
+        });
+      };
+  } catch (err) {
+    return res.status(500).json({
+      success: false,
+      error: true,
+      message: "Network Error",
+      errorMessage: err.message,
+    });
+  }
+});
+
+///////Calendar Setup
+
+photographerroutes.get("/calendar", checkAuth, async (req, res) => {
+  try {
+    const calendarData = await CalendarDB.aggregate([
+      {
+        $lookup: {
+          from: "booking_dbs",
+          localField: "booking_id",
+          foreignField: "_id",
+          as: "results",
+        },
+      },
+      {
+        $unwind: {
+          path: "$results",
+        },
+      },
+      {
+        $match: {
+          photographer_id: new mongoose.Types.ObjectId(req.userData.userId),
+        },
+      },
+      {
+        $group: {
+          _id: "$_id",
+          photographer_id: {
+            $first: "$photographer_id",
+          },
+          name: {
+            $first: "$results.name",
+          },
+          date: {
+            $first: "$date",
+          },
+          email: {
+            $first: "$results.email",
+          },
+          phone: {
+            $first: "$results.phone",
+          },
+          address: {
+            $first: "$results.address",
+          },
+          city: {
+            $first: "$results.city",
+          },
+          state: {
+            $first: "$results.state",
+          },
+        },
+      },
+    ]);
+
+    if (calendarData) {
+      return res.status(200).json({
+        success: true,
+        error: false,
+        message: " Data Fetched successful ",
+        data: calendarData,
       });
     } else
       (err) => {
