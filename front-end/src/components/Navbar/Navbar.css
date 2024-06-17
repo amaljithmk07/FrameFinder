@@ -81,6 +81,22 @@
   background-color: rgb(247, 159, 255);
 }
 
+.navbar-profile-sec {
+  height: 32px;
+  width: 32px;
+  /* background-color: rgb(255, 255, 255); */
+  border: 2px solid rgb(108, 108, 108);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.navbar-profile-img {
+  height: 80%;
+  width: 80%;
+  border-radius: 50%;
+}
+
 .navbar-hamburger-body,
 .navbar-hamburger-icon {
   display: none;

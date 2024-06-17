@@ -1,12 +1,16 @@
-import React, { forwardRef, useState } from "react";
+import React, { forwardRef, useEffect, useState } from "react";
 import "./Navbar.css";
 import { Link, useNavigate } from "react-router-dom";
+import axios from "axios";
+import BASE_URI from "../Constant/Constant";
 const Navbar = () => {
+  ////////
   const role = sessionStorage.getItem("userRole");
-
-  const [backgroundcolor, setBackgroundcolor] = useState(0);
-  const navigate = useNavigate();
   const token = sessionStorage.getItem("token");
+  const navigate = useNavigate();
+
+  ////////Background changer state
+  const [backgroundcolor, setBackgroundcolor] = useState(0);
 
   ///background change during hover
 
@@ -57,6 +61,25 @@ const Navbar = () => {
     setHamburger(false);
   };
 
+  ////////////////Profile For Navbar
+
+  const [profileData, setProfileData] = useState({});
+  useEffect(() => {
+    if (role == 1) {
+      axios
+        .get(`${BASE_URI}/api/photographer/profile`, {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        })
+        .then((data) => {
+          setProfileData(data.data.data);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    }
+  }, [role]);
   return (
     <div>
       <div className="navbar-main">
@@ -66,8 +89,6 @@ const Navbar = () => {
         </div>
         <div className="navbar-menu-sec">
           <div className="navbar-menu-items">
-            {/* <Link className="navbar-menu-data">Home</Link> */}
-
             {role == 1 ? (
               <>
                 <Link
@@ -83,7 +104,7 @@ const Navbar = () => {
                   to={"/previous-booking"}
                 >
                   {" "}
-                  Previous Booking
+                  Booking
                 </Link>{" "}
                 <Link
                   className={getClassName(backgroundcolor)}
@@ -92,14 +113,6 @@ const Navbar = () => {
                 >
                   {" "}
                   Calendar{" "}
-                </Link>{" "}
-                <Link
-                  className={getClassName(backgroundcolor)}
-                  onMouseEnter={backgroundChange}
-                  to={"/photographer-profile"}
-                >
-                  {" "}
-                  Profile{" "}
                 </Link>{" "}
               </>
             ) : (
@@ -138,12 +151,26 @@ const Navbar = () => {
                 >
                   Logout{" "}
                 </Link>
-                <Link
-                  className={getClassName(backgroundcolor)}
-                  onMouseEnter={backgroundChange}
-                >
-                  .{" "}
-                </Link>
+                {role == 1 ? (
+                  <>
+                    <Link
+                      className="navbar-profile-sec"
+                      to={"/photographer-profile"}
+                    >
+                      <img
+                        src={
+                          profileData.profile
+                            ? `/upload/${profileData.profile}`
+                            : "/userlogin.png"
+                        }
+                        alt=""
+                        className="navbar-profile-img"
+                      />
+                    </Link>{" "}
+                  </>
+                ) : (
+                  <></>
+                )}
               </>
             ) : (
               <>
@@ -200,7 +227,7 @@ const Navbar = () => {
                     onClick={HamburgerOff}
                   >
                     {" "}
-                    Previous Booking
+                    Booking
                   </Link>{" "}
                   <Link
                     className="navbar-hamburger-menu"

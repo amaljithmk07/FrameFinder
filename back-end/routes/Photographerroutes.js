@@ -393,4 +393,38 @@ photographerroutes.get("/calendar", checkAuth, async (req, res) => {
     });
   }
 });
+
+///////Photographer Profile
+
+photographerroutes.get("/profile", checkAuth, async (req, res) => {
+  try {
+    const profile = await PhotographersRegisterDB.findOne({
+      login_id: req.userData.userId,
+    });
+    if (profile) {
+      return res.status(200).json({
+        success: true,
+        error: false,
+        message: " Profile Fetched successful ",
+        data: profile,
+      });
+    } else
+      (err) => {
+        return res.status(400).json({
+          success: false,
+          error: true,
+          message: "404 error",
+          errorMessage: err.message,
+        });
+      };
+  } catch (err) {
+    return res.status(500).json({
+      success: false,
+      error: true,
+      message: "Network Error",
+      errorMessage: err.message,
+    });
+  }
+});
+
 module.exports = photographerroutes;
