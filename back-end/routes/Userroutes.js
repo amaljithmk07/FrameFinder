@@ -3,6 +3,8 @@ const Userroutes = express.Router();
 const BookingDB = require("../models/Bookingschema");
 const CheckAuth = require("../middleware/CheckAuth");
 
+//////////Booking
+
 Userroutes.post("/booking/:id", CheckAuth, async (req, res) => {
   console.log(req.body);
   const Data = new BookingDB({
@@ -24,6 +26,31 @@ Userroutes.post("/booking/:id", CheckAuth, async (req, res) => {
         error: false,
         message: "success",
         data: data,
+      });
+    })
+    .catch((err) => {
+      res.status(400).json({
+        success: false,
+        error: true,
+        message: "failed",
+        errorMessage: err.message,
+      });
+    });
+});
+
+///Rejected mesg shoing for notification
+
+Userroutes.get("/notification", CheckAuth, async (req, res) => {
+  console.log(req.body);
+  const Data = await BookingDB.findOne({
+    login_id: req.userData.userId,
+  })
+    .then((Data) => {
+      res.status(200).json({
+        success: true,
+        error: false,
+        message: "success",
+        data: Data,
       });
     })
     .catch((err) => {

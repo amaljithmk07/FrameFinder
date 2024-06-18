@@ -80,6 +80,26 @@ const Navbar = () => {
         });
     }
   }, [role]);
+
+  ////////////////Rejection Notification  For Navbar
+
+  const [NotificationData, setNotificationData] = useState({});
+  useEffect(() => {
+    if (role == 2) {
+      axios
+        .get(`${BASE_URI}/api/user/notification`, {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        })
+        .then((data) => {
+          setNotificationData(data.data.data);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    }
+  }, [role]);
   return (
     <div>
       <div className="navbar-main">
@@ -169,7 +189,29 @@ const Navbar = () => {
                     </Link>{" "}
                   </>
                 ) : (
-                  <></>
+                  <>
+                    {role == 2 ? (
+                      <>
+                        <Link
+                          className="navbar-notification-sec"
+                          to={"/photographer-notification"}
+                        >
+                          <img
+                            src={"/notification.png"}
+                            alt=""
+                            className="navbar-notification-img"
+                          />
+                          {NotificationData.status == "rejected" ? (
+                            <div className="navbar-notification-dot"></div>
+                          ) : (
+                            <></>
+                          )}
+                        </Link>{" "}
+                      </>
+                    ) : (
+                      <></>
+                    )}
+                  </>
                 )}
               </>
             ) : (
