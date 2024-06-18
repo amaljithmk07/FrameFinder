@@ -7,6 +7,20 @@ const CheckAuth = require("../middleware/CheckAuth");
 
 Userroutes.post("/booking/:id", CheckAuth, async (req, res) => {
   console.log(req.body);
+  const oldData = await BookingDB.findOne({
+    login_id: req.userData.userId,
+    photographers_id: req.params.id,
+    email: req.body.email,
+    phone: req.body.phone,
+    $or: [{ status: "pending" }, { status: "accepted" }],
+  });
+  if (oldData) {
+    return res.status(400).json({
+      success: false,
+      error: true,
+      errorMessage: "You are already booked ",
+    });
+  }
   const Data = new BookingDB({
     login_id: req.userData.userId,
     photographers_id: req.params.id,

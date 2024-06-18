@@ -124,7 +124,7 @@ const Navbar = () => {
                   to={"/previous-booking"}
                 >
                   {" "}
-                  Booking
+                  Bookings
                 </Link>{" "}
                 <Link
                   className={getClassName(backgroundcolor)}
@@ -186,7 +186,8 @@ const Navbar = () => {
                         alt=""
                         className="navbar-profile-img"
                       />
-                    </Link>{" "}
+                      <div className="navbar-profile-border"></div>
+                    </Link>
                   </>
                 ) : (
                   <>
@@ -201,8 +202,14 @@ const Navbar = () => {
                             alt=""
                             className="navbar-notification-img"
                           />
-                          {NotificationData.status == "rejected" ? (
-                            <div className="navbar-notification-dot"></div>
+                          {NotificationData ? (
+                            <>
+                              {NotificationData.status == "rejected" ? (
+                                <div className="navbar-notification-dot">1</div>
+                              ) : (
+                                <></>
+                              )}
+                            </>
                           ) : (
                             <></>
                           )}
@@ -227,13 +234,13 @@ const Navbar = () => {
             )}
           </div>
         </div>
-
         {/* //Hamburger Secion// */}
         {/* <img
           src={Hamburger == false ? "/hamburger.png" : "/hamb-close.png"}
           onClick={HamburgerHandler}
           className="navbar-hamburger-icon"
           /> */}
+
         <div className="navbar-hamb-main" onClick={HamburgerHandler}>
           <div
             className={
