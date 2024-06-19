@@ -17,6 +17,7 @@ import PhotographerHome from "./components/Photographer/PhotoHome";
 import PhotoBookingPreview from "./components/Photographer/PhotoBookingPreview";
 import UserPhotoBooking from "./components/User/UserPhotoBooking";
 import PhotoCalendar from "./components/Photographer/PhotoCalendar";
+import UserNotificationPanel from "./components/User/UserNotificationPanel";
 
 function App() {
   return (
@@ -30,6 +31,10 @@ function App() {
           {/* //////////// */}
           <Route path="/" element={<UserHome />} />
           <Route path="/user/booking" element={<UserBooking />} />
+          <Route
+            path="/user/notification-panel"
+            element={<UserNotificationPanel />}
+          />
           <Route
             path="/photographer-review/:id"
             element={<UserPhotoBooking />}

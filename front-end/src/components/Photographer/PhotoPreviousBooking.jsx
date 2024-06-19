@@ -149,7 +149,7 @@ const PhotoPreviousBooking = () => {
                   <>
                     {pendingbookings.map((data) => (
                       <>
-                        <div className="p-previous-booking-card-body">
+                        <div className="p-previous-booking-card-body" key={data._id}>
                           <div className="p-previous-booking-card-title">
                             {data.name}
                           </div>
@@ -196,7 +196,7 @@ const PhotoPreviousBooking = () => {
                   <>
                     {acceptbooking.map((data) => (
                       <>
-                        <div className="p-previous-accepted-card-body">
+                        <div className="p-previous-accepted-card-body" key={data._id}>
                           <div className="p-previous-accepted-card-title">
                             {data.name}
                           </div>

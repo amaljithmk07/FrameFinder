@@ -2,6 +2,7 @@ const express = require("express");
 const Userroutes = express.Router();
 const BookingDB = require("../models/Bookingschema");
 const CheckAuth = require("../middleware/CheckAuth");
+const mongoose = require("mongoose");
 
 //////////Booking
 
@@ -52,18 +53,59 @@ Userroutes.post("/booking/:id", CheckAuth, async (req, res) => {
     });
 });
 
-///Rejected mesg shoing for notification
+///Rejected msg showing for notification
 
 Userroutes.get("/notification", CheckAuth, async (req, res) => {
-  console.log(req.body);
-  const Data = await BookingDB.findOne({
-    login_id: req.userData.userId,
-  })
+  const Data = await BookingDB.aggregate([
+    {
+      $lookup: {
+        from: "photoregister_dbs",
+        localField: "photographers_id",
+        foreignField: "login_id",
+        as: "results",
+      },
+    },
+    {
+      $unwind: {
+        path: "$results",
+      },
+    },
+    {
+      $match: {
+        login_id: new mongoose.Types.ObjectId(req.userData.userId),
+        status: "rejected",
+      },
+    },
+
+    {
+      $group: {
+        _id: "$_id",
+        login_id: {
+          $first: "$login_id",
+        },
+        status: {
+          $first: "$status",
+        },
+        photographer_name: {
+          $first: "$results.name",
+        },
+        name: {
+          $first: "$name",
+        },
+        date: {
+          $first: "$date",
+        },
+        rejection_note: {
+          $first: "$rejection_note",
+        },
+      },
+    },
+  ])
     .then((Data) => {
       res.status(200).json({
         success: true,
         error: false,
-        message: "success",
+        message: "Notification fetched success",
         data: Data,
       });
     })

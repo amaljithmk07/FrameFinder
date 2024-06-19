@@ -83,7 +83,7 @@ const Navbar = () => {
 
   ////////////////Rejection Notification  For Navbar
 
-  const [NotificationData, setNotificationData] = useState({});
+  const [NotificationCount, setNotificationCount] = useState(0);
   useEffect(() => {
     if (role == 2) {
       axios
@@ -93,7 +93,9 @@ const Navbar = () => {
           },
         })
         .then((data) => {
-          setNotificationData(data.data.data);
+          const notificationData = data.data.data;
+          setNotificationCount(notificationData.length);
+          // console.log("navbar", notificationData.length);
         })
         .catch((err) => {
           console.log(err);
@@ -193,27 +195,25 @@ const Navbar = () => {
                   <>
                     {role == 2 ? (
                       <>
-                        <Link
-                          className="navbar-notification-sec"
-                          to={"/photographer-notification"}
-                        >
-                          <img
-                            src={"/notification.png"}
-                            alt=""
-                            className="navbar-notification-img"
-                          />
-                          {NotificationData ? (
+                        {!NotificationCount == 0 ? (
+                          <Link
+                            className="navbar-notification-sec"
+                            to={"/user/notification-panel"}
+                          >
+                            <img
+                              src={"/notification.png"}
+                              alt=""
+                              className="navbar-notification-img"
+                            />
                             <>
-                              {NotificationData.status == "rejected" ? (
-                                <div className="navbar-notification-dot">1</div>
-                              ) : (
-                                <></>
-                              )}
+                              <div className="navbar-notification-dot">
+                                {NotificationCount}
+                              </div>
                             </>
-                          ) : (
-                            <></>
-                          )}
-                        </Link>{" "}
+                          </Link>
+                        ) : (
+                          <></>
+                        )}
                       </>
                     ) : (
                       <></>
