@@ -17,7 +17,7 @@ import PhotographerHome from "./components/Photographer/PhotoHome";
 import PhotoBookingPreview from "./components/Photographer/PhotoBookingPreview";
 import UserPhotoBooking from "./components/User/UserPhotoBooking";
 import PhotoCalendar from "./components/Photographer/PhotoCalendar";
-import UserNotificationPanel from "./components/User/UserNotificationPanel";
+import UserNotification from "./components/User/UserNotification";
 
 function App() {
   return (
@@ -32,8 +32,8 @@ function App() {
           <Route path="/" element={<UserHome />} />
           <Route path="/user/booking" element={<UserBooking />} />
           <Route
-            path="/user/notification-panel"
-            element={<UserNotificationPanel />}
+            path="/user/notification"
+            element={<UserNotification />}
           />
           <Route
             path="/photographer-review/:id"

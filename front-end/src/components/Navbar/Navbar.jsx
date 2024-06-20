@@ -198,7 +198,7 @@ const Navbar = () => {
                         {!NotificationCount == 0 ? (
                           <Link
                             className="navbar-notification-sec"
-                            to={"/user/notification-panel"}
+                            to={"/user/notification"}
                           >
                             <img
                               src={"/notification.png"}

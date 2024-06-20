@@ -73,7 +73,14 @@ Userroutes.get("/notification", CheckAuth, async (req, res) => {
     {
       $match: {
         login_id: new mongoose.Types.ObjectId(req.userData.userId),
-        status: "rejected",
+        $or: [
+          {
+            status: "rejected",
+          },
+          {
+            status: "accepted",
+          },
+        ],
       },
     },
 

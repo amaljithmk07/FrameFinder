@@ -102,7 +102,8 @@
   font-size: 4rem;
   /* background-color: rebeccapurple; */
 }
-/* ////////////////////////// */
+
+/* ////////////Gallery////////////// */
 
 .u-photo-booking-gallery-body {
   height: 60vh;
@@ -123,7 +124,6 @@
   width: 100px;
   /* width: 300px; */
   flex-shrink: 0;
-
   display: flex;
   justify-content: center;
   align-items: center;
@@ -138,12 +138,13 @@
   filter: grayscale(0.7);
   transition: all 0.35s ease-in-out;
 }
+
 .u-photo-booking-gallery-img-body:hover {
   transform: scale(1.03);
   width: 300px;
 }
 .u-photo-booking-gallery-img-body:hover .u-photo-booking-gallery-img {
-  transform: scale(1.1);
+  transform: scale(1.2);
   filter: grayscale(0);
 }
 /* ////////////Text Body */
