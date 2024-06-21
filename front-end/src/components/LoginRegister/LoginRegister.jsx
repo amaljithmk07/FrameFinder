@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import "./Login.css";
 import "./Register.css";
 import { Link, useNavigate } from "react-router-dom";
@@ -93,7 +93,6 @@ const LoginRegister = () => {
   const submitForm = (e) => {
     e.preventDefault();
     axios
-      // .post(`http://localhost:2222/api/register`, registerData)
       .post(`${BASE_URI}/api/register`, registerData)
       .then((data) => {
         console.log(data);
@@ -110,7 +109,7 @@ const LoginRegister = () => {
     <div>
       <Toaster />
       {showloader == true ? (
-        <Loader name={true} />
+        <Loader />
       ) : (
         <>
           <div className="login-main">

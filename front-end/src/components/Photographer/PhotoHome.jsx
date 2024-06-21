@@ -7,7 +7,7 @@ const PhotographerHome = () => {
         <div className="p-home-intro-sec">
           <div className="p-home-intro-title">
             Join Our Network of Talented Photographers
-          <p>Grow Your Photography Business with Frame Finder</p>
+            <p>Grow Your Photography Business with Frame Finder</p>
           </div>
 
           <div className="p-home-why-join-us-sec">
@@ -81,7 +81,43 @@ const PhotographerHome = () => {
             </ol>
           </div>
 
-          <button className="p-home-learn-more-button">Learn More About Us</button>
+          <div className="p-home-add-image-body">
+            <h1>Showcase Your Best Photos</h1>
+            <p>
+              You can publish your best photos for users to view and book your
+              services directly from the pictures you add.
+            </p>
+
+            <h2>How It Works</h2>
+            <p>
+              Upload your top-quality images to attract potential clients. Each
+              photo can serve as a gateway for users to learn more about your
+              services and make bookings.
+            </p>
+
+            <h2>Benefits</h2>
+            <ul>
+              <li>Increase visibility with a stunning portfolio.</li>
+              <li>Convert photo views into service bookings.</li>
+              <li>Build trust and showcase your expertise.</li>
+            </ul>
+
+            <h2>Get Started</h2>
+            <ol>
+              <li>Create an account or log in.</li>
+              <li>Upload your best photos to your profile.</li>
+              <li>Add details and links to your services.</li>
+              <li>Publish your portfolio and start attracting clients!</li>
+            </ol>
+
+            <h2>Disclaimer</h2>
+            <p>
+              Please note that all photos uploaded must comply with our
+              community guidelines. Any inappropriate or copyrighted content may
+              be removed without notice. Users are responsible for ensuring they
+              have the rights to share and publish the photos they upload.
+            </p>
+          </div>
         </div>
       </div>
     </div>
