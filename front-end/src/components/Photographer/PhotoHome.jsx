@@ -1,6 +1,45 @@
-import React from "react";
+import React, { useState } from "react";
 import "./PhotoHome.css";
+import axios from "axios";
+import BASE_URI from "../Constant/Constant";
 const PhotographerHome = () => {
+  const token = sessionStorage.getItem("token");
+
+  const [imageUpload, setImageupload] = useState({});
+  /////////////
+  const uploadMultipleImageHandler = (e) => {
+    // const choose = Array.prototype.slice.call(e.target.files);
+    // setImageupload(choose);
+
+    setImageupload([...e.target.files]);
+
+    // console.log(e.target.files[0]);
+    // const { name } = e.target;
+    // setImageupload({ ...setImageupload, [name]: e.target.files[0] });
+  };
+
+  console.log(imageUpload);
+
+  const UploadImageSubmit = (e) => {
+    e.preventDefault();
+    const formData = new FormData();
+    // formData.append("image", imageUpload.image);
+    imageUpload.forEach((image) => {
+      formData.append("image", image);
+    });
+    axios
+      .post(`${BASE_URI}/api/photographer/upload-images`, formData, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      })
+      .then((data) => {
+        console.log(data);
+      })
+      .catch((err) => {
+        console.log(err.response.data.errorMessage);
+      });
+  };
   return (
     <div>
       <div className="p-home-main-body">
@@ -80,44 +119,72 @@ const PhotographerHome = () => {
               </li>
             </ol>
           </div>
+        </div>
 
-          <div className="p-home-add-image-body">
-            <h1>Showcase Your Best Photos</h1>
-            <p>
-              You can publish your best photos for users to view and book your
-              services directly from the pictures you add.
-            </p>
-
-            <h2>How It Works</h2>
-            <p>
-              Upload your top-quality images to attract potential clients. Each
-              photo can serve as a gateway for users to learn more about your
-              services and make bookings.
-            </p>
-
-            <h2>Benefits</h2>
-            <ul>
-              <li>Increase visibility with a stunning portfolio.</li>
-              <li>Convert photo views into service bookings.</li>
-              <li>Build trust and showcase your expertise.</li>
-            </ul>
-
-            <h2>Get Started</h2>
-            <ol>
-              <li>Create an account or log in.</li>
-              <li>Upload your best photos to your profile.</li>
-              <li>Add details and links to your services.</li>
-              <li>Publish your portfolio and start attracting clients!</li>
-            </ol>
-
-            <h2>Disclaimer</h2>
-            <p>
-              Please note that all photos uploaded must comply with our
-              community guidelines. Any inappropriate or copyrighted content may
-              be removed without notice. Users are responsible for ensuring they
-              have the rights to share and publish the photos they upload.
-            </p>
+        <div className="p-home-add-image-body">
+          <div className="p-home-add-image-title">
+            Showcase Your Best Photos
           </div>
+          <p>
+            You can publish your best photos for users to view and book your
+            services directly from the pictures you add.
+          </p>
+
+          <div className="p-home-add-image-title">How It Works</div>
+          <p>
+            Upload your top-quality images to attract potential clients. Each
+            photo can serve as a gateway for users to learn more about your
+            services and make bookings.
+          </p>
+
+          <div className="p-home-add-image-title">Benefits</div>
+          <ul>
+            <li>Increase visibility with a stunning portfolio.</li>
+            <li>Convert photo views into service bookings.</li>
+            <li>Build trust and showcase your expertise.</li>
+          </ul>
+
+          <div className="p-home-add-image-title">Get Started</div>
+          <ol>
+            <li>Create an account or log in.</li>
+            <li>Upload your best photos to your profile.</li>
+            <li>Add details and links to your services.</li>
+            <li>Publish your portfolio and start attracting clients!</li>
+          </ol>
+          <form
+            action=""
+            className="p-home-add-image-form"
+            encType="multipart/form-data"
+          >
+            <label className="p-home-add-image-sec" htmlFor="image">
+              <input
+                type="file"
+                id="image"
+                name="image"
+                hidden
+                multiple
+                onChange={uploadMultipleImageHandler}
+              />
+              <img
+                src="/Upload-Image.png"
+                alt=""
+                className="p-home-add-image-icon"
+              />
+            </label>
+            <button
+              className="p-home-add-image-submit-btn"
+              onClick={UploadImageSubmit}
+            >
+              Submit
+            </button>
+          </form>
+          <div className="p-home-add-image-title">Disclaimer</div>
+          <p>
+            Please note that all photos uploaded must comply with our community
+            guidelines. Any inappropriate or copyrighted content may be removed
+            without notice. Users are responsible for ensuring they have the
+            rights to share and publish the photos they upload.
+          </p>
         </div>
       </div>
     </div>

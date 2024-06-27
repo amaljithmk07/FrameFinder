@@ -47,11 +47,12 @@ const PhotoRegister = () => {
       .post(`${BASE_URI}/api/register/photographer-register`, formData)
       .then((data) => {
         toast.success("Register Successful");
-
+        
         console.log(data);
         navigate("/loginregister");
       })
       .catch((err) => {
+        toast.error(err.response.data.message);
         console.log(err);
       });
   };

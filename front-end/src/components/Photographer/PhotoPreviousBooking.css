@@ -11,8 +11,9 @@
 }
 .p-previous-booking-description-body {
   min-height: 300px;
-  width: 100%;
-  background: url("/booking-background1.jpg");
+  border-radius: 10px;
+  width:95%;
+  background: url("/photo-bookings-back.jpg");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -21,7 +22,7 @@
   /* background-color: rgb(255, 219, 219); */
   display: flex;
   justify-content: center;
-  margin: 10vh 0 0 0;
+  margin: 12vh 0 0 0;
   align-items: center;
   flex-direction: column;
 }
@@ -31,12 +32,14 @@
   display: flex;
   align-items: center;
   height: 100px;
+  color: white;
   /* background-color: red; */
   width: auto;
 }
 .p-previous-booking-paragraph {
   min-height: 150px;
   width: 80%;
+  color: white;
   /* background-color: rgb(236, 194, 194); */
   text-align: justify;
   line-height: 25px;

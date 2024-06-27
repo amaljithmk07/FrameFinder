@@ -8,6 +8,7 @@
   align-items: center;
   font-family: fangsong, math, sans-serif;
   padding-top: 10vh;
+  gap: 80px;
 }
 
 .p-home-intro-sec {
@@ -18,7 +19,6 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
-
 }
 .p-home-intro-title {
   min-height: 120px;
@@ -56,6 +56,9 @@
 .p-home-why-join-us-sec > ul {
   line-height: 35px;
 }
+
+/* //////////////// */
+
 .p-home-why-join-us-title,
 .p-home-how-it-works-title {
   display: flex;
@@ -102,7 +105,7 @@
 .p-home-add-image-body {
   font-weight: 600;
   min-height: 300px;
-  width: 100%;
+  width: 80%;
   display: flex;
   justify-content: center;
   align-items: start;
@@ -110,4 +113,55 @@
   gap: 20px;
   flex-direction: column;
   /* background-color: aliceblue; */
+}
+.p-home-add-image-title {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  font-weight: 700;
+  font-size: 1.7rem;
+  width: 100%;
+  height: 40px;
+  /* background-color: rgb(211, 164, 164); */
+}
+
+
+.p-home-add-image-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  min-height: 250px;
+  gap: 20px;
+  /* background-color: rgb(211, 164, 164); */
+}
+.p-home-add-image-sec {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  height: 250px;
+  cursor: pointer;
+  border: 3px dashed rgb(176, 176, 176);
+  /* background-color: rgb(211, 164, 164); */
+}
+.p-home-add-image-icon {
+  width: auto;
+  height: 100px;
+  transition: all 0.3s ease-in-out;
+}
+.p-home-add-image-sec:hover .p-home-add-image-icon {
+  filter: drop-shadow(0px 5px 3px rgb(125, 125, 125));
+}
+.p-home-add-image-submit-btn{
+  height: 35px;
+  width: 120px;
+  font-size: 1.1rem;
+  color: white;
+  background-color: rgb(0, 0, 138);
+  cursor: pointer;
+  border: 0;
+  border-radius: 5px;
 }

@@ -6,6 +6,24 @@ const LoginDB = require("../models/Loginschema");
 const BookingDB = require("../models/Bookingschema");
 const CalendarDB = require("../models/CalendarSchema");
 const checkAuth = require("../middleware/CheckAuth");
+const path = require("path");
+
+const multer = require("multer");
+
+const storage = multer.diskStorage({
+  destination: (req, file, cb) => {
+    cb(null, "../front-end/public/upload");
+  },
+  //   filename: (req, file, cb) => {
+  //     cb(null, file.originalname);
+  //   },
+  // });
+  filename: (req, file, cb) => {
+    cb(null, Date.now() + path.extname(file.originalname));
+  },
+});
+
+const upload = multer({ storage: storage });
 
 ///////////All Profile
 photographerroutes.get("/all-profile", async (req, res) => {
@@ -84,6 +102,9 @@ photographerroutes.get("/seperate-profile/:id", async (req, res) => {
             },
             place: {
               $first: "$results.place",
+            },
+            image: {
+              $first: "$results.image",
             },
           },
         },
@@ -426,5 +447,51 @@ photographerroutes.get("/profile", checkAuth, async (req, res) => {
     });
   }
 });
+
+///////Photographer Images Upload
+
+photographerroutes.post(
+  "/upload-images",
+  upload.array("image", 10),
+  checkAuth,
+  async (req, res) => {
+    try {
+      const imageUpload = await PhotographersRegisterDB.updateOne(
+        {
+          login_id: req.userData.userId,
+        },
+        {
+          $set: {
+            image: req.files.map((file) => file.originalname),
+          },
+        }
+      );
+      console.log(imageUpload);
+      if (imageUpload) {
+        return res.status(200).json({
+          success: true,
+          error: false,
+          message: "Image Upload successful ",
+          data: imageUpload,
+        });
+      } else
+        (err) => {
+          return res.status(400).json({
+            success: false,
+            error: true,
+            message: "404 error",
+            errorMessage: err.message,
+          });
+        };
+    } catch (err) {
+      return res.status(500).json({
+        success: false,
+        error: true,
+        message: "Network Error",
+        errorMessage: err.message,
+      });
+    }
+  }
+);
 
 module.exports = photographerroutes;

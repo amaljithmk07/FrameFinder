@@ -33,6 +33,12 @@ const PhotoRegisterSchema = new mongoose.Schema({
     type: String,
     require: true,
   },
+  image: [
+    {
+      type: String,
+      require: true,
+    },
+  ],
 });
 const data = mongoose.model("PhotoRegister_DB", PhotoRegisterSchema);
 module.exports = data;

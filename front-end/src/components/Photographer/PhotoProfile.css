@@ -7,7 +7,7 @@
   object-fit: cover;
   background-repeat: no-repeat;
   background-size: cover;
-
+  gap: 20px;
   display: flex;
   justify-content: start;
   align-items: center;
@@ -15,7 +15,7 @@
   font-family: math, sans-serif;
   padding-top: 15vh;
 }
-.p-profile-sub-body {
+.p-profile-body {
   margin-top: 20vh;
   height: 500px;
   width: 50%;
@@ -57,4 +57,32 @@
   font-size: 1.5rem;
   font-weight: 700;
   /* background-color: rgb(221, 0, 255); */
+}
+/* ///////////// */
+.p-profile-gallery-body {
+  padding: 50px 0;
+  min-height: 300px;
+  width: 100%;
+  /* background-color: red; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.p-profile-gallery-sec {
+  min-height: 300px;
+  width: 100%;
+  /* background-color: red; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.p-profile-gallery-img {
+  height: 80px;
+  width: 80px;
+}
+.p-profile-gallery-title {
+  height: 50px;
+  font-size: 2rem;
 }

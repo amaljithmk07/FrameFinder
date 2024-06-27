@@ -29,7 +29,7 @@ const PhotoProfile = () => {
   return (
     <div>
       <div className="p-profile-main-body">
-        <div className="p-profile-sub-body">
+        <div className="p-profile-body">
           <img
             src={`/upload/${photoprofile?.profile}`}
             alt=""
@@ -43,6 +43,20 @@ const PhotoProfile = () => {
             <div className="p-profile-data">{photoprofile.date_of_birth}</div>
             <div className="p-profile-data">{photoprofile.place}</div>
           </div>
+        </div>
+      </div>
+      <div className="p-profile-gallery-body">
+        <div className="p-profile-gallery-title">The Galleria</div>
+        <div className="p-profile-gallery-sec">
+          {photoprofile.image?.map((data) => (
+            <>
+              <img
+                src={`/upload/${data}`}
+                alt=""
+                className="p-profile-gallery-img"
+              />
+            </>
+          ))}
         </div>
       </div>
     </div>
