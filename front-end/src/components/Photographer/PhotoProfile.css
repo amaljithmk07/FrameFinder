@@ -74,13 +74,14 @@
   width: 100%;
   /* background-color: red; */
   display: flex;
+  gap: 30px;
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
 }
 .p-profile-gallery-img {
-  height: 80px;
-  width: 80px;
+  height: 180px;
+  width: auto;
 }
 .p-profile-gallery-title {
   height: 50px;

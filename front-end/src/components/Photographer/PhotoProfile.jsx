@@ -26,6 +26,7 @@ const PhotoProfile = () => {
         console.log(err);
       });
   }, []);
+  console.log(photoprofile);
   return (
     <div>
       <div className="p-profile-main-body">
@@ -48,7 +49,7 @@ const PhotoProfile = () => {
       <div className="p-profile-gallery-body">
         <div className="p-profile-gallery-title">The Galleria</div>
         <div className="p-profile-gallery-sec">
-          {photoprofile.image?.map((data) => (
+          {/* {photoprofile.image?.map((data) => (
             <>
               <img
                 src={`/upload/${data}`}
@@ -56,6 +57,15 @@ const PhotoProfile = () => {
                 className="p-profile-gallery-img"
               />
             </>
+          ))} */}
+
+          {photoprofile.image?.map((data, index) => (
+            <img
+              key={index}
+              src={`/upload/${data}`}
+              alt={`User Image ${index + 1}`}
+              className="p-profile-gallery-img"
+            />
           ))}
         </div>
       </div>

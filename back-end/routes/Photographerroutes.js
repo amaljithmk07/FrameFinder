@@ -15,11 +15,12 @@ const storage = multer.diskStorage({
     cb(null, "../front-end/public/upload");
   },
   //   filename: (req, file, cb) => {
-  //     cb(null, file.originalname);
+  // cb(null, file.originalname);
   //   },
   // });
   filename: (req, file, cb) => {
-    cb(null, Date.now() + path.extname(file.originalname));
+    // cb(null, Date.now() + path.extname(file.originalname));
+    cb(null, file.originalname);
   },
 });
 
@@ -110,7 +111,7 @@ photographerroutes.get("/seperate-profile/:id", async (req, res) => {
         },
       ],
     ]);
-    console.log(Data);
+    console.log("Data", Data);
     if (Data) {
       return res.status(200).json({
         success: false,
@@ -455,6 +456,7 @@ photographerroutes.post(
   upload.array("image", 10),
   checkAuth,
   async (req, res) => {
+    console.log(req.files);
     try {
       const imageUpload = await PhotographersRegisterDB.updateOne(
         {
@@ -466,7 +468,9 @@ photographerroutes.post(
           },
         }
       );
-      console.log(imageUpload);
+
+      await PhotographersRegisterDB(imageUpload).save();
+      // console.log(imageUpload);
       if (imageUpload) {
         return res.status(200).json({
           success: true,
