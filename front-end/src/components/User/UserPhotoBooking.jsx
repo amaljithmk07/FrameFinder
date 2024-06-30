@@ -36,7 +36,10 @@ const UserPhotoBooking = () => {
         console.log(err);
       });
   }, []);
-  console.log(photoprofile);
+
+  /////////image slice
+  const limitedimage = photoprofile.image ? photoprofile.image.slice(0, 4) : "";
+  console.log(limitedimage);
 
   //Booking form input data handler
   var [formData, setFormdata] = useState({});
@@ -138,34 +141,53 @@ const UserPhotoBooking = () => {
             {/* //////////////////////// */}
 
             <div className="u-photo-booking-gallery-body">
-              <div className="u-photo-booking-gallery-img-body">
-                <img
-                  src="/5.webp"
-                  alt=""
-                  className="u-photo-booking-gallery-img"
-                />
-              </div>
-              <div className="u-photo-booking-gallery-img-body">
-                <img
-                  src="/6.jpg"
-                  alt=""
-                  className="u-photo-booking-gallery-img"
-                />
-              </div>
-              <div className="u-photo-booking-gallery-img-body">
-                <img
-                  src="/10.jpg"
-                  alt=""
-                  className="u-photo-booking-gallery-img"
-                />
-              </div>
-              <div className="u-photo-booking-gallery-img-body">
-                <img
-                  src="/7.jpg"
-                  alt=""
-                  className="u-photo-booking-gallery-img"
-                />
-              </div>
+              {limitedimage ? (
+                <>
+                  {limitedimage.map((data, index) => (
+                    <div
+                      className="u-photo-booking-gallery-img-body"
+                      key={index}
+                    >
+                      <img
+                        src={`/upload/${data}`}
+                        alt=""
+                        className="u-photo-booking-gallery-img"
+                      />
+                    </div>
+                  ))}
+                </>
+              ) : (
+                <>
+                  <div className="u-photo-booking-gallery-img-body">
+                    <img
+                      src="/5.webp"
+                      alt=""
+                      className="u-photo-booking-gallery-img"
+                    />
+                  </div>
+                  <div className="u-photo-booking-gallery-img-body">
+                    <img
+                      src="/6.jpg"
+                      alt=""
+                      className="u-photo-booking-gallery-img"
+                    />
+                  </div>
+                  <div className="u-photo-booking-gallery-img-body">
+                    <img
+                      src="/10.jpg"
+                      alt=""
+                      className="u-photo-booking-gallery-img"
+                    />
+                  </div>
+                  <div className="u-photo-booking-gallery-img-body">
+                    <img
+                      src="/7.jpg"
+                      alt=""
+                      className="u-photo-booking-gallery-img"
+                    />
+                  </div>
+                </>
+              )}
             </div>
 
             {/* /////////////// */}

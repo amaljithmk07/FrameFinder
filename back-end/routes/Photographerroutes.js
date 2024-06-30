@@ -458,25 +458,24 @@ photographerroutes.post(
   async (req, res) => {
     console.log(req.files);
     try {
-      const imageUpload = await PhotographersRegisterDB.updateOne(
-        {
-          login_id: req.userData.userId,
-        },
-        {
-          $set: {
-            image: req.files.map((file) => file.originalname),
-          },
-        }
-      );
+      const photographer = await PhotographersRegisterDB.findOne({
+        login_id: req.userData.userId,
+      });
 
-      await PhotographersRegisterDB(imageUpload).save();
-      // console.log(imageUpload);
-      if (imageUpload) {
+      const existingImages = photographer.image || [];
+      const imageUpload = await req.files.map((file) => file.originalname);
+
+      const newUploadedImage = existingImages.concat(imageUpload);
+      console.log(newUploadedImage);
+      photographer.image = newUploadedImage;
+      await photographer.save();
+
+      if (newUploadedImage) {
         return res.status(200).json({
           success: true,
           error: false,
           message: "Image Upload successful ",
-          data: imageUpload,
+          data: newUploadedImage,
         });
       } else
         (err) => {
