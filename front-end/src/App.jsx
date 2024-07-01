@@ -17,6 +17,7 @@ import PhotoBookingPreview from "./components/Photographer/PhotoBookingPreview";
 import UserPhotoBooking from "./components/User/UserPhotoBooking";
 import PhotoCalendar from "./components/Photographer/PhotoCalendar";
 import UserNotification from "./components/User/UserNotification";
+import PhotoProfileUpdate from "./components/Photographer/PhotoProfileUpdate";
 
 function App() {
   return (
@@ -44,6 +45,7 @@ function App() {
           <Route path="/previous-booking" element={<PhotoPreviousBooking />} />
           <Route path="/photographer-calendar" element={<PhotoCalendar />} />
           <Route path="/photographer-profile" element={<PhotoProfile />} />
+          <Route path="/photographer-profile-update" element={<PhotoProfileUpdate />} />
           <Route
             path="/photo-booking-preview/:id"
             element={<PhotoBookingPreview />}

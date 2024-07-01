@@ -2,10 +2,11 @@ import React, { useState, useEffect } from "react";
 import "./PhotoProfile.css";
 import axios from "axios";
 import BASE_URI from "../Constant/Constant";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const PhotoProfile = () => {
   const token = sessionStorage.getItem("token");
+  const navigate = useNavigate();
 
   const id = sessionStorage.getItem("userId");
   // show Loader
@@ -56,6 +57,12 @@ const PhotoProfile = () => {
     <div>
       <div className="p-profile-main-body">
         <div className="p-profile-body">
+          <img
+            src="/edit.png"
+            to={"/photographer-profile-update"}
+            className="p-profile-update-btn"
+            onClick={() => navigate("/photographer-profile-update")}
+          />
           <img
             src={`/upload/${photoprofile?.profile}`}
             alt=""

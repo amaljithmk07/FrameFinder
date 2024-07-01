@@ -32,6 +32,16 @@
   border-radius: 30px;
   color: white;
 }
+.p-profile-update-btn {
+  height: 30px;
+  width: 30px;
+  /* background-color: red; */
+  filter: contrast(30);
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  cursor: pointer;
+}
 .p-profile-photo {
   position: absolute;
   border: 10px solid white;
@@ -41,7 +51,6 @@
   /* background-color: aqua; */
   border-radius: 50%;
   transition: all 0.3s ease-in-out;
-
 }
 .p-profile-data-sec {
   min-height: 200px;
@@ -61,7 +70,6 @@
   align-items: center;
   font-size: 1.5rem;
   font-weight: 700;
-  /* background-color: rgb(221, 0, 255); */
 }
 .p-profile-data:nth-child(1) {
   font-size: 2.5rem;
@@ -128,7 +136,7 @@
   filter: invert(1);
 }
 .p-profile-gallery-img-name {
-  height: 20px;
+  height: 15px;
   width: 85%;
   bottom: 0px;
   display: flex;
@@ -195,6 +203,4 @@
   .p-profile-body {
     width: 90%;
   }
-
-
 }
