@@ -133,7 +133,12 @@
   justify-content: center;
   align-items: center;
   cursor: pointer;
-  background-color: rgb(255, 196, 0);
+  /* background-color: rgb(255, 196, 0); */
+  background-image: linear-gradient(
+    to right,
+    rgb(255, 153, 0),
+    rgb(255, 196, 0)
+  );
   position: relative;
   overflow: hidden;
 }
@@ -141,19 +146,19 @@
   transform: scale(1.02);
 }
 .register-btn-back {
-  height: 20px;
-  width: 20px;
+  height: 200px;
+  width: 200px;
   border-radius: 50%;
-  background-color: #ff4d4d22;
+  /* background-color: #ff0000fe; */
+  background-color: #ffffff52;
   position: absolute;
-  bottom: -20px;
+  bottom: -160px;
+  right: -140px;
   transition: all 0.5s ease-in-out;
 }
 .register-button:hover .register-btn-back {
-  /* bottom: -50px; */
-  border-radius: 20%;
-  height: 200px;
-  width: 200px;
+  bottom: -130px;
+  right: -120px;
 }
 .form-changer-area {
   height: 20px;

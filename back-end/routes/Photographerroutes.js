@@ -497,4 +497,54 @@ photographerroutes.post(
   }
 );
 
+/////Photographer uploaded image delet
+
+photographerroutes.get(
+  "/delete-uploaded-image/:name",
+  checkAuth,
+  async (req, res) => {
+    try {
+      const user = await PhotographersRegisterDB.findOne({
+        login_id: req.userData.userId,
+      });
+      if (!user) {
+        return res.status(400).json({
+          success: true,
+          error: false,
+          message: " User Doesn't Exist ",
+        });
+      }
+      const imageIndex = user.image.findIndex(
+        (data) => data == req.params.name
+      );
+      user.image.splice(imageIndex, 1);
+      const Result = await user.save();
+
+      if (Result) {
+        return res.status(200).json({
+          success: true,
+          error: false,
+          data: Result,
+          message: " Image Deleted successful ",
+        });
+      } else
+        (err) => {
+          return res.status(400).json({
+            success: false,
+            error: true,
+            message: "404 error",
+            errorMessage: err.message,
+          });
+        };
+    } catch (err) {
+      return res.status(500).json({
+        success: false,
+        error: true,
+        message: "Network Error",
+        errorMessage: err.message,
+      });
+    }
+  }
+);
+
 module.exports = photographerroutes;

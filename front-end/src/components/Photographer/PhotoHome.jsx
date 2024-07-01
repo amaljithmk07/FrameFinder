@@ -2,20 +2,21 @@ import React, { useState } from "react";
 import "./PhotoHome.css";
 import axios from "axios";
 import BASE_URI from "../Constant/Constant";
+import Loader from "../Loader/Loader";
+
+import toast, { Toaster } from "react-hot-toast";
+
 const PhotographerHome = () => {
   const token = sessionStorage.getItem("token");
 
+  // show Loader
+  const [showloader, setShowloader] = useState(false);
+
+  ///////
   const [imageUpload, setImageupload] = useState({});
   /////////////
   const uploadMultipleImageHandler = (e) => {
-    // const choose = Array.prototype.slice.call(e.target.files);
-    // setImageupload(choose);
-
     setImageupload([...e.target.files]);
-
-    // console.log(e.target.files[0]);
-    // const { name } = e.target;
-    // setImageupload({ ...setImageupload, [name]: e.target.files[0] });
   };
 
   console.log(imageUpload);
@@ -23,10 +24,10 @@ const PhotographerHome = () => {
   const UploadImageSubmit = (e) => {
     e.preventDefault();
     const formData = new FormData();
-    // formData.append("image", imageUpload.image);
     imageUpload.forEach((image) => {
       formData.append("image", image);
     });
+    setShowloader(true);
     axios
       .post(`${BASE_URI}/api/photographer/upload-images`, formData, {
         headers: {
@@ -35,13 +36,18 @@ const PhotographerHome = () => {
       })
       .then((data) => {
         console.log(data);
+        toast.success(data.data.message);
+        setShowloader(false);
       })
       .catch((err) => {
         console.log(err.response.data.errorMessage);
+        toast.error(err.response.data.errorMessage);
+        setShowloader(false);
       });
   };
   return (
     <div>
+      <Toaster/>
       <div className="p-home-main-body">
         <div className="p-home-intro-sec">
           <div className="p-home-intro-title">
@@ -157,19 +163,25 @@ const PhotographerHome = () => {
             encType="multipart/form-data"
           >
             <label className="p-home-add-image-sec" htmlFor="image">
-              <input
-                type="file"
-                id="image"
-                name="image"
-                hidden
-                multiple
-                onChange={uploadMultipleImageHandler}
-              />
-              <img
-                src="/Upload-Image.png"
-                alt=""
-                className="p-home-add-image-icon"
-              />
+              {showloader == true ? (
+                <Loader />
+              ) : (
+                <>
+                  <input
+                    type="file"
+                    id="image"
+                    name="image"
+                    hidden
+                    multiple
+                    onChange={uploadMultipleImageHandler}
+                  />
+                  <img
+                    src="/Upload-Image.png"
+                    alt=""
+                    className="p-home-add-image-icon"
+                  />
+                </>
+              )}
             </label>
             <button
               className="p-home-add-image-submit-btn"

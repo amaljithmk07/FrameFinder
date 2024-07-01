@@ -2,12 +2,8 @@
   min-height: 100vh;
   width: 100%;
   /* background-color: rgb(237, 137, 255); */
-  background-image: url("/profile-background.jpg");
-  /* background-position: center; */
-  object-fit: cover;
-  background-repeat: no-repeat;
-  background-size: cover;
-  gap: 20px;
+
+  gap: 40px;
   display: flex;
   justify-content: start;
   align-items: center;
@@ -16,30 +12,39 @@
   padding-top: 15vh;
 }
 .p-profile-body {
-  margin-top: 20vh;
+  margin-top: 5vh;
   height: 500px;
-  width: 50%;
-  background-color: rgb(255, 255, 255);
+  /* width: 50%; */
+  width: 850px;
+  background-image: url("/profile-background.jpg");
+  /* background-position: center; */
+  object-fit: cover;
+  background-repeat: no-repeat;
+  background-size: cover;
+  /* background-color: rgb(255, 255, 255); */
   box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.408);
-
+  transition: all 0.3s ease-in-out;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   position: relative;
   border-radius: 30px;
+  color: white;
 }
 .p-profile-photo {
   position: absolute;
-  border: 15px solid white;
-  top: -150px;
+  border: 10px solid white;
+  left: -150px;
   height: 250px;
   width: 250px;
   /* background-color: aqua; */
   border-radius: 50%;
+  transition: all 0.3s ease-in-out;
+
 }
 .p-profile-data-sec {
-  height: 200px;
+  min-height: 200px;
   width: 500px;
   display: flex;
   justify-content: start;
@@ -58,32 +63,138 @@
   font-weight: 700;
   /* background-color: rgb(221, 0, 255); */
 }
+.p-profile-data:nth-child(1) {
+  font-size: 2.5rem;
+}
 /* ///////////// */
 .p-profile-gallery-body {
   padding: 50px 0;
   min-height: 300px;
   width: 100%;
-  /* background-color: red; */
+  gap: 30px;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
 }
+.p-profile-gallery-title {
+  height: 90px;
+  font-size: 2rem;
+  font-weight: 700;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* /////////////image */
+
 .p-profile-gallery-sec {
   min-height: 300px;
   width: 100%;
-  /* background-color: red; */
+  /* background-color: rgb(20, 20, 20); */
   display: flex;
   gap: 30px;
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
 }
+.p-profile-gallery-img-sec {
+  height: 180px;
+  width: auto;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 .p-profile-gallery-img {
   height: 180px;
   width: auto;
+  transition: all 0.3s ease-in-out;
 }
-.p-profile-gallery-title {
-  height: 50px;
-  font-size: 2rem;
+.p-profile-gallery-img-dlt {
+  height: 40px;
+  width: 40px;
+  /* top: 15px;
+  right: 20px; */
+  top: 50%;
+  right: 50%;
+  transform: translate(50%, -50%);
+  /* background-color: red; */
+  display: none;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  position: absolute;
+  filter: invert(1);
+}
+.p-profile-gallery-img-name {
+  height: 20px;
+  width: 85%;
+  bottom: 0px;
+  display: flex;
+  justify-content: start;
+  align-items: start;
+  overflow: hidden;
+  font-size: 0.9rem;
+  /* background-color: red; */
+  color: rgba(255, 255, 255, 0);
+  transition: all 0.3s ease-in-out;
+  position: absolute;
+}
+.p-profile-gallery-img-sec:hover .p-profile-gallery-img {
+  filter: brightness(0.2);
+  border-radius: 20px;
+}
+.p-profile-gallery-img-sec:hover .p-profile-gallery-img-dlt {
+  display: flex;
+}
+.p-profile-gallery-img-sec:hover .p-profile-gallery-img-name {
+  bottom: 10px;
+  color: rgba(255, 255, 255);
+}
+.p-profile-gallery-description {
+  height: auto;
+  width: 80%;
+  margin-top: 10px;
+  font-size: 1.2rem;
+}
+
+/* ///////////////Responsive area */
+
+@media screen and (max-width: 1200px) {
+  .p-profile-body {
+    margin-top: 25vh;
+    height: 500px;
+    /* width: 50%; */
+    width: 650px;
+    justify-content: end;
+    padding-bottom: 30px;
+  }
+
+  .p-profile-photo {
+    position: absolute;
+    border: 10px solid white;
+    left: unset;
+    top: -150px;
+    height: 200px;
+    width: 200px;
+  }
+  .p-profile-data-sec {
+    width: 100%;
+    height: 70%;
+  }
+  .p-profile-data {
+    font-size: 1.3rem;
+    font-weight: 700;
+  }
+  .p-profile-data:nth-child(1) {
+    font-size: 2.3rem;
+  }
+}
+@media screen and (max-width: 720px) {
+  .p-profile-body {
+    width: 90%;
+  }
+
+
 }
