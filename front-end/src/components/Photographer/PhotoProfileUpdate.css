@@ -5,6 +5,8 @@
   justify-content: center;
   align-items: center;
   padding: 10vh 0 0 0;
+  font-family: math, sans-serif;
+
 }
 .profile-update-sub {
   height: 90vh;
@@ -13,4 +15,24 @@
   background-position: center;
   background-size: cover;
   border-radius: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.profile-update-title {
+  height: 100px;
+  /* background-color: red; */
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: end;
+  font-size: 2.5rem;
+  font-weight: 600;
+  color: white;
+}
+.profile-update-form{
+  height: 500px;
+  width: 70%;
+  background-color: red;
 }
