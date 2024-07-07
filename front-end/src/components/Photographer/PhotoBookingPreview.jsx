@@ -108,7 +108,7 @@ const PhotoBookingPreview = () => {
           <>
             <div className="p-booking-preview-sub-body">
               <img
-                src="/back-btn.png"
+                src="/hamb-close.png"
                 onClick={() => navigate(-1)}
                 className="p-booking-preview-back-btn"
               />

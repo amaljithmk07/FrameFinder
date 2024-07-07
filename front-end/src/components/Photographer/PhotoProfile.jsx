@@ -3,6 +3,7 @@ import "./PhotoProfile.css";
 import axios from "axios";
 import BASE_URI from "../Constant/Constant";
 import { Link, useNavigate } from "react-router-dom";
+import Nodata from "../Nodata/Nodata";
 
 const PhotoProfile = () => {
   const token = sessionStorage.getItem("token");
@@ -80,21 +81,29 @@ const PhotoProfile = () => {
         <div className="p-profile-gallery-body">
           <div className="p-profile-gallery-title">Through the Lens</div>
           <div className="p-profile-gallery-sec">
-            {photoprofile.image?.map((data, index) => (
-              <div className="p-profile-gallery-img-sec" key={index}>
-                <img
-                  src={`/upload/${data}`}
-                  alt={`User Image ${index + 1}`}
-                  className="p-profile-gallery-img"
-                />
-                <img
-                  src="/delete.png"
-                  className="p-profile-gallery-img-dlt"
-                  onClick={() => imagedeleteHandler(data)}
-                />
-                <div className="p-profile-gallery-img-name">{data}</div>
-              </div>
-            ))}
+            {photoprofile.image?.length !== 0 ? (
+              <>
+                {photoprofile.image?.map((data, index) => (
+                  <div className="p-profile-gallery-img-sec" key={index}>
+                    <img
+                      src={`/upload/${data}`}
+                      alt={`User Image ${index + 1}`}
+                      className="p-profile-gallery-img"
+                    />
+                    <img
+                      src="/delete.png"
+                      className="p-profile-gallery-img-dlt"
+                      onClick={() => imagedeleteHandler(data)}
+                    />
+                    <div className="p-profile-gallery-img-name">{data}</div>
+                  </div>
+                ))}
+              </>
+            ) : (
+              <>
+                <Nodata />
+              </>
+            )}
           </div>
           <div className="p-profile-gallery-description">
             Your images will be displayed here. To add more photos and expand

@@ -141,7 +141,7 @@ const UserPhotoBooking = () => {
             {/* //////////////////////// */}
 
             <div className="u-photo-booking-gallery-body">
-              {limitedimage ? (
+              {limitedimage.length !== 0 ? (
                 <>
                   {limitedimage.map((data, index) => (
                     <div

@@ -3,6 +3,7 @@ import "./PhotoCalendar.css";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import BASE_URI from "../Constant/Constant";
+import Nodata from "../Nodata/Nodata";
 
 const PhotoCalendar = () => {
   const navigate = useNavigate();
@@ -51,17 +52,25 @@ const PhotoCalendar = () => {
         </div>
 
         <div className="p-calendar-body">
-          {calendarData.map((data) => (
-            <div className="p-calendar-content" key={data._id}>
-              <div className="p-calender-content-data">{data.date}</div>
-              <div className="p-calender-content-data">{data.name}</div>
-              <div className="p-calender-content-data">
-                {data.address},{data.city},{data.state}
-              </div>
-              <div className="p-calender-content-data">{data.phone}</div>
-              <div className="p-calender-content-data">{data.email}</div>
-            </div>
-          ))}
+          {calendarData.length !== 0 ? (
+            <>
+              {calendarData.map((data) => (
+                <div className="p-calendar-content" key={data._id}>
+                  <div className="p-calender-content-data">{data.date}</div>
+                  <div className="p-calender-content-data">{data.name}</div>
+                  <div className="p-calender-content-data">
+                    {data.address},{data.city},{data.state}
+                  </div>
+                  <div className="p-calender-content-data">{data.phone}</div>
+                  <div className="p-calender-content-data">{data.email}</div>
+                </div>
+              ))}
+            </>
+          ) : (
+            <>
+              <Nodata />
+            </>
+          )}
         </div>
       </div>
     </div>

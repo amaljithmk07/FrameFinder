@@ -34,7 +34,8 @@ const PhotoProfileUpdate = () => {
       <div className="profile-update-main">
         <div className="profile-update-sub">
           <div className="profile-update-title">Profile Settings</div>
-          <form action="" className="profile-update-form"></form>
+          <form action="" className="profile-update-form">
+          </form>
         </div>
       </div>
     </div>

@@ -5,6 +5,7 @@ import toast, { Toaster } from "react-hot-toast";
 import BASE_URI from "../Constant/Constant";
 import Loader from "../Loader/Loader";
 import { useNavigate } from "react-router-dom";
+import Nodata from "../Nodata/Nodata";
 
 const PhotoPreviousBooking = () => {
   const navigate = useNavigate();
@@ -147,34 +148,45 @@ const PhotoPreviousBooking = () => {
                   <Loader />
                 ) : (
                   <>
-                    {pendingbookings.map((data) => (
+                    {pendingbookings.length !== 0 ? (
                       <>
-                        <div className="p-previous-booking-card-body" key={data._id}>
-                          <div className="p-previous-booking-card-title">
-                            {data.name}
-                          </div>
-                          <div className="p-previous-booking-card-content">
-                            {data.email}
-                          </div>
-                          <div className="p-previous-booking-card-content">
-                            {data.address},{data.city},{data.state}
-                          </div>
-                          <div className="p-previous-booking-card-content">
-                            {data.phone}
-                          </div>
-                          <button
-                            className={
-                              data.status == "rejected"
-                                ? "p-previous-booking-card-rejected-btn"
-                                : "p-previous-booking-card-btn"
-                            }
-                            onClick={() => bookingPreview(data._id)}
-                          >
-                            Review
-                          </button>
-                        </div>
+                        {pendingbookings.map((data) => (
+                          <>
+                            <div
+                              className="p-previous-booking-card-body"
+                              key={data._id}
+                            >
+                              <div className="p-previous-booking-card-title">
+                                {data.name}
+                              </div>
+                              <div className="p-previous-booking-card-content">
+                                {data.email}
+                              </div>
+                              <div className="p-previous-booking-card-content">
+                                {data.address},{data.city},{data.state}
+                              </div>
+                              <div className="p-previous-booking-card-content">
+                                {data.phone}
+                              </div>
+                              <button
+                                className={
+                                  data.status == "rejected"
+                                    ? "p-previous-booking-card-rejected-btn"
+                                    : "p-previous-booking-card-btn"
+                                }
+                                onClick={() => bookingPreview(data._id)}
+                              >
+                                Review
+                              </button>
+                            </div>
+                          </>
+                        ))}
                       </>
-                    ))}
+                    ) : (
+                      <>
+                        <Nodata />
+                      </>
+                    )}
                   </>
                 )}
               </div>
@@ -194,30 +206,41 @@ const PhotoPreviousBooking = () => {
                   <Loader />
                 ) : (
                   <>
-                    {acceptbooking.map((data) => (
+                    {acceptbooking.length !== 0 ? (
                       <>
-                        <div className="p-previous-accepted-card-body" key={data._id}>
-                          <div className="p-previous-accepted-card-title">
-                            {data.name}
-                          </div>
-                          <div className="p-previous-accepted-card-content">
-                            {data.email}
-                          </div>
-                          <div className="p-previous-accepted-card-content">
-                            {data.address},{data.city},{data.state}
-                          </div>
-                          <div className="p-previous-accepted-card-content">
-                            {data.phone}
-                          </div>
-                          <button
-                            className="p-previous-accepted-card-btn"
-                            onClick={() => bookingPreview(data._id)}
-                          >
-                            Review
-                          </button>
-                        </div>
+                        {acceptbooking.map((data) => (
+                          <>
+                            <div
+                              className="p-previous-accepted-card-body"
+                              key={data._id}
+                            >
+                              <div className="p-previous-accepted-card-title">
+                                {data.name}
+                              </div>
+                              <div className="p-previous-accepted-card-content">
+                                {data.email}
+                              </div>
+                              <div className="p-previous-accepted-card-content">
+                                {data.address},{data.city},{data.state}
+                              </div>
+                              <div className="p-previous-accepted-card-content">
+                                {data.phone}
+                              </div>
+                              <button
+                                className="p-previous-accepted-card-btn"
+                                onClick={() => bookingPreview(data._id)}
+                              >
+                                Review
+                              </button>
+                            </div>
+                          </>
+                        ))}
                       </>
-                    ))}
+                    ) : (
+                      <>
+                        <Nodata />
+                      </>
+                    )}
                   </>
                 )}
               </div>

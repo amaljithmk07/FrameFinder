@@ -4,9 +4,9 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import BASE_URI from "../Constant/Constant";
 import Loader from "../Loader/Loader";
+import Nodata from "../Nodata/Nodata";
 
 const UserHome = () => {
-  
   // show Loader
   const [showloader, setShowloader] = useState(false);
 
@@ -111,19 +111,27 @@ const UserHome = () => {
               <Loader />
             ) : (
               <>
-                {profile.map((data) => (
-                  <div
-                    className="userhome-photographers-profile-body"
-                    key={data._id}
-                    onClick={() => photographerProfile(data.login_id)}
-                  >
-                    <img
-                      src={`/upload/${data.profile}`}
-                      alt=""
-                      className="photographer-profile"
-                    />
-                  </div>
-                ))}
+                {profile.length !== 0 ? (
+                  <>
+                    {profile.map((data) => (
+                      <div
+                        className="userhome-photographers-profile-body"
+                        key={data._id}
+                        onClick={() => photographerProfile(data.login_id)}
+                      >
+                        <img
+                          src={`/upload/${data.profile}`}
+                          alt=""
+                          className="photographer-profile"
+                        />
+                      </div>
+                    ))}
+                  </>
+                ) : (
+                  <>
+                    <Nodata />
+                  </>
+                )}
               </>
             )}
           </div>

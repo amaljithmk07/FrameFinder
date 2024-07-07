@@ -5,6 +5,7 @@ import { Toaster, toast } from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 import BASE_URI from "../Constant/Constant";
 import Loader from "../Loader/Loader";
+import Nodata from "../Nodata/Nodata";
 
 const UserBooking = () => {
   const navigate = useNavigate();
@@ -252,20 +253,29 @@ const UserBooking = () => {
             <Loader />
           ) : (
             <>
-              {profile.map((data) => (
-                <div
-                  className="userhome-photographers-profile-body"
-                  key={data._id}
-                  onClick={() => photographerProfile(data.login_id)}
-                >
-                  <img
-                    src={`/upload/${data.profile}`}
-                    alt=""
-                    className="photographer-profile"
-                  />
-                  {/* <span>{data.name}</span> */}
-                </div>
-              ))}
+              {profile.length !== 0 ? (
+                <>
+                  {profile.map((data) => (
+                    <div
+                      className="userhome-photographers-profile-body"
+                      key={data._id}
+                      onClick={() => photographerProfile(data.login_id)}
+                    >
+                      <img
+                        src={`/upload/${data.profile}`}
+                        alt=""
+                        className="photographer-profile"
+                      />
+
+                      {/* <span>{data.name}</span> */}
+                    </div>
+                  ))}
+                </>
+              ) : (
+                <>
+                  <Nodata />
+                </>
+              )}
             </>
           )}
         </div>

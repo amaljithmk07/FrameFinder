@@ -30,7 +30,8 @@
   cursor: pointer;
   /* background-color: red; */
   position: absolute;
-  left: 40px;
+  filter: brightness(0.5);
+  right: 40px;
   top: 40px;
 }
 
