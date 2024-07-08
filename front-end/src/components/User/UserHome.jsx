@@ -178,31 +178,31 @@ const UserHome = () => {
 
           {/* ///////// */}
           <div className="userhome-gallery">
-            <div className="userhome-gallery-colum">
+            <div className="userhome-gallery-column">
               <img src="/3.jpg" alt="" className="userhome-gallery-img" />
               <img src="/12.jpg" alt="" className="userhome-gallery-img" />
               <img src="/4.webp" alt="" className="userhome-gallery-img" />
               <img src="/1.webp" alt="" className="userhome-gallery-img" />
             </div>
-            <div className="userhome-gallery-colum">
+            <div className="userhome-gallery-column">
               <img src="/5.webp" alt="" className="userhome-gallery-img" />
               <img src="/6.jpg" alt="" className="userhome-gallery-img" />
               <img src="/10.jpg" alt="" className="userhome-gallery-img" />
               <img src="/7.jpg" alt="" className="userhome-gallery-img" />
             </div>
-            <div className="userhome-gallery-colum">
+            <div className="userhome-gallery-column">
               <img src="/11.jpeg" alt="" className="userhome-gallery-img" />
               <img src="/9.jpg" alt="" className="userhome-gallery-img" />
               <img src="/7.jpg" alt="" className="userhome-gallery-img" />
               <img src="/13.jpg" alt="" className="userhome-gallery-img" />
             </div>
-            <div className="userhome-gallery-colum">
+            <div className="userhome-gallery-column">
               <img src="/10.jpg" alt="" className="userhome-gallery-img" />
               <img src="/8.jpeg" alt="" className="userhome-gallery-img" />
               <img src="/2.webp" alt="" className="userhome-gallery-img" />
               <img src="/4.webp" alt="" className="userhome-gallery-img" />
             </div>
-            <div className="userhome-gallery-colum">
+            <div className="userhome-gallery-column">
               <img src="/15.jpg" alt="" className="userhome-gallery-img" />
               <img src="/14.webp" alt="" className="userhome-gallery-img" />
               <img src="/13.jpg" alt="" className="userhome-gallery-img" />
@@ -214,39 +214,59 @@ const UserHome = () => {
         {/* ////////////Content section */}
 
         <div className="userhome-text-body">
-          <div className="userhome-text-title">
-            FrameFinder: Your Gateway to Exceptional Photography
+          <div className="userhome-text-main-title">
+            Discover Exceptional Photography with FrameFinder
           </div>
-          In today's digital age, capturing life's special moments with
-          high-quality photography is essential. FrameFinder is your ultimate
-          solution for finding and booking top-tier photographers for any
-          occasion. Our platform connects you with a curated selection of
-          skilled photographers, making it easy to find the perfect professional
-          to meet your unique needs. FrameFinder understands that every event is
-          special and deserves to be immortalized through stunning visuals.
-          Whether you're planning a wedding, celebrating a milestone, organizing
-          a corporate event, or seeking a family portrait, our platform offers a
-          seamless experience to ensure you get the best results. By browsing
-          through diverse portfolios, you can explore various styles and
-          specialties, ensuring you find a photographer whose vision aligns with
-          yours. We pride ourselves on providing a user-friendly experience.
-          With FrameFinder, comparing competitive rates and reading authentic
-          reviews is just a few clicks away. Our detailed profiles for each
-          photographer include their previous work, client testimonials, and
-          pricing, giving you all the information you need to make an informed
-          decision. This transparency helps you feel confident in your choice,
-          knowing you are selecting a professional who will deliver exceptional
-          results. Booking a photographer has never been simpler. Once you've
-          found the right photographer, you can easily check their availability
-          and secure your session directly through our platform. This
-          streamlined process eliminates the hassle of back-and-forth
-          communications, allowing you to focus on preparing for your event.
-          FrameFinder is more than just a booking platform; it's a community of
-          passionate photographers dedicated to turning your moments into
-          timeless art. Trust FrameFinder to connect you with the perfect
-          photographer who will capture the essence of your special occasions,
-          ensuring your memories are beautifully preserved for years to come.
-          Your perfect shot is just a booking away with FrameFinder.
+
+          <div>
+            <div className="userhome-text-title">
+              Your Ultimate Photography Solution
+            </div>
+            <p>
+              FrameFinder connects you with top-tier photographers for any
+              occasion, ensuring your special moments are immortalized with
+              stunning visuals.
+            </p>
+          </div>
+
+          <div>
+            <div className="userhome-text-title">
+              Diverse Portfolio and Styles
+            </div>
+            <p>
+              Browse through a curated selection of skilled photographers,
+              exploring various styles and specialties to find one that aligns
+              with your vision.
+            </p>
+          </div>
+
+          <div>
+            <div className="userhome-text-title">User-Friendly Experience</div>
+            <p>
+              Easily compare rates, read authentic reviews, and view detailed
+              profiles, including previous work and client testimonials, to make
+              an informed decision.
+            </p>
+          </div>
+
+          <div>
+            <div className="userhome-text-title">Seamless Booking Process</div>
+            <p>
+              Check availability and secure your session directly through our
+              platform, eliminating the hassle of back-and-forth communications.
+            </p>
+          </div>
+
+          <div>
+            <div className="userhome-text-title">
+              A Community of Passionate Photographers
+            </div>
+            <p>
+              Trust FrameFinder to connect you with dedicated professionals who
+              will turn your moments into timeless art, preserving your memories
+              beautifully. Your perfect shot is just a booking away.
+            </p>
+          </div>
         </div>
       </div>
     </div>

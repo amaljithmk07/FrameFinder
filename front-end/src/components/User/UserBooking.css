@@ -197,7 +197,9 @@
   font-weight: 600;
 }
 .userhome-photographers-profile-text {
-  width: 70%;
+  width: 80%;
+  text-align: start;
+
   height: auto;
   font-size: 1.1rem;
   line-height: 35px;

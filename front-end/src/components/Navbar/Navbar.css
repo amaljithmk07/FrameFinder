@@ -11,8 +11,8 @@
 }
 .navbar-logo-sec {
   height: 100%;
-  /* width: 30%; */
-  width: 450px;
+  width: 30%;
+  /* width: 450px; */
   /* background-color: rgb(0, 255, 149); */
   display: flex;
   justify-content: center;
@@ -26,8 +26,8 @@
 /* ////////////// */
 .navbar-menu-sec {
   height: 100%;
-  /* width: 60%; */
-  width: 900px;
+  width: 60%;
+  /* width: 900px; */
   /* background-color: blue; */
   display: flex;
   justify-content: end;
@@ -144,7 +144,7 @@
   justify-content: center;
   align-items: center;
   border-radius: 50%;
-  font-size: .5rem;
+  font-size: 0.5rem;
 }
 
 /* ///////Hamburger body */
@@ -162,43 +162,66 @@
 
 /* Responsive area */
 
-@media screen and (max-width: 900px) {
-  .navbar-menu-sec {
-    width: 100%;
-  }
+@media screen and (max-width: 1200px) {
   .navbar-logo-sec {
-    /* background-color: rgb(0, 255, 149); */
-    justify-content: end;
+    justify-content: center;
+    /* background-color: red; */
+    width: 35%;
   }
+
   .navbar-menu-sec {
-    /* background-color: rgb(0, 255, 149); */
-    justify-content: end;
+    width: 65%;
   }
   .navbar-menu-items {
+    padding-right: 20px;
+    width: 100%;
+  }
+  .zero,
+  .one,
+  .two,
+  .three {
+    font-size: 0.85rem;
+    padding: 0 15px;
+  }
+}
+@media screen and (max-width: 900px) {
+  .navbar-menu-sec {
+    width: 70%;
+  }
+
+  .title-logo {
+    width: 200px;
+  }
+  .navbar-menu-items {
+    padding: 0;
     display: flex;
     justify-content: center;
-    align-items: center;
-    width: 80%;
+    /* background-color: red; */
+  }
+}
+@media screen and (max-width: 850px) {
+  .navbar-menu-sec {
+    width: 60%;
+  }
+  .navbar-menu-items {
+    gap: 20px;
+    /* width: 90%; */
+    /* background-color: red; */
   }
 }
 
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 750px) {
   .navbar-main {
-    height: 10vh;
-    width: 100%;
-    /* background-color: red; */
+    display: flex;
+    justify-content: space-between;
   }
   .navbar-logo-sec {
     height: 100%;
-    width: 210px;
+    width: 280px;
     /* background-color: rgb(0, 255, 149); */
     display: flex;
-    justify-content: start;
+    justify-content: center;
     align-items: center;
-  }
-  .title-logo {
-    height: auto;
-    width: 90%;
   }
   .navbar-menu-sec {
     display: none;
@@ -213,12 +236,7 @@
     width: 80px;
     } */
 
-  /* ///////This for Image//// */
 
-  .navbar-hamburger-icon {
-    display: flex;
-    height: 25px;
-  }
 
   /* ////////This for Animation//////////// */
 
@@ -226,6 +244,7 @@
     /* background-color: blue; */
     height: 50px;
     width: 50px;
+    margin: 0 15px 0 0;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -274,7 +293,7 @@
     transform: rotate(-45deg);
   }
 
-  /* /////////Hamvurger Body */
+  /* /////////Hamburger Body */
   .navbar-hamburger-body {
     height: 90vh;
     width: 100%;
@@ -286,11 +305,6 @@
     flex-direction: column;
     gap: 20px;
     background-color: rgb(255, 255, 255);
-
-    /* background-image: url("/hamb-background.webp"); */
-    /* background-position: center;
-              background-repeat: no-repeat;
-              background-size: cover; */
   }
   .navbar-hamburger-menu {
     height: 50px;
@@ -303,7 +317,20 @@
     align-items: end;
     border-top: 1px solid rgb(183, 183, 183);
   }
-  .navbar-hamburger-menu:nth-child(1) {
+  .navbar-hamburger-menu:nth-child(2) {
     border: 0px;
   }
+/* //////////Hamburger Notification Button */
+
+
+.navbar-hamb-notification-sec {
+  height: 32px;
+  width: 32px;
+  /* background-color: rgb(175, 175, 175); */
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+
+
 }

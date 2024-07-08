@@ -61,6 +61,7 @@
   min-height: 200px;
   /* background-color: red; */
   display: flex;
+  text-align: start;
   flex-wrap: wrap;
   font-size: 1.3rem;
   /* font-weight: 600; */
@@ -106,6 +107,7 @@
   min-height: 100px;
   width: 70%;
   /* background-color: rgb(255, 242, 0); */
+  text-align: start;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -121,10 +123,7 @@
   justify-content: start; /* Adjust alignment as needed */
   gap: 30px;
   align-items: center;
-  overflow-x: auto; /* Enable horizontal scrolling */
-  overflow-y: hidden; /* Hide vertical scrollbar */
-  white-space: nowrap; /* Prevent items from wrapping */
-  scrollbar-width: none; /* Hide scrollbar in Firefox */
+  /* Hide scrollbar in Firefox */
 }
 .userhome-photographers-loader-sec {
   height: 250px;
@@ -183,6 +182,7 @@
   justify-content: start;
   align-items: center;
   flex-direction: column;
+  text-align: start;
   gap: 30px;
   line-height: 30px;
 }
@@ -216,7 +216,7 @@
   /* overflow: hidden; */
 }
 
-.userhome-gallery-colum {
+.userhome-gallery-column {
   height: 500px;
   width: 200px;
   /* background-color: blanchedalmond; */
@@ -244,14 +244,19 @@
   display: flex;
   justify-content: start;
   gap: 30px;
+  text-align: start;
   padding: 50px 0;
   align-items: center;
   flex-direction: column;
   font-size: 1rem;
   line-height: 30px;
 }
-.userhome-text-title {
+.userhome-text-main-title {
   font-size: 1.8rem;
+  font-weight: 600;
+}
+.userhome-text-title {
+  font-size: 1.3rem;
   font-weight: 600;
 }
 
@@ -360,12 +365,12 @@
     width: 85%;
     height: 300px;
   }
-  .userhome-gallery-colum {
+  .userhome-gallery-column {
     height: 300px;
     width: 200px;
   }
   .userhome-text-body {
-    width: 80%;
+    width: 85%;
   }
 }
 @media screen and (max-width: 750px) {
@@ -431,12 +436,12 @@
     height: 300px;
     box-shadow: unset;
   }
-  .userhome-gallery-colum {
+  .userhome-gallery-column {
     height: 300px;
     width: 200px;
   }
-  .userhome-gallery-colum:nth-child(2),
-  .userhome-gallery-colum:nth-child(3) {
+  .userhome-gallery-column:nth-child(2),
+  .userhome-gallery-column:nth-child(3) {
     display: none;
   }
   .userhome-intro-title,

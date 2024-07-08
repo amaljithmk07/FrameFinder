@@ -154,13 +154,6 @@ const Navbar = () => {
                   {" "}
                   Booking
                 </Link>{" "}
-                <Link
-                  className={getClassName(backgroundcolor)}
-                  onMouseEnter={backgroundChange}
-                >
-                  {" "}
-                  Explore{" "}
-                </Link>{" "}
               </>
             )}
 
@@ -261,6 +254,32 @@ const Navbar = () => {
         {Hamburger == true ? (
           <>
             <div className="navbar-hamburger-body">
+              {role == 2 ? (
+                <>
+                  {!NotificationCount == 0 ? (
+                    <Link
+                      className="navbar-hamb-notification-sec"
+                      to={"/user/notification"}
+                      onClick={HamburgerOff}
+                    >
+                      <img
+                        src={"/notification.png"}
+                        alt=""
+                        className="navbar-notification-img"
+                      />
+                      <>
+                        <div className="navbar-notification-dot">
+                          {NotificationCount}
+                        </div>
+                      </>
+                    </Link>
+                  ) : (
+                    <></>
+                  )}
+                </>
+              ) : (
+                <></>
+              )}
               {role == 1 ? (
                 <>
                   <Link
@@ -276,7 +295,7 @@ const Navbar = () => {
                     onClick={HamburgerOff}
                   >
                     {" "}
-                    Booking
+                    Bookings
                   </Link>{" "}
                   <Link
                     className="navbar-hamburger-menu"
@@ -311,13 +330,6 @@ const Navbar = () => {
                   >
                     {" "}
                     Booking
-                  </Link>{" "}
-                  <Link
-                    className="navbar-hamburger-menu"
-                    onClick={HamburgerOff}
-                  >
-                    {" "}
-                    Explore{" "}
                   </Link>{" "}
                 </>
               )}
