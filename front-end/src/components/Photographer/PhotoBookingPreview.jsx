@@ -4,6 +4,7 @@ import "./PhotoBookingPreview.css";
 import BASE_URI from "../Constant/Constant";
 import axios from "axios";
 import Loader from "../Loader/Loader";
+import toast, { Toaster } from "react-hot-toast";
 
 const PhotoBookingPreview = () => {
   const navigate = useNavigate();
@@ -58,9 +59,11 @@ const PhotoBookingPreview = () => {
         });
         setBooking(filterdata);
         setRejectionnoteBody(false);
+        toast.success(data.data.message);
       })
       .catch((err) => {
         console.log(err);
+        toast.error(err.response.data.message);
       });
   };
   ////////Rejection Note Handler
@@ -78,29 +81,40 @@ const PhotoBookingPreview = () => {
   };
   console.log(rejectionform);
   ////Reject the booking
-  const rejectBooking = () => {
-    axios
-      .put(`${BASE_URI}/api/photographer/reject-booking/${id}`, rejectionform, {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      })
-      .then((data) => {
-        console.log(data);
-        const filterdata = booking.filter((data) => {
-          return (data.status = "rejected");
+  const rejectBooking = (e) => {
+    e.preventDefault();
+    if (rejectionform.rejection_note == null) {
+      toast.error("Please fill Rejection Note");
+    } else {
+      axios
+        .put(
+          `${BASE_URI}/api/photographer/reject-booking/${id}`,
+          rejectionform,
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          }
+        )
+        .then((data) => {
+          console.log(data);
+          const filterdata = booking.filter((data) => {
+            return (data.status = "rejected");
+          });
+          setRejectionnoteBody(false);
+          toast.success(data.data.message);
+          setBooking(filterdata);
+        })
+        .catch((err) => {
+          toast.error(err.response.data.message);
+          console.log(err);
         });
-        setRejectionnoteBody(false);
-
-        setBooking(filterdata);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+    }
   };
 
   return (
     <div>
+      <Toaster />
       <div className="p-booking-preview-main-body">
         {showloader == true ? (
           <Loader />
@@ -108,15 +122,13 @@ const PhotoBookingPreview = () => {
           <>
             <div className="p-booking-preview-sub-body">
               <img
-                src="/hamb-close.png"
+                src="/close.png"
                 onClick={() => navigate(-1)}
                 className="p-booking-preview-back-btn"
               />
               {booking.map((data) => (
                 <div className="p-booking-preview-form-body" key={data._id}>
-                  <div className="p-booking-preview-data">
-                    id :66546546544565465
-                  </div>
+                  <div className="p-booking-preview-data">id :{data._id}</div>
                   <div className="p-booking-preview-data">
                     Name :{data.name}
                   </div>
@@ -182,14 +194,19 @@ const PhotoBookingPreview = () => {
               ))}
 
               {rejectionNoteBody == true ? (
-                <div className="p-booking-rejection-body">
+                <form className="p-booking-rejection-body" id="rejection_form">
+                  <img
+                    src="/close.png"
+                    onClick={() => setRejectionnoteBody(false)}
+                    className="p-booking-rejection-close-btn"
+                  />
                   <div className="p-booking-rejection-title">
                     Rejection Note
                   </div>
                   <textarea
                     onChange={rejectionNoteformHandler}
                     name="rejection_note"
-                    id=""
+                    id="rejection_note"
                     className="p-booking-rejection-textarea"
                   ></textarea>
                   <button
@@ -197,8 +214,9 @@ const PhotoBookingPreview = () => {
                     className="p-booking-rejection-btn"
                   >
                     Submit
+                    <div className="p-booking-rejection-btn-back"></div>
                   </button>
-                </div>
+                </form>
               ) : (
                 <></>
               )}

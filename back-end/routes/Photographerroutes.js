@@ -210,6 +210,19 @@ photographerroutes.get("/booking/:id", checkAuth, async (req, res) => {
 photographerroutes.put("/accept-booking/:id", checkAuth, async (req, res) => {
   try {
     console.log(req.params.id);
+    const old_booking = await BookingDB.findOne({
+      photographers_id: req.userData.userId,
+      _id: req.params.id,
+      status: "accepted",
+    });
+
+    if (old_booking) {
+      return res.status(400).json({
+        success: true,
+        error: false,
+        message: " Already Accepted ",
+      });
+    }
     const Booking = await BookingDB.updateOne(
       {
         photographers_id: req.userData.userId,
@@ -262,6 +275,19 @@ photographerroutes.put("/accept-booking/:id", checkAuth, async (req, res) => {
 photographerroutes.put("/reject-booking/:id", checkAuth, async (req, res) => {
   try {
     console.log(req.params.id);
+    const old_booking = await BookingDB.findOne({
+      photographers_id: req.userData.userId,
+      _id: req.params.id,
+      status: "rejected",
+    });
+
+    if (old_booking) {
+      return res.status(400).json({
+        success: true,
+        error: false,
+        message: " Already Rejected ",
+      });
+    }
     const Booking = await BookingDB.updateOne(
       {
         photographers_id: req.userData.userId,

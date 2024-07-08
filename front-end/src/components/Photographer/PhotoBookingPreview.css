@@ -19,14 +19,13 @@
   align-items: center;
   flex-direction: column;
   position: relative;
+  transition: all 0.5s ease-in-out;
   gap: 30px;
 }
 
 .p-booking-preview-back-btn {
   height: 25px;
   width: auto;
-  font-size: 2rem;
-  border: 0;
   cursor: pointer;
   /* background-color: red; */
   position: absolute;
@@ -91,32 +90,91 @@
   align-items: center;
   flex-direction: column;
   font-family: fangsong, math, sans-serif;
-
   animation: zooming 0.2s linear;
 }
 @keyframes zooming {
   from {
-    height: 100px;
     width: 100px;
   }
 }
+.p-booking-rejection-close-btn {
+  height: 20px;
+  width: auto;
+  cursor: pointer;
+  position: absolute;
+  filter: brightness(0.5);
+  right: 30px;
+  top: 30px;
+}
+
 .p-booking-rejection-title {
   font-size: 1.3rem;
   font-weight: 600;
 }
 .p-booking-rejection-textarea {
   min-height: 150px;
+  transition: all 0.5s ease-in-out;
   width: 80%;
 }
-.p-booking-rejection-btn{
+.p-booking-rejection-btn {
   height: 35px;
   width: 100px;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: rgb(255, 223, 223);
+  background-image: linear-gradient(
+    to right,
+    rgb(255, 130, 253),
+    rgb(157, 137, 255)
+  );
   border: 0;
   border-radius: 10px;
   font-size: 1rem;
   cursor: pointer;
+  color: white;
+  position: relative;
+  overflow: hidden;
+}
+.p-booking-rejection-btn-back {
+  height: 100px;
+  width: 0px;
+  transform: rotate(35deg);
+  border-radius: 50%;
+  /* background-color: #ff0000fe; */
+  background-color: #ffffff52;
+  position: absolute;
+  transition: all 0.5s ease-in-out;
+}
+.p-booking-rejection-btn:hover .p-booking-rejection-btn-back {
+  height: 100px;
+  width: 120px;
+}
+/* ///////////////////Responsive area */
+
+@media screen and (max-width: 750px) {
+  .p-booking-preview-sub-body {
+    width: 90%;
+  }
+  .p-booking-preview-form-body {
+    width: 80%;
+  }
+  .p-booking-rejection-body {
+    width: 90%;
+  }
+  .p-booking-rejection-close-btn {
+    right: 5%;
+  }
+  .p-booking-rejection-textarea {
+    width: 90%;
+  }
+}
+@media screen and (max-width: 500px) {
+  .p-booking-preview-sub-body {
+    width: 95%;
+  }
+  .p-booking-rejection-body {
+    width: 100%;
+  }
+
+
 }

@@ -291,21 +291,20 @@
 }
 
 .u-photo-booking-form-btn-back {
-  /* height: 20px;
-  width: 20px; */
   height: 200px;
   width: 200px;
   border-radius: 50%;
   /* background-color: #ff0000fe; */
-  background-color: #ffffff52;
+  background-color: #ffffff77;
   position: absolute;
-  bottom: -160px;
-  right: -140px;
+  bottom: -150px;
+  left: -100px;
   transition: all 0.5s ease-in-out;
 }
 .u-photo-booking-form-btn:hover .u-photo-booking-form-btn-back {
   bottom: -130px;
-  right: 120px;
+  width: 500px;
+  left: 120px;
 }
 
 /* /////////Responsive Area */
