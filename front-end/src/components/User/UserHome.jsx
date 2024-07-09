@@ -62,7 +62,13 @@ const UserHome = () => {
               encapsulate your special moments, ensuring they are preserved for
               a lifetime of enjoyment.
             </p>
-            <button className="userhome-intro-button">Book Now</button>
+            <button
+              className="userhome-intro-button"
+              onClick={() => navigate("/user/booking")}
+            >
+              Book Now
+              <div className="userhome-intro-back-btn"></div>
+            </button>
           </div>
         </div>
         {/* //////////////// */}
@@ -114,17 +120,27 @@ const UserHome = () => {
                 {profile.length !== 0 ? (
                   <>
                     {profile.map((data) => (
-                      <div
-                        className="userhome-photographers-profile-body"
-                        key={data._id}
-                        onClick={() => photographerProfile(data.login_id)}
-                      >
-                        <img
-                          src={`/upload/${data.profile}`}
-                          alt=""
-                          className="photographer-profile"
-                        />
-                      </div>
+                      <>
+                        <div
+                          className="userhome-photographers-profile-main-body"
+                          key={data._id}
+                        >
+                          <img
+                            src={`/upload/${data.profile}`}
+                            alt=""
+                            className="userhome-photographer-profile"
+                          />
+                          {data.name}
+                          <div className="userhome-photographers-profile-body-bottom">
+                            <button
+                              className="userhome-photographers-profile-btn"
+                              onClick={() => photographerProfile(data.login_id)}
+                            >
+                              Book Now
+                            </button>
+                          </div>
+                        </div>
+                      </>
                     ))}
                   </>
                 ) : (

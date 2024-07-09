@@ -70,20 +70,17 @@
   width: 140px;
   font-family: math;
   border-radius: 5px;
-  font-size: 1.3rem;
+  font-size: 1.15rem;
   transition: all 0.3s ease-in-out;
-  color: rgb(0, 0, 0);
+  color: rgb(9, 9, 9);
+  font-weight: 600;
   cursor: pointer;
-  border: 1px solid rgb(81, 81, 81);
+  
+  border: 0;
   display: flex;
   justify-content: center;
   align-items: center;
-}
-.userbooking-text-body-button:hover {
-  background-color: rgb(255, 200, 209);
-  color: rgb(0, 0, 0);
-  border-radius: 10px;
-  border: 1px solid transparent;
+  background-image: linear-gradient(to right, #3e9bff, #89e9ff);
 }
 /* /////Userbooking-categories-section */
 

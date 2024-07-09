@@ -90,12 +90,11 @@ const UserNotification = () => {
               {notificationLetterData[0]?.status == "rejected" ? (
                 <div className="u-notification-letter-main-body">
                   <div className="u-notification-letter-body">
-                    <button
+                    <img
                       onClick={notificationLetterOff}
                       className="u-notification-letter-closing-btn"
-                    >
-                      X
-                    </button>
+                      src="./close.png"
+                    />
                     <div className="u-notification-letter-title">
                       We're Sorry, But Your Photography Session Could Not Be
                       Confirmed

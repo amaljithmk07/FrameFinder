@@ -47,7 +47,7 @@ const PhotoRegister = () => {
       .post(`${BASE_URI}/api/register/photographer-register`, formData)
       .then((data) => {
         toast.success("Register Successful");
-        
+
         console.log(data);
         navigate("/loginregister");
       })
@@ -209,6 +209,8 @@ const PhotoRegister = () => {
               onClick={formSubmitHandler}
             >
               <img src="/submit.png" className="photoregister-submit-img" />
+
+              <div className="photoregister-submit-btn-back"></div>
             </button>
           </form>
         </div>

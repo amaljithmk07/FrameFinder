@@ -83,24 +83,46 @@
   transform: scale(1.02);
   border: 2px solid #cf9e6c;
 }
+
 .photoregister-submit-btn {
   height: 45px;
   width: 320px;
-  border-radius: 20px;
-  background-color: rgb(255, 255, 255);
   border: 0;
+  padding: 5px 20px;
+  border-radius: 50px;
+  font-size: 1.3rem;
+  color: white;
+  /* background-color: #ffcb97; */
+  background-image: linear-gradient(to right, rgb(255, 225, 0), #ffbd7c);
+  cursor: pointer;
   display: flex;
   justify-content: center;
   align-items: center;
-  cursor: pointer;
-  transition: all 0.3s ease-in-out;
+  position: relative;
+  overflow: hidden;
 }
+
 .photoregister-submit-img {
   height: 25px;
+  z-index: 1;
 }
-.photoregister-submit-btn:hover {
-  transform: scale(1.02);
-  background-color: #ffb56b;
+
+.photoregister-submit-btn-back {
+  height: 200px;
+  width: 200px;
+  border-radius: 50%;
+  /* background-color: #ff0000fe; */
+  background-color: #ffffff77;
+  position: absolute;
+  bottom: -150px;
+  left: -100px;
+  transition: all 0.5s ease-in-out;
+}
+
+.photoregister-submit-btn:hover .photoregister-submit-btn-back {
+  bottom: -130px;
+  width: 500px;
+  left: 120px;
 }
 
 /* ///////////////////////////// */

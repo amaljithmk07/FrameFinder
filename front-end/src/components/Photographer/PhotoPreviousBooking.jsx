@@ -17,7 +17,7 @@ const PhotoPreviousBooking = () => {
   ////////////////////////////////
 
   //////Booking Changer state
-  const [bookchanger, setBookchanger] = useState(true);
+  const [bookchanger, setBookchanger] = useState(false);
 
   const formPending = () => {
     setBookchanger(false);

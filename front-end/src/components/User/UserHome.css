@@ -71,10 +71,31 @@
   height: 35px;
   width: 130px;
   border: 0;
-  background-color: rgb(255, 193, 117);
+  /* background-color: rgb(255, 193, 117); */
+  color: white;
+  background-image: linear-gradient(to right, #208fad, #8999ff);
   border-radius: 15px 10px;
   font-size: 1rem;
   cursor: pointer;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+.userhome-intro-back-btn {
+  position: absolute;
+  top: 0px;
+  right: 0;
+  height: 35px;
+  width: 0px;
+  /* background-color: rgba(249, 0, 0, 0.93); */
+  background-color: rgba(255, 255, 255, 0.197);
+  transition: all 0.5s ease-in;
+}
+.userhome-intro-button:hover .userhome-intro-back-btn {
+  width: 150px;
+  /* border-radius: 50px; */
 }
 
 /* ////////Photographers Profile Area */
@@ -116,13 +137,14 @@
 
 /* ///////// */
 .userhome-photographers-profile-sec {
-  height: 250px;
+  height: 270px;
   /* background-color: blue; */
   width: 95%;
   display: flex;
   justify-content: start; /* Adjust alignment as needed */
   gap: 30px;
   align-items: center;
+  /* background-color: red; */
   /* Hide scrollbar in Firefox */
 }
 .userhome-photographers-loader-sec {
@@ -134,29 +156,58 @@
   overflow: hidden;
 }
 
-.userhome-photographers-profile-body {
-  height: 150px;
-  width: 150px;
-  border-radius: 50%;
-  flex-shrink: 0; /* Prevent items from shrinking */
+/* ////Card */
 
-  /* background-color: rgb(0, 152, 20); */
-  cursor: pointer;
+.userhome-photographers-profile-main-body {
+  height: 230px;
+  width: 200px;
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
-  transition: all 0.2s ease-in-out;
+  flex-direction: column;
+  background-color: rgb(255, 255, 255);
+  position: relative;
+  overflow: hidden;
+  border-radius: 5px;
+  transition: all 0.3s ease-out;
+  border: 2px solid rgb(181, 181, 181);
 }
-.userhome-photographers-profile-body:hover {
-  box-shadow: 0px 0px 10px black;
-  transform: scale(1.02);
+.userhome-photographer-profile {
+  height: auto;
+  width: 90%;
 }
-.photographer-profile {
-  max-height: 100%;
-  aspect-ratio: 1/1;
-  width: 100%;
-  border-radius: 50%;
+
+.userhome-photographers-profile-body-bottom {
+  height: 230px;
+  width: 250px;
+  bottom: -240px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(231, 231, 231);
+  position: absolute;
+  transition: all 0.3s ease-out;
+}
+
+.userhome-photographers-profile-main-body:hover
+  .userhome-photographers-profile-body-bottom {
+  bottom: 0px;
+}
+.userhome-photographers-profile-btn {
+  height: 35px;
+  width: 120px;
+  cursor: pointer;
+  border-radius: 5px;
+  background-image: linear-gradient(
+    to right,
+    /* rgb(0, 53, 166), */
+    rgb(255, 0, 111),
+    rgb(136, 0, 255)
+  );
+  border: 0;
+color: white;
+  font-size: 0.8rem;
+  font-weight: 600;
 }
 
 /* ///Gallery section */

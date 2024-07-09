@@ -47,7 +47,16 @@ const UserBooking = () => {
             <div className="userbooking-text-quote">your ideal wedding</div>
             <div className="userbooking-text-quote">moments today.</div>
           </div>
-          <button className="userbooking-text-body-button">Book Now</button>
+          <button
+            className="userbooking-text-body-button"
+            onClick={() =>
+              document
+                .getElementById("photographer-area")
+                .scrollIntoView({ behavior: "smooth" })
+            }
+          >
+            Book Now
+          </button>
         </div>{" "}
       </div>{" "}
       {/* //Select-categories */}
@@ -238,7 +247,7 @@ const UserBooking = () => {
           </div>
         </div>
       </div>
-      <div className="userbooking-photographer-sec">
+      <div className="userbooking-photographer-sec" id="photographer-area">
         <div className="userbooking-photographer-title">
           Book Your Ideal Photographer
         </div>
@@ -257,17 +266,23 @@ const UserBooking = () => {
                 <>
                   {profile.map((data) => (
                     <div
-                      className="userhome-photographers-profile-body"
+                      className="userhome-photographers-profile-main-body"
                       key={data._id}
-                      onClick={() => photographerProfile(data.login_id)}
                     >
                       <img
                         src={`/upload/${data.profile}`}
                         alt=""
-                        className="photographer-profile"
+                        className="userhome-photographer-profile"
                       />
-
-                      {/* <span>{data.name}</span> */}
+                      {data.name}
+                      <div className="userhome-photographers-profile-body-bottom">
+                        <button
+                          className="userhome-photographers-profile-btn"
+                          onClick={() => photographerProfile(data.login_id)}
+                        >
+                          Book Now{" "}
+                        </button>
+                      </div>
                     </div>
                   ))}
                 </>

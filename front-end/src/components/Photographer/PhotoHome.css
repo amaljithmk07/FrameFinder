@@ -7,7 +7,7 @@
   flex-direction: column;
   align-items: center;
   font-family: fangsong, math, sans-serif;
-  padding-top: 10vh;
+  padding-top: 15vh;
   gap: 80px;
 }
 
@@ -19,6 +19,7 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  transition: all 0.3s ease-in-out;
 }
 .p-home-intro-title {
   min-height: 120px;
@@ -27,6 +28,7 @@
   display: flex;
   justify-content: end;
   align-items: center;
+  text-align: center;
   flex-direction: column;
   font-size: 2rem;
   gap: 20px;
@@ -125,7 +127,6 @@
   /* background-color: rgb(211, 164, 164); */
 }
 
-
 .p-home-add-image-form {
   display: flex;
   justify-content: center;
@@ -156,7 +157,7 @@
 .p-home-add-image-sec:hover .p-home-add-image-icon {
   filter: drop-shadow(0px 5px 3px rgb(125, 125, 125));
 }
-.p-home-add-image-submit-btn{
+.p-home-add-image-submit-btn {
   height: 35px;
   width: 120px;
   font-size: 1.1rem;
@@ -165,4 +166,24 @@
   cursor: pointer;
   border: 0;
   border-radius: 5px;
+}
+
+/* /////////Responsive area */
+
+@media screen and (max-width: 1100px) {
+  .p-home-intro-sec {
+    width: 90%;
+  }
+  .p-home-intro-title {
+    width: 100%;
+  }
+}
+@media screen and (max-width: 800px) {
+  .p-home-intro-title {
+    font-size: 1.8rem;
+  }
+  .p-home-why-join-us-title,
+  .p-home-how-it-works-title {
+    font-size: 1.5rem;
+  }
 }
