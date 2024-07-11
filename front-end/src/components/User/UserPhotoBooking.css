@@ -107,9 +107,9 @@
 
 .u-photo-booking-gallery-body {
   height: 60vh;
-  width: 96%;
+  width: 95%;
   /* background-color: rgb(56, 198, 13); */
-  padding: 0 2%;
+  padding: 30px 2%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -332,6 +332,29 @@
   .u-photo-booking-booking-area {
     height: 550px;
     width: 400px;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .u-photo-booking-gallery-img-body {
+    height: 200px;
+    width: 200px;
+    border-radius: 50%;
+  }
+  .u-photo-booking-gallery-img {
+    filter: grayscale(0);
+    width: 100%;
+  }
+
+  .u-photo-booking-gallery-img-body:nth-child(3) {
+    display: none;
+  }
+  .u-photo-booking-gallery-img-body:hover {
+    width: 200px;
+    transform: scale(1);
+  }
+  .u-photo-booking-gallery-img-body:hover .u-photo-booking-gallery-img {
+    transform: scale(1);
   }
 }
 

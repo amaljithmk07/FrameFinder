@@ -177,26 +177,34 @@
 }
 .userhome-photographer-profile {
   height: auto;
-  width: 90%;
+  width: 85%;
+  transition: all 0.3s ease-out;
 }
 
 .userhome-photographers-profile-body-bottom {
   height: 230px;
-  width: 250px;
+  width: 200px;
+  border-radius: 50%;
   bottom: -240px;
   display: flex;
   justify-content: center;
   align-items: center;
   background-color: rgb(248, 248, 248);
+  /* background-color: rgb(235, 21, 21); */
   position: absolute;
   transition: all 0.3s ease-out;
 }
 
 .userhome-photographers-profile-main-body:hover {
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+  background-color: rgb(117, 117, 117);
+}
+.userhome-photographers-profile-main-body:hover .userhome-photographer-profile {
+  filter: brightness(0.5);
 }
 .userhome-photographers-profile-main-body:hover
   .userhome-photographers-profile-body-bottom {
+  border-radius: 0%;
   bottom: 0px;
 }
 .userhome-photographers-profile-btn {
@@ -490,7 +498,7 @@
     height: 220px;
   }
   .userhome-photographers-profile-main-body {
-    height: 180px;
+    height: 190px;
     width: 150px;
   }
   .userhome-photographers-profile-body-bottom {

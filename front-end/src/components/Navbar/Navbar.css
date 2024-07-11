@@ -195,7 +195,8 @@
   .navbar-menu-items {
     padding: 0;
     display: flex;
-    justify-content: center;
+    justify-content: end;
+    padding-right: 30px;
     /* background-color: red; */
   }
 }

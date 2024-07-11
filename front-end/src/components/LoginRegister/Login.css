@@ -105,7 +105,8 @@
   display: flex;
   justify-content: end;
   align-items: center;
-  width: 280px;
+  /* width: 280px; */
+  width: 300px;
   gap: 10px;
   height: 40px;
   text-transform: capitalize;

@@ -47,7 +47,8 @@ const UserNotification = () => {
 
   /////Letter off
   const notificationLetterOff = () => {
-    window.location.reload();
+    // window.location.reload();
+    setNotificationLetterOn(false);
   };
   console.log(notificationLetterData);
   return (
@@ -55,37 +56,41 @@ const UserNotification = () => {
       <div className="u-notification-main-body">
         <div className="u-notification-body-title">Notifications</div>
         <div className="u-notification-content-body">
-          {notificationCollection.map((data) => (
-            <div
-              className="u-notification-content"
-              key={data._id}
-              onClick={() => notificationLetterHandler(data._id)}
-            >
-              <div className="u-notification-content-icon">
-                {data.photographer_name.slice(0, 1)}
-                <div
-                  className={
-                    data.status == "accepted"
-                      ? "u-notification-content-icon-accept-dot"
-                      : "u-notification-content-icon-reject-dot"
-                  }
-                ></div>
-              </div>
-              <div className="u-notification-content-data-sec">
-                <div className="u-notification-content-data">
-                  From : {data.photographer_name}
-                </div>
-                <div className="u-notification-content-description">
-                  {data.status == "rejected"
-                    ? "Thank you for considering our photography services. We regret to inform you that we are unable to confirm your photographysession at this time."
-                    : "We are pleased to inform you that your photography session has been confirmed."}
-                </div>
-              </div>
-            </div>
-          ))}
-
           {/* /////////Notification Letter body */}
-          {notificationLetterOn == true ? (
+          {notificationLetterOn == false ? (
+            <>
+              {notificationCollection.map((data) => (
+                <>
+                  <div
+                    className="u-notification-content"
+                    key={data._id}
+                    onClick={() => notificationLetterHandler(data._id)}
+                  >
+                    <div className="u-notification-content-icon">
+                      {data.photographer_name.slice(0, 1)}
+                      <div
+                        className={
+                          data.status == "accepted"
+                            ? "u-notification-content-icon-accept-dot"
+                            : "u-notification-content-icon-reject-dot"
+                        }
+                      ></div>
+                    </div>
+                    <div className="u-notification-content-data-sec">
+                      <div className="u-notification-content-data">
+                        From : {data.photographer_name}
+                      </div>
+                      <div className="u-notification-content-description">
+                        {data.status == "rejected"
+                          ? "Thank you for considering our photography services. We regret to inform you that we are unable to confirm your photographysession at this time."
+                          : "We are pleased to inform you that your photography session has been confirmed."}
+                      </div>
+                    </div>
+                  </div>
+                </>
+              ))}
+            </>
+          ) : (
             <>
               {notificationLetterData[0]?.status == "rejected" ? (
                 <div className="u-notification-letter-main-body">
@@ -93,7 +98,7 @@ const UserNotification = () => {
                     <img
                       onClick={notificationLetterOff}
                       className="u-notification-letter-closing-btn"
-                      src="./close.png"
+                      src="/close.png"
                     />
                     <div className="u-notification-letter-title">
                       We're Sorry, But Your Photography Session Could Not Be
@@ -135,12 +140,11 @@ const UserNotification = () => {
                   {notificationLetterData[0].status == "accepted" ? (
                     <div className="u-notification-letter-main-body">
                       <div className="u-notification-letter-body">
-                        <button
+                        <img
                           onClick={notificationLetterOff}
                           className="u-notification-letter-closing-btn"
-                        >
-                          X
-                        </button>{" "}
+                          src="/close.png"
+                        />
                         <div className="u-notification-letter-title">
                           Your Photography Session is Confirmed!
                         </div>
@@ -195,8 +199,6 @@ const UserNotification = () => {
                 </>
               )}
             </>
-          ) : (
-            <></>
           )}
         </div>
       </div>

@@ -34,11 +34,19 @@
 .u-notification-content {
   height: 100px;
   width: 95%;
-  background-color: rgb(248, 248, 248);
+  /* background-color: rgb(248, 248, 248); */
+  background-image: linear-gradient(
+    to left,
+    rgb(248, 248, 248),
+    rgb(255, 232, 241),
+    rgb(242, 226, 255)
+  );
   border: 1px solid rgb(200, 200, 200);
-  border-radius: 10px;
+  /* border-radius: 10px; */
+  border-radius: 50px;
   display: flex;
-  justify-content: center;
+  justify-content: start;
+  padding-left: 25px;
   align-items: center;
   gap: 30px;
   cursor: pointer;
@@ -47,6 +55,7 @@
   height: 60px;
   width: 60px;
   background-color: rgb(190, 220, 249);
+  border: 2px solid rgb(255, 255, 255);
   border-radius: 50%;
   display: flex;
   justify-content: center;
@@ -58,29 +67,25 @@
   text-transform: uppercase;
   position: relative;
 }
-.u-notification-content-icon-accept-dot {
-  height: 6px;
-  width: 6px;
-  background-color: rgb(9, 255, 0);
-  border: 3.5px solid white;
-  border-radius: 50%;
-  right: 2px;
-  top: 5px;
-  position: absolute;
-}
+.u-notification-content-icon-accept-dot,
 .u-notification-content-icon-reject-dot {
   height: 6px;
   width: 6px;
-  background-color: rgb(255, 0, 106);
   border: 3.5px solid white;
   border-radius: 50%;
   right: 2px;
   top: 5px;
   position: absolute;
 }
+.u-notification-content-icon-accept-dot {
+  background-color: rgb(9, 255, 0);
+}
+.u-notification-content-icon-reject-dot {
+  background-color: rgb(255, 0, 106);
+}
 .u-notification-content-data-sec {
   height: 50px;
-  width: 85%;
+  max-width: 85%;
   /* background-color: red; */
   display: flex;
   justify-content: center;
@@ -113,17 +118,20 @@
 .u-notification-letter-main-body {
   min-height: 500px;
   width: 100%;
-  background-color: rgb(255, 255, 255);
+  /* background-color: rgb(169, 39, 39); */
+
   display: flex;
-  justify-content: center;
+  justify-content: start;
   align-items: center;
 
-  position: absolute;
   padding: 5vh 0;
+  /* position: absolute; */
 }
 .u-notification-letter-body {
   min-height: 500px;
-  width: 90%;
+  width: 80%;
+  /* border-radius: 20px;
+  border: 1px solid red; */
   /* background-color: rgb(230, 74, 74); */
   display: flex;
   justify-content: start;
@@ -131,7 +139,7 @@
   flex-wrap: wrap;
   flex-direction: column;
   gap: 20px;
-  position: relative;
+  /* position: relative; */
 }
 .u-notification-letter-title {
   font-size: 1.7rem;
@@ -146,14 +154,54 @@
   font-size: 1.5rem;
 }
 .u-notification-letter-closing-btn {
-  border: 1px solid rgb(234, 234, 234);
-  background-color: rgba(188, 188, 188, 0);
+  height: 25px;
   font-weight: 700;
   color: rgb(49, 49, 49);
   font-size: 1.3rem;
+  filter: brightness(0.1);
   position: absolute;
-  right: 50px;
+  right: 100px;
   top: 20px;
   border-radius: 50%;
   cursor: pointer;
+}
+
+/* //////////Responsive Area */
+
+@media screen and (max-width: 1100px) {
+  .u-notification-body-title {
+    width: 85%;
+  }
+  .u-notification-content-body {
+    width: 90%;
+  }
+}
+@media screen and (max-width: 900px) {
+  .u-notification-content-body {
+    gap: 20px;
+  }
+  .u-notification-content-data-sec {
+    max-width: 75%;
+  }
+  .u-notification-letter-closing-btn {
+    right: 10%;
+  }
+}
+@media screen and (max-width: 600px) {
+  .u-notification-content {
+    height: 80px;
+    padding-left: 20px;
+    gap: 20px;
+  }
+  .u-notification-content-icon {
+    height: 50px;
+    width: 50px;
+  }
+  .u-notification-content-icon-accept-dot,
+  .u-notification-content-icon-reject-dot {
+    height: 4px;
+    width: 4px;
+    right: 1px;
+    top: 3px;
+  }
 }
