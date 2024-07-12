@@ -102,12 +102,7 @@ const UserPhotoBooking = () => {
           <div className="u-photo-booking-main-body">
             <div className="u-photo-booking-profile-body">
               <div className="u-photo-booking-profile-left">
-                <div
-                  // src="/3.jpg"
-                  // src={`/upload/${photoprofile.profile}`}
-                  alt=""
-                  className="u-photo-booking-profile-img-background"
-                />
+                <div className="u-photo-booking-profile-img-background" />
                 <div className="u-photo-booking-profile-img-sec">
                   <img
                     // src="/3.jpg"
@@ -339,7 +334,6 @@ const UserPhotoBooking = () => {
                     onClick={submitHandler}
                     className="u-photo-booking-form-btn"
                   >
-
                     <img
                       src="/submit.png"
                       className="u-photo-booking-form-btn-img"

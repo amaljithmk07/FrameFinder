@@ -321,6 +321,9 @@ const Navbar = () => {
                           {NotificationCount}
                         </div>
                       </>
+                      <div className="navbar-notification-anime">
+                        Notifications{" "}
+                      </div>
                     </Link>
                   ) : (
                     <></>

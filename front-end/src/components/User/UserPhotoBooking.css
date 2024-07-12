@@ -19,6 +19,7 @@
   display: flex;
   justify-content: start;
   align-items: center;
+  overflow: hidden;
   gap: 50px;
 }
 .u-photo-booking-profile-left {
@@ -36,7 +37,7 @@
   width: 280px;
   /* min-height: 60px;
   width: 300px; */
-  border-radius: 50%;
+  border-radius: 45%;
   filter: blur(30px);
   background-image: linear-gradient(
     to bottom,
@@ -95,6 +96,8 @@
   color: #ffffff;
   font-size: 1.2rem;
   font-weight: 700;
+  display: flex;
+  justify-content: start;
   text-transform: capitalize;
   /* background-color: rebeccapurple; */
 }
@@ -312,11 +315,32 @@
 @media screen and (max-width: 1000px) {
   .u-photo-booking-profile-body {
     flex-direction: column;
+    gap: 0px;
   }
 
   .u-photo-booking-text-body {
     min-height: 100vh;
     width: 85%;
+  }
+  .u-photo-booking-profile-left {
+    height: 400px;
+    width: 500px;
+    margin-top: 15vh;
+    /* background-color: red; */
+  }
+  .u-photo-booking-profile-right {
+    height: 400px;
+    width: 500px;
+    align-items: start;
+    /* background-color: beige; */
+  }
+  .u-photo-booking-profile-details {
+    justify-content: start;
+  }
+  .u-photo-booking-profile-data {
+    width: 100%;
+
+    justify-content: center;
   }
   .u-photo-booking-booking-sec {
     flex-direction: column;
@@ -333,12 +357,11 @@
     height: 550px;
     width: 400px;
   }
-}
-
-@media screen and (max-width: 1000px) {
   .u-photo-booking-gallery-img-body {
     height: 200px;
     width: 200px;
+    /* height: 100%;
+    width: 100%; */
     border-radius: 50%;
   }
   .u-photo-booking-gallery-img {
@@ -358,6 +381,25 @@
   }
 }
 
+@media screen and (max-width: 700px) {
+  .u-photo-booking-gallery-body {
+    height: 50vh;
+    /* flex-wrap: wrap; */
+    justify-content: start;
+    padding: 20px 2%;
+  }
+  .u-photo-booking-gallery-img-body:nth-child(3) {
+    display: flex;
+  }
+  .u-photo-booking-gallery-img-body {
+    height: 150px;
+    width: 150px;
+    border-radius: 0;
+  }
+  .u-photo-booking-gallery-img-body:hover {
+    width: 150px;
+  }
+}
 @media screen and (max-width: 560px) {
   .u-photo-booking-profile-left,
   .u-photo-booking-profile-right {

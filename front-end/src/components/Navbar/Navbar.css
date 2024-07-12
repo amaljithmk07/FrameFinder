@@ -127,6 +127,7 @@
 .navbar-notification-img {
   height: 80%;
   width: 80%;
+  position: absolute;
   border-radius: 50%;
 }
 .navbar-notification-dot {
@@ -237,8 +238,6 @@
     width: 80px;
     } */
 
-
-
   /* ////////This for Animation//////////// */
 
   .navbar-hamb-main {
@@ -321,17 +320,47 @@
   .navbar-hamburger-menu:nth-child(1) {
     border: 0px;
   }
-/* //////////Hamburger Notification Button */
+  /* //////////Hamburger Notification Button */
 
-
-.navbar-hamb-notification-sec {
-  height: 32px;
-  width: 32px;
-  /* background-color: rgb(175, 175, 175); */
-  position: absolute;
-  top: 20px;
-  right: 20px;
-}
-
-
+  .navbar-hamb-notification-sec {
+    height: 32px;
+    width: 32px;
+    /* background-color: rgb(175, 175, 175); */
+    position: absolute;
+    top: 20px;
+    right: 20px;
+  }
+  .navbar-notification-anime {
+    height: 25px;
+    padding: 0 10px;
+    width: 0px;
+    display: flex;
+    visibility: hidden;
+    justify-content: start;
+    align-items: center;
+    position: absolute;
+    top: 0px;
+    border-radius: 8px 0 0 8px;
+    right: 30px;
+    overflow: hidden;
+    color: black;
+    /* background-color: rgb(225, 225, 225); */
+    animation: notificationAnimation 3.5s linear;
+  }
+  @keyframes notificationAnimation {
+    0% {
+      width: 0px;
+    }
+    20% {
+      width: 80px;
+      visibility: visible;
+    }
+    70% {
+      width: 80px;
+      visibility: visible;
+    }
+    100% {
+      width: 0px;
+    }
+  }
 }
