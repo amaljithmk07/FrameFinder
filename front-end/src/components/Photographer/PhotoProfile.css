@@ -78,8 +78,9 @@
 .p-profile-gallery-body {
   padding: 50px 0;
   min-height: 300px;
-  width: 100%;
+  width: 95%;
   gap: 30px;
+  /* background-color: red; */
   display: flex;
   justify-content: center;
   align-items: center;

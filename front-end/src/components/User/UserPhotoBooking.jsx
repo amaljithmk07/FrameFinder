@@ -105,8 +105,8 @@ const UserPhotoBooking = () => {
                 <div className="u-photo-booking-profile-img-background" />
                 <div className="u-photo-booking-profile-img-sec">
                   <img
-                    // src="/3.jpg"
-                    src={`/upload/${photoprofile.profile}`}
+                    // src={`/upload/${photoprofile.profile}`}
+                    src={`${photoprofile.profile}`}
                     alt=""
                     className="u-photo-booking-profile-img"
                   />
@@ -144,7 +144,8 @@ const UserPhotoBooking = () => {
                       key={index}
                     >
                       <img
-                        src={`/upload/${data}`}
+                        // src={`/upload/${data}`}
+                        src={`${data}`}
                         alt=""
                         className="u-photo-booking-gallery-img"
                       />

@@ -270,7 +270,8 @@ const UserBooking = () => {
                       key={data._id}
                     >
                       <img
-                        src={`/upload/${data.profile}`}
+                        // src={`/upload/${data.profile}`}
+                        src={`${data.profile}`}
                         alt=""
                         className="userhome-photographer-profile"
                       />

@@ -7,24 +7,41 @@ const BookingDB = require("../models/Bookingschema");
 const CalendarDB = require("../models/CalendarSchema");
 const checkAuth = require("../middleware/CheckAuth");
 const path = require("path");
-
 const multer = require("multer");
 
-const storage = multer.diskStorage({
-  destination: (req, file, cb) => {
-    cb(null, "../front-end/public/upload");
-  },
-  //   filename: (req, file, cb) => {
-  // cb(null, file.originalname);
-  //   },
-  // });
-  filename: (req, file, cb) => {
-    // cb(null, Date.now() + path.extname(file.originalname));
-    cb(null, file.originalname);
+require("dotenv").config();
+
+const cloudinary = require("cloudinary").v2;
+const { CloudinaryStorage } = require("multer-storage-cloudinary");
+
+cloudinary.config({
+  cloud_name: process.env.CLOUD_NAME,
+  api_key: process.env.CLOUD_KEY,
+  api_secret: process.env.CLOUD_SECRET,
+});
+const storage = new CloudinaryStorage({
+  cloudinary: cloudinary,
+  params: {
+    folder: "FrameFinder",
   },
 });
-
 const upload = multer({ storage: storage });
+
+// const storage = multer.diskStorage({
+//   destination: (req, file, cb) => {
+//     cb(null, "../front-end/public/upload");
+//   },
+//   //   filename: (req, file, cb) => {
+//   // cb(null, file.originalname);
+//   //   },
+//   // });
+//   filename: (req, file, cb) => {
+//     // cb(null, Date.now() + path.extname(file.originalname));
+//     cb(null, file.originalname);
+//   },
+// });
+
+// const upload = multer({ storage: storage });
 
 ///////////All Profile
 photographerroutes.get("/all-profile", async (req, res) => {
@@ -489,14 +506,15 @@ photographerroutes.post(
       });
 
       const existingImages = photographer.image || [];
-      const imageUpload = await req.files.map((file) => file.originalname);
+      // const imageUpload = await req.files.map((file) => file.originalname);
+      const imageUpload = await req.files.map((file) => file.path);
 
       const newUploadedImage = existingImages.concat(imageUpload);
       console.log(newUploadedImage);
       photographer.image = newUploadedImage;
       await photographer.save();
 
-      if (newUploadedImage) {
+      if (photographer) {
         return res.status(200).json({
           success: true,
           error: false,
@@ -523,10 +541,11 @@ photographerroutes.post(
   }
 );
 
-/////Photographer uploaded image delet
+/////Photographer uploaded image delete
 
 photographerroutes.get(
-  "/delete-uploaded-image/:name",
+  // "/delete-uploaded-image/:name",
+  "/delete-uploaded-image",
   checkAuth,
   async (req, res) => {
     try {
@@ -540,8 +559,10 @@ photographerroutes.get(
           message: " User Doesn't Exist ",
         });
       }
+      console.log("REQ", req.query.name);
       const imageIndex = user.image.findIndex(
-        (data) => data == req.params.name
+        // (data) => data == req.params.name
+        (data) => data == req.query.name
       );
       user.image.splice(imageIndex, 1);
       const Result = await user.save();

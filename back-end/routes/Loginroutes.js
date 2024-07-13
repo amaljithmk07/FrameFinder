@@ -3,6 +3,7 @@ const Loginroutes = express.Router();
 const LoginDB = require("../models/Loginschema");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
+require("dotenv").config();
 
 Loginroutes.post("/", async (req, res) => {
   try {
@@ -34,7 +35,7 @@ Loginroutes.post("/", async (req, res) => {
           userEmail: olduser.email,
           userRole: olduser.role,
         },
-        "this_should_be_secret",
+        process.env.SECRET_KEY,
         { expiresIn: "1h" }
       );
       return res.status(200).json({

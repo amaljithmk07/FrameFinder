@@ -126,7 +126,8 @@ const UserHome = () => {
                           key={data._id}
                         >
                           <img
-                            src={`/upload/${data.profile}`}
+                            src={`${data.profile}`}
+                            // src={`/upload/${data.profile}`}
                             alt=""
                             className="userhome-photographer-profile"
                           />

@@ -175,7 +175,8 @@ const Navbar = () => {
                       <img
                         src={
                           profileData.profile
-                            ? `/upload/${profileData.profile}`
+                            // ? `/upload/${profileData.profile}`
+                            ? `${profileData.profile}`
                             : "/userlogin.png"
                         }
                         alt=""

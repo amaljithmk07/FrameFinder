@@ -35,10 +35,15 @@ const PhotoProfile = () => {
   ///delete uploaded images
 
   const imagedeleteHandler = (name) => {
+    console.log(name);
+
     axios
-      .get(`${BASE_URI}/api/photographer/delete-uploaded-image/${name}`, {
+      .get(`${BASE_URI}/api/photographer/delete-uploaded-image`, {
         headers: {
           Authorization: ` Bearer ${token}`,
+        },
+        params: {
+          name:name,
         },
       })
       .then((data) => {
@@ -65,7 +70,8 @@ const PhotoProfile = () => {
             onClick={() => navigate("/photographer-profile-update")}
           />
           <img
-            src={`/upload/${photoprofile?.profile}`}
+            // src={`/upload/${photoprofile?.profile}`}
+            src={`${photoprofile?.profile}`}
             alt=""
             className="p-profile-photo"
           />
@@ -86,7 +92,8 @@ const PhotoProfile = () => {
                 {photoprofile.image?.map((data, index) => (
                   <div className="p-profile-gallery-img-sec" key={index}>
                     <img
-                      src={`/upload/${data}`}
+                      // src={`/upload/${data}`}
+                      src={`${data}`}
                       alt={`User Image ${index + 1}`}
                       className="p-profile-gallery-img"
                     />

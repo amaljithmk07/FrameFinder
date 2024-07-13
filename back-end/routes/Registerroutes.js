@@ -5,16 +5,33 @@ const PhotographersRegisterDB = require("../models/PhotoRegisterSchema");
 const LoginDB = require("../models/Loginschema");
 const bcrypt = require("bcryptjs");
 const multer = require("multer");
+require("dotenv").config();
 
-const storage = multer.diskStorage({
-  destination: (req, file, cb) => {
-    cb(null, "../front-end/public/upload");
-  },
-  filename: (req, file, cb) => {
-    cb(null, file.originalname);
+const cloudinary = require("cloudinary").v2;
+const { CloudinaryStorage } = require("multer-storage-cloudinary");
+
+cloudinary.config({
+  cloud_name: process.env.CLOUD_NAME,
+  api_key: process.env.CLOUD_KEY,
+  api_secret: process.env.CLOUD_SECRET,
+});
+const storage = new CloudinaryStorage({
+  cloudinary: cloudinary,
+  params: {
+    folder: "FrameFinder",
   },
 });
 const upload = multer({ storage: storage });
+
+// const storage = multer.diskStorage({
+//   destination: (req, file, cb) => {
+//     cb(null, "../front-end/public/upload");
+//   },
+//   filename: (req, file, cb) => {
+//     cb(null, file.originalname);
+//   },
+// });
+// const upload = multer({ storage: storage });
 
 Registerroutes.post("/", async (req, res) => {
   try {
@@ -116,7 +133,9 @@ Registerroutes.post(
       const log_result = await LoginDB(log).save();
       const register = {
         login_id: log_result._id,
-        profile: req.file.filename,
+        // profile: req.file.filename,
+        profile: req.file ? req.file.path : null,
+
         name: req.body.name,
         date_of_birth: req.body.date_of_birth,
         place: req.body.place,
