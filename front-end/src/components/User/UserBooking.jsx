@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import "./UserBooking.css";
 import axios from "axios";
 import { Toaster, toast } from "react-hot-toast";
@@ -34,9 +34,26 @@ const UserBooking = () => {
         console.log(err);
       });
   }, []);
+
+  ///////////
   const photographerProfile = (id) => {
     navigate(`/photographer-review/${id}`);
   };
+  /////////////
+
+  //////Scrolling Section
+  const scrollContainerRef = useRef(null);
+
+  const scroll = (direction) => {
+    console.log(direction);
+    if (scrollContainerRef.current) {
+      scrollContainerRef.current.scrollBy({
+        left: direction === "left" ? -300 : 300,
+        behavior: "smooth",
+      });
+    }
+  };
+
   return (
     <div className="userbooking-main-body">
       <Toaster />
@@ -264,7 +281,47 @@ const UserBooking = () => {
             <>
               {profile.length !== 0 ? (
                 <>
-                  {profile.map((data) => (
+                  <img
+                    src="/arrow.png"
+                    className="left-arrow"
+                    onClick={() => scroll("left")}
+                  />
+                  <div
+                    className="userhome-photographers-profile-scroll-body"
+                    ref={scrollContainerRef}
+                  >
+                    {profile.map((data) => (
+                      <>
+                        <div
+                          className="userhome-photographers-profile-main-body"
+                          key={data._id}
+                        >
+                          <img
+                            src={`${data.profile}`}
+                            // src={`/upload/${data.profile}`}
+                            alt=""
+                            className="userhome-photographer-profile"
+                          />
+                          {data.name}
+                          <div className="userhome-photographers-profile-body-bottom">
+                            <button
+                              className="userhome-photographers-profile-btn"
+                              onClick={() => photographerProfile(data.login_id)}
+                            >
+                              Book Now
+                            </button>
+                          </div>
+                        </div>
+                      </>
+                    ))}
+                  </div>
+
+                  <img
+                    src="/arrow.png"
+                    className="right-arrow"
+                    onClick={() => scroll("right")}
+                  />
+                  {/* {profile.map((data) => (
                     <div
                       className="userhome-photographers-profile-main-body"
                       key={data._id}
@@ -285,7 +342,7 @@ const UserBooking = () => {
                         </button>
                       </div>
                     </div>
-                  ))}
+                  ))} */}
                 </>
               ) : (
                 <>
