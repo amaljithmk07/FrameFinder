@@ -208,7 +208,7 @@
   border: 2px solid rgb(181, 181, 181);
 }
 .userhome-photographer-profile {
-  height: auto;
+  max-height: 80%;
   width: 85%;
   transition: all 0.3s ease-out;
 }

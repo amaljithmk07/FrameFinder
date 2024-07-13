@@ -166,6 +166,7 @@
   width: 80%;
   margin-top: 10px;
   font-size: 1.2rem;
+  line-height: 35px;
 }
 
 /* ///////////////Responsive area */
@@ -205,3 +206,8 @@
     width: 90%;
   }
 }
+/* @media screen and (max-width:400px) {
+  .p-profile-main-body {
+    padding-top: 10vh;
+  }
+} */

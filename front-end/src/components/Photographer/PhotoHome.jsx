@@ -13,7 +13,7 @@ const PhotographerHome = () => {
   const [showloader, setShowloader] = useState(false);
 
   ///////
-  const [imageUpload, setImageupload] = useState({});
+  const [imageUpload, setImageupload] = useState([]);
   /////////////
   const uploadMultipleImageHandler = (e) => {
     setImageupload([...e.target.files]);
@@ -47,7 +47,7 @@ const PhotographerHome = () => {
   };
   return (
     <div>
-      <Toaster/>
+      <Toaster />
       <div className="p-home-main-body">
         <div className="p-home-intro-sec">
           <div className="p-home-intro-title">
@@ -162,7 +162,14 @@ const PhotographerHome = () => {
             className="p-home-add-image-form"
             encType="multipart/form-data"
           >
-            <label className="p-home-add-image-sec" htmlFor="image">
+            <label
+              className={`${
+                imageUpload.length == 0
+                  ? "p-home-add-image-sec"
+                  : "p-home-add-image-selected"
+              }`}
+              htmlFor="image"
+            >
               {showloader == true ? (
                 <Loader />
               ) : (
@@ -183,6 +190,15 @@ const PhotographerHome = () => {
                 </>
               )}
             </label>
+            {imageUpload.length !== 0 ? (
+              <>
+                <div className="p-home-add-image-selected-text">
+                  {imageUpload.length} photo(s) selected
+                </div>
+              </>
+            ) : (
+              <></>
+            )}
             <button
               className="p-home-add-image-submit-btn"
               onClick={UploadImageSubmit}

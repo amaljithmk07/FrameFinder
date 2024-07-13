@@ -126,7 +126,7 @@
   height: 40px;
   /* background-color: rgb(211, 164, 164); */
 }
-
+/* ///////////////////// */
 .p-home-add-image-form {
   display: flex;
   justify-content: center;
@@ -135,9 +135,19 @@
   width: 100%;
   min-height: 250px;
   gap: 20px;
+  position: relative;
   /* background-color: rgb(211, 164, 164); */
 }
-.p-home-add-image-sec {
+.p-home-add-image-selected-text{
+  height: 20px;
+  width: 170px;
+  /* background-color: blueviolet; */
+  position: absolute;
+  right: 5px;
+  bottom: 70px;
+}
+.p-home-add-image-sec,
+.p-home-add-image-selected {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -146,8 +156,13 @@
   height: 250px;
   cursor: pointer;
   overflow: hidden;
-  border: 3px dashed rgb(176, 176, 176);
   /* background-color: rgb(211, 164, 164); */
+}
+.p-home-add-image-sec {
+  border: 3px dashed rgb(176, 176, 176);
+}
+.p-home-add-image-selected {
+  border: 3px dashed rgb(0, 255, 21);
 }
 .p-home-add-image-icon {
   width: auto;
