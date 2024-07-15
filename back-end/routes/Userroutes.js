@@ -126,4 +126,69 @@ Userroutes.get("/notification", CheckAuth, async (req, res) => {
     });
 });
 
+///Users Booking list
+
+Userroutes.get("/booking-list", CheckAuth, async (req, res) => {
+  const Data = await BookingDB.aggregate([
+    {
+      $lookup: {
+        from: "photoregister_dbs",
+        localField: "photographers_id",
+        foreignField: "login_id",
+        as: "results",
+      },
+    },
+    {
+      $unwind: {
+        path: "$results",
+      },
+    },
+    {
+      $match: {
+        login_id: new mongoose.Types.ObjectId(req.userData.userId),
+      },
+    },
+
+    {
+      $group: {
+        _id: "$_id",
+        login_id: {
+          $first: "$login_id",
+        },
+        status: {
+          $first: "$status",
+        },
+        photographer_name: {
+          $first: "$results.name",
+        },
+        name: {
+          $first: "$name",
+        },
+        date: {
+          $first: "$date",
+        },
+        rejection_note: {
+          $first: "$rejection_note",
+        },
+      },
+    },
+  ]);
+  // console.log(Data);
+  if (Data) {
+    return res.status(200).json({
+      success: true,
+      error: false,
+      message: "Bookings fetched successful",
+      data: Data,
+    });
+  } else {
+    return res.status(400).json({
+      success: false,
+      error: true,
+      message: "failed",
+      errorMessage: err.message,
+    });
+  }
+});
+
 module.exports = Userroutes;

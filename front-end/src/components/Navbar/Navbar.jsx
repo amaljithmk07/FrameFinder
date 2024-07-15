@@ -154,6 +154,20 @@ const Navbar = () => {
                   {" "}
                   Booking
                 </Link>{" "}
+                {role == 2 ? (
+                  <>
+                    <Link
+                      className={getClassName(backgroundcolor)}
+                      onMouseEnter={backgroundChange}
+                      to={"/user/account"}
+                    >
+                      {" "}
+                      Account{" "}
+                    </Link>
+                  </>
+                ) : (
+                  <></>
+                )}
               </>
             )}
 
@@ -175,8 +189,8 @@ const Navbar = () => {
                       <img
                         src={
                           profileData.profile
-                            // ? `/upload/${profileData.profile}`
-                            ? `${profileData.profile}`
+                            ? // ? `/upload/${profileData.profile}`
+                              `${profileData.profile}`
                             : "/userlogin.png"
                         }
                         alt=""
@@ -306,6 +320,20 @@ const Navbar = () => {
                     {" "}
                     Booking
                   </Link>{" "}
+                  {role == 2 ? (
+                    <>
+                      <Link
+                        className="navbar-hamburger-menu"
+                        onMouseEnter={backgroundChange}
+                        to={"/user/account"}
+                      >
+                        {" "}
+                        Account{" "}
+                      </Link>
+                    </>
+                  ) : (
+                    <></>
+                  )}
                   {!NotificationCount == 0 ? (
                     <Link
                       className="navbar-hamb-notification-sec"

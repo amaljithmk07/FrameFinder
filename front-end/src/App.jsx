@@ -1,9 +1,5 @@
 import "./App.css";
-import {
-  BrowserRouter as Router,
-  Routes,
-  Route,
-} from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import UserHome from "./components/User/UserHome";
 import UserBooking from "./components/User/UserBooking";
 import Navbar from "./components/Navbar/Navbar";
@@ -18,6 +14,7 @@ import UserPhotoBooking from "./components/User/UserPhotoBooking";
 import PhotoCalendar from "./components/Photographer/PhotoCalendar";
 import UserNotification from "./components/User/UserNotification";
 import PhotoProfileUpdate from "./components/Photographer/PhotoProfileUpdate";
+import UserAccount from "./components/User/UserAccount";
 
 function App() {
   return (
@@ -31,10 +28,8 @@ function App() {
           {/* //////////// */}
           <Route path="/" element={<UserHome />} />
           <Route path="/user/booking" element={<UserBooking />} />
-          <Route
-            path="/user/notification"
-            element={<UserNotification />}
-          />
+          <Route path="/user/account" element={<UserAccount />} />
+          <Route path="/user/notification" element={<UserNotification />} />
           <Route
             path="/photographer-review/:id"
             element={<UserPhotoBooking />}
@@ -45,7 +40,10 @@ function App() {
           <Route path="/previous-booking" element={<PhotoPreviousBooking />} />
           <Route path="/photographer-calendar" element={<PhotoCalendar />} />
           <Route path="/photographer-profile" element={<PhotoProfile />} />
-          <Route path="/photographer-profile-update" element={<PhotoProfileUpdate />} />
+          <Route
+            path="/photographer-profile-update"
+            element={<PhotoProfileUpdate />}
+          />
           <Route
             path="/photo-booking-preview/:id"
             element={<PhotoBookingPreview />}
