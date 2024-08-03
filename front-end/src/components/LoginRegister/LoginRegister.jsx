@@ -39,8 +39,17 @@ const LoginRegister = () => {
   const photographerId = sessionStorage.getItem("photographerId");
   // console.log(SavedFormData);
   const loginsubmitForm = (e) => {
-    setShowloader(true);
     e.preventDefault();
+    let field = ["email", "password"];
+    let message = ["Email", "Password"];
+    for (let i = 0; i < field.length; i++) {
+      let validation = document.forms["login-form"][field[i]].value;
+      if (validation == "") {
+        toast.error(`Please Fill ${message[i]}`);
+        return false;
+      }
+    }
+    setShowloader(true);
     axios
       // .post(`http://localhost:2222/api/login/`, loginData)
       .post(`${BASE_URI}/api/login/`, loginData)
@@ -92,6 +101,15 @@ const LoginRegister = () => {
 
   const submitForm = (e) => {
     e.preventDefault();
+    let field = ["name", "email", "phone", "password"];
+    let message = ["Name", "Email", "Phone", "Password"];
+    for (let i = 0; i < field.length; i++) {
+      let validation = document.forms["register-form"][field[i]].value;
+      if (validation == "") {
+        toast.error(`Please Fill ${message[i]}`);
+        return false;
+      }
+    }
     axios
       .post(`${BASE_URI}/api/register`, registerData)
       .then((data) => {
@@ -128,7 +146,7 @@ const LoginRegister = () => {
                 <div className="login-form-sec">
                   {/* ///Login Form */}
 
-                  <form action="" className="login-form">
+                  <form action="" className="login-form" name="login-form">
                     <div className="form-title">LOGIN</div>
                     <div className="login-inputfield-sec">
                       <img src="/email.png" alt="" className="input-logo" />
@@ -187,7 +205,11 @@ const LoginRegister = () => {
                 ///Register Form
 
                 <div className="register-form-sec">
-                  <form action="" className="register-form">
+                  <form
+                    action=""
+                    className="register-form"
+                    name="register-form"
+                  >
                     <div className="register-form-title">REGISTER</div>
 
                     <div className="register-inputfield-sec">

@@ -34,6 +34,23 @@ const PhotoRegister = () => {
 
   const formSubmitHandler = (e) => {
     e.preventDefault();
+    let field = [
+      "profile",
+      "name",
+      "email",
+      "phone",
+      "date_of_birth",
+      "place",
+      "phone",
+      "password",
+    ];
+    for (let i = 0; i < field.length; i++) {
+      let validate = document.forms["photo-register-form"][field[i]].value;
+      if (validate == "") {
+        toast.error(`Please fill ${field[i]}`);
+        return false;
+      }
+    }
     console.log(formInputs);
     const formData = new FormData();
     formData.append("profile", formInputs.profile);
@@ -144,6 +161,7 @@ const PhotoRegister = () => {
             action=""
             className="photoregister-form-sec"
             encType="multipart/formData"
+            name="photo-register-form"
           >
             <input
               type="file"
